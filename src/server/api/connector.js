@@ -8,7 +8,7 @@ module.exports = app => {
             res.status(404).send({error: 'no data'});
         } else {
             console.log(req.body.user);
-            res.status(200).send({scripts: ["script1, script2"]})
+            res.status(200).send({scripts: [{script: "script1"}, {script: "script2"}]})
         }
     });    
 
