@@ -27,6 +27,7 @@ module.exports = app => {
         if (!req.body || !req.body.script) {
             res.status(404).send({error: 'no data'});
         } else {
+            console.log(req.body.user);
             console.log(req.body.script);
             res.status(200).send({success: "succeeded"})
         }
