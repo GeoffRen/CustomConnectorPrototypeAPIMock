@@ -36,4 +36,9 @@ module.exports = app => {
             res.status(200).send({success: "succeeded"})
         }
     });
+
+    app.get('/user', (req, res) => {
+        console.log("~~~GET USER~~~");
+        res.status(200).send({user: "geren"})
+    });
 };
