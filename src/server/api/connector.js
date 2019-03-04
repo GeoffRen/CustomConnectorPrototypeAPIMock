@@ -17,16 +17,23 @@ module.exports = app => {
             graphHttp.onreadystatechange=(e)=>{
                 if (graphHttp.readyState === graphHttp.DONE) {
                     const userId = JSON.parse(graphHttp.responseText).id;
-                    console.log(userId)
                     console.log(JSON.parse(graphHttp.responseText))
                     console.log("\n~~~~~~~~~~~~~~\n")
                     console.log(req.headers.authorization);
                     console.log("\n~~~~~~~~~~~~~~~~\n");
                     console.log(req.body.location);
                     if (req.body.location === "redmond") {
-                        res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "gerenScript2"}]})
+                        if (userId === "1c889869-3278-480c-a242-7969a8224162") {
+                            res.status(200).send({scripts: [{script: "gerenRedmondScript1"}, {script: "gerenRedmondScript2"}]})
+                        } else {
+                            res.status(200).send({scripts: [{script: "someoneRedmondScript1"}, {script: "someoneRedmondScript2"}]})
+                        }
                     } else {
-                        res.status(200).send({scripts: [{script: "script1"}, {script: "script2"}]})
+                        if (userId === "1c889869-3278-480c-a242-7969a8224162") {
+                            res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "gerenScript2"}]})
+                        } else {
+                            res.status(200).send({scripts: [{script: "script1"}, {script: "script2"}]})
+                        }
                     }
                 }
             }
