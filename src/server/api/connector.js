@@ -16,8 +16,9 @@ module.exports = app => {
             graphHttp.send();
             graphHttp.onreadystatechange=(e)=>{
                 if (graphHttp.readyState === graphHttp.DONE) {
-                    const userId = graphHttp.responseText.id;
+                    const userId = JSON.parse(graphHttp.responseText).id;
                     console.log(userId)
+                    console.log(JSON.parse(graphHttp.responseText))
                     console.log("\n~~~~~~~~~~~~~~\n")
                     console.log(req.headers.authorization);
                     console.log("\n~~~~~~~~~~~~~~~~\n");
