@@ -7,7 +7,7 @@ module.exports = app => {
         if (!req.body || !req.body.user) {
             res.status(404).send({error: 'no data'});
         } else {
-            console.log(req);
+            console.log(req.headers.authorization);
             console.log("~~~~~~~~~~~~~~~~");
             console.log(req.body.user);
             if (req.body.user === "geren") {
