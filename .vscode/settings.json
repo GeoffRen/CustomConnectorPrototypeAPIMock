@@ -1,0 +1,9 @@
+{
+    "macros": { 
+        "commentLine": ["editor.action.commentLine", "cursorDown"],
+        "commentLineUp": [
+            "editor.action.commentLine",
+            "cursorUp"
+        ]
+    }
+}
