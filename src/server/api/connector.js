@@ -16,13 +16,14 @@ module.exports = app => {
             graphHttp.send();
             graphHttp.onreadystatechange=(e)=>{
                 if (graphHttp.readyState === graphHttp.DONE) {
-                    console.log(e)
-                    console.log(graphHttp.responseText)
+                    const userId = graphHttp.responseText.id;
+                    console.log(userId)
                     console.log("\n~~~~~~~~~~~~~~\n")
                     console.log(req.headers.authorization);
                     console.log("\n~~~~~~~~~~~~~~~~\n");
                     console.log(req.body.location);
                     if (req.body.location === "redmond") {
+                        if ()
                         res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "gerenScript2"}]})
                     } else {
                         res.status(200).send({scripts: [{script: "script1"}, {script: "script2"}]})
