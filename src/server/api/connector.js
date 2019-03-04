@@ -23,7 +23,6 @@ module.exports = app => {
                     console.log("\n~~~~~~~~~~~~~~~~\n");
                     console.log(req.body.location);
                     if (req.body.location === "redmond") {
-                        if ()
                         res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "gerenScript2"}]})
                     } else {
                         res.status(200).send({scripts: [{script: "script1"}, {script: "script2"}]})
