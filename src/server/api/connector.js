@@ -7,6 +7,8 @@ module.exports = app => {
         if (!req.body || !req.body.user) {
             res.status(404).send({error: 'no data'});
         } else {
+            console.log(req);
+            console.log("~~~~~~~~~~~~~~~~");
             console.log(req.body.user);
             if (req.body.user === "geren") {
                 res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "gerenScript2"}]})
@@ -31,8 +33,6 @@ module.exports = app => {
         if (!req.body || !req.body.script) {
             res.status(404).send({error: 'no data'});
         } else {
-            console.log(req);
-            console.log("~~~~~~~~~~~~~~~~");
             console.log(req.body.user);
             console.log(req.body.script);
             res.status(200).send({success: "succeeded"})
