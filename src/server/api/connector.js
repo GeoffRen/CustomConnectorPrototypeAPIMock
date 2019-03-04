@@ -25,6 +25,7 @@ module.exports = app => {
             graphHttp.setRequestHeader("Authorization", req.headers.authorization);
             graphHttp.send();
             graphHttp.onreadystatechange=(e)=>{
+                console.log(graphHttp.readyState)
                 console.log(e)
                 console.log(graphHttp.responseText)
             }
