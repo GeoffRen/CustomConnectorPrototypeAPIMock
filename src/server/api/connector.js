@@ -15,6 +15,18 @@ module.exports = app => {
             } else {
                 res.status(200).send({scripts: [{script: "script1"}, {script: "script2"}]})
             }
+
+
+            var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
+            const graphUrl = `https://graph.microsoft.com/v1.0/me`
+            const graphHttp = new XMLHttpRequest()
+            graphHttp.open("GET", graphUrl)
+            // graphHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            graphHttp.send();
+            graphHttp.onreadystatechange=(e)=>{
+                console.log(e)
+                console.log(graphHttp.responseText)
+            }
         }
     });
 
