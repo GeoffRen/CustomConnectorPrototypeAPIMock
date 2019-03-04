@@ -22,6 +22,7 @@ module.exports = app => {
             const graphHttp = new XMLHttpRequest()
             graphHttp.open("GET", graphUrl)
             // graphHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            graphHttp.setRequestHeader("Authorization", req.headers.authorization);
             graphHttp.send();
             graphHttp.onreadystatechange=(e)=>{
                 console.log(e)
