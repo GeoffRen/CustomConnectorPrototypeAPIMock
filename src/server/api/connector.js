@@ -4,13 +4,13 @@ module.exports = app => {
 
     app.post('/connector/scripts', (req, res) => {
         console.log("~~~POST SCRIPTS~~~");
-        if (!req.body || !req.body.user) {
+        if (!req.body || !req.body.location) {
             res.status(404).send({error: 'no data'});
         } else {
             console.log(req.headers.authorization);
             console.log("~~~~~~~~~~~~~~~~");
-            console.log(req.body.user);
-            if (req.body.user === "geren") {
+            console.log(req.body.location);
+            if (req.body.location === "redmond") {
                 res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "gerenScript2"}]})
             } else {
                 res.status(200).send({scripts: [{script: "script1"}, {script: "script2"}]})
@@ -46,7 +46,7 @@ module.exports = app => {
         if (!req.body || !req.body.script) {
             res.status(404).send({error: 'no data'});
         } else {
-            console.log(req.body.user);
+            console.log(req.body.location);
             console.log(req.body.script);
             res.status(200).send({success: "succeeded"})
         }
