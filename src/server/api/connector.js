@@ -7,16 +7,6 @@ module.exports = app => {
         if (!req.body || !req.body.location) {
             res.status(404).send({error: 'no data'});
         } else {
-            console.log(req.headers.authorization);
-            console.log("~~~~~~~~~~~~~~~~");
-            console.log(req.body.location);
-            if (req.body.location === "redmond") {
-                res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "gerenScript2"}]})
-            } else {
-                res.status(200).send({scripts: [{script: "script1"}, {script: "script2"}]})
-            }
-
-
             var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
             const graphUrl = `https://graph.microsoft.com/v1.0/me`
             const graphHttp = new XMLHttpRequest()
@@ -25,9 +15,19 @@ module.exports = app => {
             graphHttp.setRequestHeader("Authorization", req.headers.authorization);
             graphHttp.send();
             graphHttp.onreadystatechange=(e)=>{
-                console.log(graphHttp.readyState)
-                console.log(e)
-                console.log(graphHttp.responseText)
+                if (graphHttp.readyState === graphHttp.DONE) {
+                    console.log(e)
+                    console.log(graphHttp.responseText)
+                    console.log("\n~~~~~~~~~~~~~~\n")
+                    console.log(req.headers.authorization);
+                    console.log("\n~~~~~~~~~~~~~~~~\n");
+                    console.log(req.body.location);
+                    if (req.body.location === "redmond") {
+                        res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "gerenScript2"}]})
+                    } else {
+                        res.status(200).send({scripts: [{script: "script1"}, {script: "script2"}]})
+                    }
+                }
             }
         }
     });
