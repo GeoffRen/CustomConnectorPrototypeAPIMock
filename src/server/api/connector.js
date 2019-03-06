@@ -83,7 +83,7 @@ module.exports = app => {
             res.status(404).send({error: 'no data'});
         } else {
             console.log(req.body.script);
-            res.status(200).send({schema: {
+            res.status(200).send({Schema: {
                 param1: "string",
                 param2: "string"
             }})
