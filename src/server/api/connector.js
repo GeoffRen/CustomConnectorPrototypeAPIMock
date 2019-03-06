@@ -84,8 +84,16 @@ module.exports = app => {
         } else {
             console.log(req.body.schemaScript);
             res.status(200).send({Schema: {
-                param1: "string",
-                param2: "string"
+                title: "email",
+                type: "object",
+                properties: {
+                    localPart: {
+                        type: "string"
+                    },
+                    displayName: {
+                        type: "string"
+                    }
+                }
             }})
         }
     });
