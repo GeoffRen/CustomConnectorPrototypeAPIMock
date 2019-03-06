@@ -52,11 +52,11 @@ module.exports = app => {
 
     app.post('/connector/execute', (req, res) => {
         console.log("~~~POST EXECUTE~~~");
-        if (!req.body || !req.body.script) {
+        if (!req.body || !req.body.executeScript) {
             res.status(404).send({error: 'no data'});
         } else {
             console.log(req.body.location);
-            console.log(req.body.script);
+            console.log(req.body.executeScript);
             res.status(200).send({success: "succeeded"})
         }
     });
@@ -79,10 +79,10 @@ module.exports = app => {
 
     app.post('/connector/schema', (req, res) => {
         console.log("~~~POST SCHEMA~~~");
-        if (!req.body || !req.body.script) {
+        if (!req.body || !req.body.schemaScript) {
             res.status(404).send({error: 'no data'});
         } else {
-            console.log(req.body.script);
+            console.log(req.body.schemaScript);
             res.status(200).send({Schema: {
                 param1: "string",
                 param2: "string"
