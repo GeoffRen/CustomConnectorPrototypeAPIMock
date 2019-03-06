@@ -64,7 +64,21 @@ module.exports = app => {
     app.get('/user', (req, res) => {
         console.log("~~~GET USER~~~");
         console.log(req.query);
-        res.status(200).send({user: "geren"})
+        res.status(200).send({Schema: {
+            title: "email",
+            type: "object",
+            properties: {
+                localPart: {
+                    type: "string"
+                },
+                hostPart: {
+                    type: "string"
+                },
+                displayName: {
+                    type: "string"
+                }
+            }
+        }})
     });
 
     app.post('/connector/deploy', (req, res) => {
