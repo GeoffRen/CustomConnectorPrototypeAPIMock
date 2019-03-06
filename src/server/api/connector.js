@@ -90,6 +90,9 @@ module.exports = app => {
                     localPart: {
                         type: "string"
                     },
+                    hostPart: {
+                        type: "string"
+                    },
                     displayName: {
                         type: "string"
                     }
