@@ -77,12 +77,12 @@ module.exports = app => {
         }
     });
 
-    app.post('/connector/schema', (req, res) => {
-        console.log("~~~POST SCHEMA~~~");
-        if (!req.body || !req.body.schemaScript) {
+    app.get('/connector/schema', (req, res) => {
+        console.log("~~~GET SCHEMA~~~");
+        if (!req.body || !req.query) {
             res.status(404).send({error: 'no data'});
         } else {
-            console.log(req.body.schemaScript);
+            console.log(req.query);
             res.status(200).send({Schema: {
                 title: "email",
                 type: "object",
