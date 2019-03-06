@@ -66,4 +66,14 @@ module.exports = app => {
         console.log(req.query);
         res.status(200).send({user: "geren"})
     });
+
+    app.post('/connector/deploy', (req, res) => {
+        console.log("~~~POST DEPLOY~~~");
+        if (!req.body || !req.body.script) {
+            res.status(404).send({error: 'no data'});
+        } else {
+            console.log(req.body.script);
+            res.status(200).send({success: "succeeded"})
+        }
+    });
 };
