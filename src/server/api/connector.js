@@ -109,8 +109,8 @@ module.exports = app => {
         if (!req.query || !req.params) {
             res.status(404).send({error: 'no data'});
         } else {
-            console.log(`RECEIVED QUERY: ${req.query}`);
-            console.log(`RECEIVED PARAM: ${req.params}`);
+            console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+            console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
             res.status(200).send(
                 {
                     Schema: {
@@ -135,6 +135,8 @@ module.exports = app => {
 
     app.get('/api/contacts/schema', (req, res) => {
         console.log("~~~GET TEST SCHEMA~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         const resp = {
             Schema: {
                 title: "email",
