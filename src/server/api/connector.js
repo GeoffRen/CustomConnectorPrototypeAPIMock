@@ -133,7 +133,7 @@ module.exports = app => {
         }
     });
 
-    app.get('/api/contacts/schema', (req, res) => {
+    app.get('/api/schema', (req, res) => {
         console.log("~~~GET TEST SCHEMA~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
