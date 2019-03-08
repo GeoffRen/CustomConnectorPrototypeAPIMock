@@ -105,40 +105,13 @@ module.exports = app => {
     });
 
     app.get('/api/contacts/:name', (req, res) => {
-        console.log("~~~GET TEST OPERATION~~~");
+        console.log("~~~GET TEST SCHEMA~~~");
         if (!req.query || !req.params) {
             res.status(404).send({error: 'no data'});
         } else {
-            console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
-            console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
-            res.status(200).send(
-                {
-                    Schema: {
-                        title: "email",
-                        type: "object",
-                        properties: {
-                            localPart: {
-                                type: "string"
-                            },
-                            hostPart: {
-                                type: "string"
-                            },
-                            displayName: {
-                                type: "string"
-                            }
-                        }
-                    }
-                }
-            );
-        }
-    });
-
-    app.get('/api/contacts/schema', (req, res) => {
-        console.log("~~~GET TEST SCHEMA~~~");
-        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
-        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
-        const resp = {
-            Schema: {
+            console.log(req.query);
+            console.log(req.params);
+            res.status(200).send({Schema: {
                 title: "email",
                 type: "object",
                 properties: {
@@ -152,11 +125,30 @@ module.exports = app => {
                         type: "string"
                     }
                 }
-            }
+            }})
         }
-        
-        console.log("SENDING RESPONSE OBJECT");
-        console.log(JSON.stringify(resp, null, 2));
-        res.status(200).send(resp);
+    });
+
+    app.get('/api/contacts/schema', (req, res) => {
+        console.log("~~~GET TEST SCHEMA~~~");
+        res.status(200).send(
+            {
+                Schema: {
+                    title: "email",
+                    type: "object",
+                    properties: {
+                        localPart: {
+                            type: "string"
+                        },
+                        hostPart: {
+                            type: "string"
+                        },
+                        displayName: {
+                            type: "string"
+                        }
+                    }
+                }
+            }
+        );
     });
 };
