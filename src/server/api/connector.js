@@ -105,12 +105,12 @@ module.exports = app => {
     });
 
     app.get('/api/contacts/:name', (req, res) => {
-        console.log("~~~GET TEST SCHEMA~~~");
+        console.log("~~~GET TEST OPERATION~~~");
         if (!req.query || !req.params) {
             res.status(404).send({error: 'no data'});
         } else {
-            console.log(req.query);
-            console.log(req.params);
+            console.log(`RECEIVED QUERY: ${req.query}`);
+            console.log(`RECEIVED PARAM: ${req.params}`);
             res.status(200).send(
                 {
                     Schema: {
@@ -135,24 +135,26 @@ module.exports = app => {
 
     app.get('/api/contacts/schema', (req, res) => {
         console.log("~~~GET TEST SCHEMA~~~");
-        res.status(200).send(
-            {
-                Schema: {
-                    title: "email",
-                    type: "object",
-                    properties: {
-                        localPart: {
-                            type: "string"
-                        },
-                        hostPart: {
-                            type: "string"
-                        },
-                        displayName: {
-                            type: "string"
-                        }
+        const resp = {
+            Schema: {
+                title: "email",
+                type: "object",
+                properties: {
+                    localPart: {
+                        type: "string"
+                    },
+                    hostPart: {
+                        type: "string"
+                    },
+                    displayName: {
+                        type: "string"
                     }
                 }
             }
-        );
+        }
+        
+        console.log("SENDING RESPONSE OBJECT");
+        console.log(JSON.stringify(resp, null, 2));
+        res.status(200).send(resp);
     });
 };
