@@ -11,7 +11,6 @@ module.exports = app => {
             const graphUrl = `https://graph.microsoft.com/v1.0/me`
             const graphHttp = new XMLHttpRequest()
             graphHttp.open("GET", graphUrl)
-            // graphHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             graphHttp.setRequestHeader("Authorization", req.headers.authorization);
             graphHttp.send();
             graphHttp.onreadystatechange=(e)=>{
@@ -39,16 +38,6 @@ module.exports = app => {
             }
         }
     });
-
-    // app.post('/connector/functions', (req, res) => {
-    //     console.log("~~~POST FUNCTIONS~~~");
-    //     if (!req.body || !req.body.script) {
-    //         res.status(404).send({error: 'no data'});
-    //     } else {
-    //         console.log(req.body.script);
-    //         res.status(200).send({functions: ["func1, func2"]})
-    //     }
-    // });
 
     app.post('/connector/execute', (req, res) => {
         console.log("~~~POST EXECUTE~~~");
@@ -113,5 +102,57 @@ module.exports = app => {
                 }
             }})
         }
+    });
+
+    app.get('/api/contacts/:name', (req, res) => {
+        console.log("~~~GET TEST SCHEMA~~~");
+        if (!req.query || !req.params) {
+            res.status(404).send({error: 'no data'});
+        } else {
+            console.log(req.query);
+            console.log(req.params);
+            res.status(200).send(
+                {
+                    Schema: {
+                        title: "email",
+                        type: "object",
+                        properties: {
+                            localPart: {
+                                type: "string"
+                            },
+                            hostPart: {
+                                type: "string"
+                            },
+                            displayName: {
+                                type: "string"
+                            }
+                        }
+                    }
+                }
+            );
+        }
+    });
+
+    app.get('/api/contacts/schema', (req, res) => {
+        console.log("~~~GET TEST SCHEMA~~~");
+        res.status(200).send(
+            {
+                Schema: {
+                    title: "email",
+                    type: "object",
+                    properties: {
+                        localPart: {
+                            type: "string"
+                        },
+                        hostPart: {
+                            type: "string"
+                        },
+                        displayName: {
+                            type: "string"
+                        }
+                    }
+                }
+            }
+        );
     });
 };
