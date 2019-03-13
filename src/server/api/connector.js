@@ -51,23 +51,11 @@ module.exports = app => {
     });
 
     app.get('/connector/user', (req, res) => {
-        console.log("~~~GET USER~~~");
-        console.log(req.query);
-        res.status(200).send({Schema: {
-            title: "email",
-            type: "object",
-            properties: {
-                localPart: {
-                    type: "string"
-                },
-                hostPart: {
-                    type: "string"
-                },
-                displayName: {
-                    type: "string"
-                }
-            }
-        }})
+        console.log("~~~GET TEST OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        res.status(200).send({success: "succeeded"});
     });
 
     app.post('/connector/deploy', (req, res) => {
