@@ -40,14 +40,11 @@ module.exports = app => {
     });
 
     app.post('/connector/execute', (req, res) => {
-        console.log("~~~POST EXECUTE~~~");
-        if (!req.body || !req.body.executeScript) {
-            res.status(404).send({error: 'no data'});
-        } else {
-            console.log(req.body.location);
-            console.log(req.body.executeScript);
-            res.status(200).send({success: "succeeded"})
-        }
+        console.log("~~~GET TEST OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        res.status(200).send({success: "succeeded"});
     });
 
     app.post('/connector/user', (req, res) => {
