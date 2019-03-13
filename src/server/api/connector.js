@@ -111,25 +111,7 @@ module.exports = app => {
         } else {
             console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
             console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
-            res.status(200).send(
-                {
-                    Schema: {
-                        title: "email",
-                        type: "object",
-                        properties: {
-                            localPart: {
-                                type: "string"
-                            },
-                            hostPart: {
-                                type: "string"
-                            },
-                            displayName: {
-                                type: "string"
-                            }
-                        }
-                    }
-                }
-            );
+            res.status(200).send({success: "succeeded"});
         }
     });
 
@@ -160,3 +142,5 @@ module.exports = app => {
         res.status(200).send(resp);
     });
 };
+
+
