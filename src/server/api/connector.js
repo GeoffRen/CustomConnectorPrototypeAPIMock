@@ -50,7 +50,7 @@ module.exports = app => {
         }
     });
 
-    app.get('/connector/user', (req, res) => {
+    app.post('/connector/user', (req, res) => {
         console.log("~~~GET TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
