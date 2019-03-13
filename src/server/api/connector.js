@@ -121,8 +121,6 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         const resp = {
             Schema: {
-                title: "email",
-                type: "object",
                 properties: {
                     localPart: {
                         type: "string"
