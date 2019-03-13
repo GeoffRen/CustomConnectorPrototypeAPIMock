@@ -104,16 +104,12 @@ module.exports = app => {
         }
     });
 
-    app.get('/api/contacts/:name', (req, res) => {
+    app.post('/api/contacts/:name', (req, res) => {
         console.log("~~~GET TEST OPERATION~~~");
-        if (!req.query || !req.params) {
-            res.status(404).send({error: 'no data'});
-        } else {
-            console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
-            console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
-            console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-            res.status(200).send({success: "succeeded"});
-        }
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        res.status(200).send({success: "succeeded"});
     });
 
     app.get('/api/schema', (req, res) => {
