@@ -4,6 +4,9 @@ module.exports = app => {
 
     app.get('/connector/scripts', (req, res) => {
         console.log("~~~GET SCRIPTS~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
         const graphUrl = `https://graph.microsoft.com/v1.0/me`
         const graphHttp = new XMLHttpRequest()
