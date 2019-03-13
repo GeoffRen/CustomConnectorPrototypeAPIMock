@@ -111,6 +111,7 @@ module.exports = app => {
         } else {
             console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
             console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+            console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
             res.status(200).send({success: "succeeded"});
         }
     });
