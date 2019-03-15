@@ -2,6 +2,11 @@
 
 module.exports = app => {
 
+    app.get('/test', (req, res) => {
+        console.log("~~~GET TEST OPERATION~~~");
+        res.status(200).send({success: "succeeded"});
+    });
+
     app.get('/connector/scripts', (req, res) => {
         console.log("~~~GET SCRIPTS~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
