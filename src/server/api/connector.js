@@ -5,7 +5,7 @@ module.exports = app => {
     app.get('/test', (req, res) => {
         console.log("~~~GET TEST OPERATION~~~");
         // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
-        res.sendStatus(200);
+        res.sendStatus(408);
     });
 
     app.get('/connector/scripts', (req, res) => {
