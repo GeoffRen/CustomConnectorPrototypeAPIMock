@@ -4,7 +4,7 @@ module.exports = app => {
 
     app.get('/test', (req, res) => {
         console.log("~~~GET TEST OPERATION~~~");
-        res.status(200).send(JSON.parse("{success: 'succeeded'}"));
+        res.status(200).send(JSON.parse('{success: "succeeded"}'));
     });
 
     app.get('/connector/scripts', (req, res) => {
