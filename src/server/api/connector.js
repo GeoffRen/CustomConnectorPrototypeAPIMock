@@ -7,6 +7,7 @@ module.exports = app => {
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        console.log(req.headers.authorization);
         // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
         res.sendStatus(200);
     });
