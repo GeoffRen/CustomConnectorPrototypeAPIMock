@@ -4,6 +4,9 @@ module.exports = app => {
 
     app.get('/test', (req, res) => {
         console.log("~~~GET TEST OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
         res.sendStatus(200);
     });
