@@ -3,7 +3,7 @@
 module.exports = app => {
 
     app.get('/testconnection', (req, res) => {
-        console.log("~~~GET TESTCONNECTIOn OPERATION~~~");
+        console.log("~~~GET TESTCONNECTION OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
@@ -32,7 +32,7 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
-    app.get('/connector/scripts', (req, res) => {
+    app.post('/connector/scripts', (req, res) => {
         console.log("~~~GET SCRIPTS~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
