@@ -38,7 +38,7 @@ module.exports = app => {
     });
 
     app.get('/datasets/default/folders', (req, res) => {
-        console.log("~~~GET ROOTFOLDERS OPERATION~~~");
+        console.log("~~~GET FOLDERS OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
@@ -48,24 +48,24 @@ module.exports = app => {
                 {
                     Id: "idsomeid0",
                     Name: "geoff",
-                    DisplayName: "geren",
+                    DisplayName: "geren file",
                     Path: "/unattended/path",
                     LastModified: "12-16-1995",
                     Size: "11",
                     MediaType: "picture",
-                    IsFolder: true,
+                    IsFolder: false,
                     ETag: "tag",
                     FileLocator: "whatsthis"
                 },
                 {
                     Id: "idsomeid1",
                     Name: "geoffren",
-                    DisplayName: "ggeren",
+                    DisplayName: "ggeren file",
                     Path: "/unattended/path",
                     LastModified: "12-16-1995",
                     Size: "11",
                     MediaType: "picture",
-                    IsFolder: true,
+                    IsFolder: false,
                     ETag: "tag",
                     FileLocator: "whatsthis"
                 }
