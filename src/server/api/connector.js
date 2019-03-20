@@ -24,12 +24,12 @@ module.exports = app => {
                 {
                     Id: "idsomeid1",
                     Name: "geoffren",
-                    DisplayName: "ggeren",
+                    DisplayName: "ggeren file",
                     Path: "/unattended/path",
                     LastModified: "12-16-1995",
                     Size: "11",
                     MediaType: "picture",
-                    IsFolder: true,
+                    IsFolder: false,
                     ETag: "tag",
                     FileLocator: "whatsthis"
                 }
