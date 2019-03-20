@@ -8,18 +8,32 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers.authorization);
         res.status(200).send(
-            {
-                Id: "idsomeid",
-                Name: "geoff",
-                DisplayName: "geren",
-                Path: "/unattended/path",
-                LastModified: "12-16-1995",
-                Size: "11",
-                MediaType: "picture",
-                IsFolder: true,
-                ETag: "tag",
-                FileLocator: "whatsthis"
-            }
+            [
+                {
+                    Id: "idsomeid0",
+                    Name: "geoff",
+                    DisplayName: "geren",
+                    Path: "/unattended/path",
+                    LastModified: "12-16-1995",
+                    Size: "11",
+                    MediaType: "picture",
+                    IsFolder: true,
+                    ETag: "tag",
+                    FileLocator: "whatsthis"
+                },
+                {
+                    Id: "idsomeid1",
+                    Name: "geoffren",
+                    DisplayName: "ggeren",
+                    Path: "/unattended/path",
+                    LastModified: "12-16-1995",
+                    Size: "11",
+                    MediaType: "picture",
+                    IsFolder: true,
+                    ETag: "tag",
+                    FileLocator: "whatsthis"
+                }
+            ]
         );
     });
 
