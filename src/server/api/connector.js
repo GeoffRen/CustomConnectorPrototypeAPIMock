@@ -51,7 +51,7 @@ module.exports = app => {
                 // console.log(req.headers.authorization);
                 // console.log("\n~~~~~~~~~~~~~~~~\n");
                 console.log(JSON.stringify(req.query, null, 2));
-                if (req.query.location.toLowerCase() === "redmond") {
+                if (req.body.location.toLowerCase() === "redmond") {
                     if (userId === "1c889869-3278-480c-a242-7969a8224162") {
                         res.status(200).send({scripts: [{script: "gerenRedmondScript1"}, {script: "gerenRedmondScript2"}]})
                     } else {
