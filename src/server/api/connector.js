@@ -11,8 +11,8 @@ module.exports = app => {
             [
                 {
                     Id: "idsomeid0",
-                    Name: "geoff",
-                    DisplayName: "geren",
+                    Name: "geoff1",
+                    DisplayName: "geren0",
                     Path: "/unattended/path0",
                     LastModified: "12-16-1995",
                     Size: "11",
@@ -23,8 +23,8 @@ module.exports = app => {
                 },
                 {
                     Id: "idsomeid1",
-                    Name: "geoffren",
-                    DisplayName: "ggeren file",
+                    Name: "geoff2",
+                    DisplayName: "geren1",
                     Path: "/unattended/path1",
                     LastModified: "12-16-1995",
                     Size: "11",
@@ -46,9 +46,9 @@ module.exports = app => {
         res.status(200).send(
             [
                 {
-                    Id: "idsomeid0",
-                    Name: "geoff",
-                    DisplayName: "geren file",
+                    Id: "idsomeid2",
+                    Name: "geoff3",
+                    DisplayName: "geren2",
                     Path: "/unattended/path2",
                     LastModified: "12-16-1995",
                     Size: "11",
@@ -58,9 +58,9 @@ module.exports = app => {
                     FileLocator: "whatsthis"
                 },
                 {
-                    Id: "idsomeid1",
-                    Name: "geoffren",
-                    DisplayName: "ggeren file",
+                    Id: "idsomeid3",
+                    Name: "geoff4",
+                    DisplayName: "geren3",
                     Path: "/unattended/path3",
                     LastModified: "12-16-1995",
                     Size: "11",
