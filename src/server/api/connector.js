@@ -155,6 +155,14 @@ module.exports = app => {
         res.status(200).send({value0: "value 0 ret test"});
     });
 
+    app.get('/connector/returntest2', (req, res) => {
+        console.log("~~~GET RET TEST 2 OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        res.status(200).send({value0: "value 0 ret test", value1: 25});
+    });
+
     app.post('/connector/execute', (req, res) => {
         console.log("~~~GET EXECUTE OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
