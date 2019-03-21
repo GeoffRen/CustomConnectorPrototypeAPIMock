@@ -140,7 +140,7 @@ module.exports = app => {
     });
 
     app.post('/connector/execute', (req, res) => {
-        console.log("~~~GET TEST OPERATION~~~");
+        console.log("~~~GET EXECUTE OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
