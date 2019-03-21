@@ -140,11 +140,19 @@ module.exports = app => {
     });
 
     app.get('/connector/returntest0', (req, res) => {
-        console.log("~~~GET EXECUTE OPERATION~~~");
+        console.log("~~~GET RET TEST 0 OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         res.status(200).send("string ret test");
+    });
+
+    app.get('/connector/returntest1', (req, res) => {
+        console.log("~~~GET RET TEST 1 OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        res.status(200).send({value0: "value 0 ret test"});
     });
 
     app.post('/connector/execute', (req, res) => {
