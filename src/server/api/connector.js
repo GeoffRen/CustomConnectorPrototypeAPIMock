@@ -124,15 +124,15 @@ module.exports = app => {
                 console.log(JSON.stringify(req.query, null, 2));
                 if (req.body.location.toLowerCase() === "redmond") {
                     if (userId === "1c889869-3278-480c-a242-7969a8224162") {
-                        res.status(200).send({scripts: [{script: "gerenRedmondScript1"}, {script: "gerenRedmondScript2"}]})
+                        res.status(200).send({scripts: [{script: "gerenRedmondScript1"}, {script: "dynamicSchema0"}]})
                     } else {
-                        res.status(200).send({scripts: [{script: "someoneRedmondScript1"}, {script: "someoneRedmondScript2"}]})
+                        res.status(200).send({scripts: [{script: "someoneRedmondScript1"}, {script: "dynamicSchema1"}]})
                     }
                 } else {
                     if (userId === "1c889869-3278-480c-a242-7969a8224162") {
-                        res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "gerenScript2"}]})
+                        res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "dynamicSchema2"}]})
                     } else {
-                        res.status(200).send({scripts: [{script: "script1"}, {script: "script2"}]})
+                        res.status(200).send({scripts: [{script: "script1"}, {script: "dynamicSchema3"}]})
                     }
                 }
             }
@@ -190,7 +190,7 @@ module.exports = app => {
     });
 
     app.get('/connector/schema', (req, res) => {
-        console.log("~~~GET SCHEMA~~~");
+        console.log("~~~GET SCHEMA PARAM~~~");
         if (!req.body || !req.query) {
             res.status(404).send({error: 'no data'});
         } else {
@@ -210,6 +210,48 @@ module.exports = app => {
                     }
                 }
             }})
+        }
+    });
+
+    app.get('/connector/schemaresponse', (req, res) => {
+        console.log("~~~GET SCHEMA RESPONSE~~~");
+        if (!req.body || !req.query) {
+            res.status(404).send({error: 'no data'});
+        } else {
+            console.log(req.query);
+            if (req.query.schemaScript.indexOf("dynamicSchema") !== -1) {
+                res.status(200).send({Schema: {
+                    title: "DYNAMIC",
+                    type: "object",
+                    properties: {
+                        retStr: {
+                            type: "string"
+                        },
+                        retInt: {
+                            type: "integer"
+                        },
+                        retArr: {
+                            type: "array"
+                        }
+                    }
+                }});
+            } else {
+                res.status(200).send({Schema: {
+                    title: "STILL DYNAMIC",
+                    type: "object",
+                    properties: {
+                        otherRetStr: {
+                            type: "string"
+                        },
+                        otherRetInt: {
+                            type: "integer"
+                        },
+                        otherRetArr: {
+                            type: "array"
+                        }
+                    }
+                }});
+            }
         }
     });
 
