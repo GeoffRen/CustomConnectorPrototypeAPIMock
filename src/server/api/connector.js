@@ -146,14 +146,20 @@ module.exports = app => {
         res.status(200).send({success: "succeeded"});
     });
 
-    app.post('/connector/deploy', (req, res) => {
-        console.log("~~~POST DEPLOY~~~");
-        if (!req.body || !req.body.script) {
-            res.status(404).send({error: 'no data'});
-        } else {
-            console.log(req.body.script);
-            res.status(200).send({success: "succeeded"})
-        }
+    app.post('/connector/execute', (req, res) => {
+        console.log("~~~POST EXECUTE OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        res.status(200).send({success: "succeeded"});
+    });
+
+    app.get('/v1.0/drives/:drive/items/:file/workbook/worksheets', (req, res) => {
+        console.log("~~~GET FILE PICKER OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        res.status(200).send({success: "succeeded"});
     });
 
     app.get('/connector/schema', (req, res) => {
