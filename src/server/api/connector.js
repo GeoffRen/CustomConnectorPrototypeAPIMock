@@ -200,7 +200,6 @@ module.exports = app => {
             console.log(req.query);
             if (req.query.schemaScript.indexOf("dynamicSchema") !== -1) {
                 res.status(200).send({Schema: {
-                    title: "DYNAMIC",
                     type: "object",
                     properties: {
                         retStr: {
@@ -216,7 +215,6 @@ module.exports = app => {
                 }});
             } else {
                 res.status(200).send({Schema: {
-                    title: "STILL DYNAMIC",
                     type: "object",
                     properties: {
                         otherRetStr: {
