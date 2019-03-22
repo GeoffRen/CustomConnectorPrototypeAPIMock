@@ -161,18 +161,10 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         res.status(200).send(
             {
-                Schema: {
-                    retStr: {
-                        type: "string"
-                    },
-                    retInt: {
-                        type: "integer"
-                    },
-                    retArr: {
-                        type: "array"
-                    }
+                retStr: "TEST RET STRING ",
+                retInt: 2525,
+                retArr: ["str1", "str2", "str3"]
             }
-        }
         );
     });
 
