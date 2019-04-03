@@ -7,11 +7,9 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers.authorization);
-        res.status(200).send(
-            {
-                success: true
-            }
-        );
+        res.status(200).send({
+            success: true
+        });
     });
 
     app.post('/codeless/datasets/default/query/pq', (req, res) => {
@@ -20,11 +18,9 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers.authorization);
-        res.status(200).send(
-            {
-                success: true
-            }
-        );
+        res.status(200).send({
+            success: true
+        });
     });
 
     app.get('/datasets/default/rootfolders', (req, res) => {
@@ -34,8 +30,7 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers.authorization);
         res.status(200).send(
-            [
-                {
+            [{
                     Id: "idsomeid0",
                     Name: "geoff1",
                     DisplayName: "geren0",
@@ -70,8 +65,7 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers.authorization);
         res.status(200).send(
-            [
-                {
+            [{
                     Id: "idsomeid2",
                     Name: "geoff3",
                     DisplayName: "geren2",
@@ -143,24 +137,40 @@ module.exports = app => {
         // graphHttp.onreadystatechange=(e)=>{
         //     if (graphHttp.readyState === graphHttp.DONE) {
         //         const userId = JSON.parse(graphHttp.responseText).id;
-                // console.log(JSON.parse(graphHttp.responseText))
-                // console.log("\n~~~~~~~~~~~~~~\n")
-                // console.log(req.headers.authorization);
-                // console.log("\n~~~~~~~~~~~~~~~~\n");
-                if (req.query.location.toLowerCase() === "redmond") {
-                    // if (userId === "1c889869-3278-480c-a242-7969a8224162") {
-                    //     res.status(200).send({scripts: [{script: "gerenRedmondScript1"}, {script: "dynamicSchema0"}]})
-                    // } else {
-                        res.status(200).send({scripts: [{script: "someoneRedmondScript1"}, {script: "dynamicSchema1"}]})
-                    // }
-                } else {
-                    // if (userId === "1c889869-3278-480c-a242-7969a8224162") {
-                    //     res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "dynamicSchema2"}]})
-                    // } else {
-                        res.status(200).send({scripts: [{script: "script1"}, {script: "dynamicSchema3"}]})
-                    // }
-                }
+        // console.log(JSON.parse(graphHttp.responseText))
+        // console.log("\n~~~~~~~~~~~~~~\n")
+        // console.log(req.headers.authorization);
+        // console.log("\n~~~~~~~~~~~~~~~~\n");
+        if (req.query.location.toLowerCase() === "redmond") {
+            // if (userId === "1c889869-3278-480c-a242-7969a8224162") {
+            //     res.status(200).send({scripts: [{script: "gerenRedmondScript1"}, {script: "dynamicSchema0"}]})
+            // } else {
+            res.status(200).send({
+                scripts: [{
+                    script: "someoneRedmondScript1",
+                    id: "soguh348tvb349vtge8rt"
+                }, {
+                    script: "dynamicSchema1",
+                    id: "974fg843gf843g4f"
+                }]
+            })
             // }
+        } else {
+            // if (userId === "1c889869-3278-480c-a242-7969a8224162") {
+            //     res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "dynamicSchema2"}]})
+            // } else {
+            res.status(200).send({
+                scripts: [{
+                    script: "script1",
+                    id: "hrf834g9tn48"
+                }, {
+                    script: "dynamicSchema3",
+                    id: "4rcn438tvn348"
+                }]
+            })
+            // }
+        }
+        // }
         // }
     });
 
@@ -169,7 +179,9 @@ module.exports = app => {
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        res.status(200).send({success: "succeeded"});
+        res.status(200).send({
+            success: "succeeded"
+        });
     });
 
     app.post('/connector/execute', (req, res) => {
@@ -177,13 +189,11 @@ module.exports = app => {
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        res.status(200).send(
-            {
-                retStr: "TEST RET STRING ",
-                retInt: 2525,
-                retArr: ["str1", "str2", "str3"]
-            }
-        );
+        res.status(200).send({
+            retStr: "TEST RET STRING ",
+            retInt: 2525,
+            retArr: ["str1", "str2", "str3"]
+        });
     });
 
     app.post('/connector/execute/:drive/:file', (req, res) => {
@@ -191,13 +201,11 @@ module.exports = app => {
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        res.status(200).send(
-            {
-                retStr: "TEST RET STRING ",
-                retInt: 2525,
-                retArr: ["str1", "str2", "str3"]
-            }
-        );
+        res.status(200).send({
+            retStr: "TEST RET STRING ",
+            retInt: 2525,
+            retArr: ["str1", "str2", "str3"]
+        });
     });
 
     app.get('/v1.0/drives/:drive/items/:file/workbook/worksheets', (req, res) => {
@@ -205,69 +213,81 @@ module.exports = app => {
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        res.status(200).send({success: "succeeded"});
+        res.status(200).send({
+            success: "succeeded"
+        });
     });
 
     app.get('/connector/schema', (req, res) => {
         console.log("~~~GET SCHEMA PARAM~~~");
         if (!req.body || !req.query) {
-            res.status(404).send({error: 'no data'});
+            res.status(404).send({
+                error: 'no data'
+            });
         } else {
             console.log(req.query);
-            res.status(200).send({Schema: {
-                title: "email",
-                type: "object",
-                properties: {
-                    localPart: {
-                        type: "string"
-                    },
-                    hostPart: {
-                        type: "string"
-                    },
-                    displayName: {
-                        type: "string"
+            res.status(200).send({
+                Schema: {
+                    title: "email",
+                    type: "object",
+                    properties: {
+                        localPart: {
+                            type: "string"
+                        },
+                        hostPart: {
+                            type: "string"
+                        },
+                        displayName: {
+                            type: "string"
+                        }
                     }
                 }
-            }})
+            })
         }
     });
 
     app.get('/connector/schemaresponse', (req, res) => {
         console.log("~~~GET SCHEMA RESPONSE~~~");
         if (!req.body || !req.query) {
-            res.status(404).send({error: 'no data'});
+            res.status(404).send({
+                error: 'no data'
+            });
         } else {
             console.log(req.query);
             if (req.query.schemaScript.indexOf("dynamicSchema") !== -1) {
-                res.status(200).send({Schema: {
-                    type: "object",
-                    properties: {
-                        retStr: {
-                            type: "string"
-                        },
-                        retInt: {
-                            type: "integer"
-                        },
-                        retArr: {
-                            type: "array"
+                res.status(200).send({
+                    Schema: {
+                        type: "object",
+                        properties: {
+                            retStr: {
+                                type: "string"
+                            },
+                            retInt: {
+                                type: "integer"
+                            },
+                            retArr: {
+                                type: "array"
+                            }
                         }
                     }
-                }});
+                });
             } else {
-                res.status(200).send({Schema: {
-                    type: "object",
-                    properties: {
-                        otherRetStr: {
-                            type: "string"
-                        },
-                        otherRetInt: {
-                            type: "integer"
-                        },
-                        otherRetArr: {
-                            type: "array"
+                res.status(200).send({
+                    Schema: {
+                        type: "object",
+                        properties: {
+                            otherRetStr: {
+                                type: "string"
+                            },
+                            otherRetInt: {
+                                type: "integer"
+                            },
+                            otherRetArr: {
+                                type: "array"
+                            }
                         }
                     }
-                }});
+                });
             }
         }
     });
@@ -277,7 +297,9 @@ module.exports = app => {
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        res.status(200).send({success: "succeeded"});
+        res.status(200).send({
+            success: "succeeded"
+        });
     });
 
     app.get('/api/schema', (req, res) => {
@@ -300,11 +322,9 @@ module.exports = app => {
                 }
             }
         }
-        
+
         console.log("SENDING RESPONSE OBJECT");
         console.log(JSON.stringify(resp, null, 2));
         res.status(200).send(resp);
     });
 };
-
-
