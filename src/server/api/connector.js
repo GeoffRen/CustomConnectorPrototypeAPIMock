@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = app => {
-    app.post('/codeless/$metadata.json/datasets/default/query/pq', (req, res) => {
+    app.post('/codeless/metadata/datasets/default/query/pq', (req, res) => {
         console.log("~~~POST POWERQUERY OTHER TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
