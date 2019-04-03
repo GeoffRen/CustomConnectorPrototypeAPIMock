@@ -1,6 +1,19 @@
 "use strict";
 
 module.exports = app => {
+    app.post('/codeless/$metadata.json/datasets/default/query/pq', (req, res) => {
+        console.log("~~~POST POWERQUERY OTHER TEST OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        // console.log(req.headers.authorization);
+        res.status(200).send(
+            {
+                success: true
+            }
+        );
+    });
+
     app.post('/codeless/datasets/default/query/pq', (req, res) => {
         console.log("~~~POST POWERQUERY TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
