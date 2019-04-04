@@ -131,23 +131,23 @@ module.exports = app => {
             });
         } else {
             console.log(req.query);
-            res.status(200).send({
-                Schema: {
-                    title: "email",
-                    type: "object",
-                    properties: {
-                        localPart: {
-                            type: "string"
-                        },
-                        hostPart: {
-                            type: "string"
-                        },
-                        displayName: {
-                            type: "string"
-                        }
-                    }
-                }
-            })
+            // res.status(200).send({
+            //     Schema: {
+            //         title: "email",
+            //         type: "object",
+            //         properties: {
+            //             localPart: {
+            //                 type: "string"
+            //             },
+            //             hostPart: {
+            //                 type: "string"
+            //             },
+            //             displayName: {
+            //                 type: "string"
+            //             }
+            //         }
+            //     }
+            // })
             // res.status(200).send({
             //     "Schema": {
             //         "name": "query",
@@ -167,6 +167,19 @@ module.exports = app => {
             //         "x-ms-summary": "Query"
             //     }
             // })
+
+            res.status(200).send({
+                Schema: {
+                    type: "object",
+                    properties: {
+                        query: {
+                            description: "Query Text",
+                            type: "string",
+                            format: "mquery"
+                        }
+                    }
+                }
+            })
         }
     });
 
