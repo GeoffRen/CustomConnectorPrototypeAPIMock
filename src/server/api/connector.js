@@ -136,7 +136,7 @@ module.exports = app => {
                     "name": "query",
                     "in": "body",
                     "description": "query body",
-                    "required": true,
+                    "required": false,
                     "schema": {
                         "type": "object",
                         "properties": {
