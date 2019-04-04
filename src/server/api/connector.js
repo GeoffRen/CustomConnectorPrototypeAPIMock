@@ -123,6 +123,36 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
+    app.get('/connector/popup', (req, res) => {
+        console.log("~~~GET POPUP PARAM~~~");
+        if (!req.body || !req.query) {
+            res.status(404).send({
+                error: 'no data'
+            });
+        } else {
+            console.log(req.query);
+            res.status(200).send({
+                "Schema": {
+                    "name": "query",
+                    "in": "body",
+                    "description": "query body",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "query": {
+                                "description": "Query Text",
+                                "type": "string",
+                                "format": "mquery"
+                            }
+                        }
+                    },
+                    "x-ms-summary": "Query"
+                }
+            })
+        }
+    });
+
     app.post('/connector/scripts', (req, res) => {
         console.log("~~~GET SCRIPTS~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
