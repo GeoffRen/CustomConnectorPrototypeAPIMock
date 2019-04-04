@@ -199,7 +199,7 @@ module.exports = app => {
         //         const userId = JSON.parse(graphHttp.responseText).id;
         // console.log(JSON.parse(graphHttp.responseText))
         // console.log("\n~~~~~~~~~~~~~~\n")
-        // console.log(req.headers.authorization);
+        console.log(req.headers.authorization);
         // console.log("\n~~~~~~~~~~~~~~~~\n");
         if (req.query.location.toLowerCase() === "redmond") {
             // if (userId === "1c889869-3278-480c-a242-7969a8224162") {
