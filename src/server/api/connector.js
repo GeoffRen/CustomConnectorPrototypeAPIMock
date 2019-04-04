@@ -132,24 +132,41 @@ module.exports = app => {
         } else {
             console.log(req.query);
             res.status(200).send({
-                "Schema": {
-                    "name": "query",
-                    "in": "body",
-                    "description": "query body",
-                    "required": false,
-                    "schema": {
-                        "type": "object",
-                        "properties": {
-                            "query": {
-                                "description": "Query Text",
-                                "type": "string",
-                                "format": "mquery"
-                            }
+                Schema: {
+                    title: "email",
+                    type: "object",
+                    properties: {
+                        localPart: {
+                            type: "string"
+                        },
+                        hostPart: {
+                            type: "string"
+                        },
+                        displayName: {
+                            type: "string"
                         }
-                    },
-                    "x-ms-summary": "Query"
+                    }
                 }
             })
+            // res.status(200).send({
+            //     "Schema": {
+            //         "name": "query",
+            //         "in": "body",
+            //         "description": "query body",
+            //         "required": false,
+            //         "schema": {
+            //             "type": "object",
+            //             "properties": {
+            //                 "query": {
+            //                     "description": "Query Text",
+            //                     "type": "string",
+            //                     "format": "mquery"
+            //                 }
+            //             }
+            //         },
+            //         "x-ms-summary": "Query"
+            //     }
+            // })
         }
     });
 
