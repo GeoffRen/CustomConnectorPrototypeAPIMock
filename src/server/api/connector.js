@@ -286,23 +286,50 @@ module.exports = app => {
             });
         } else {
             console.log(req.query);
-            res.status(200).send({
-                Schema: {
-                    title: "email",
-                    type: "object",
-                    properties: {
-                        localPart: {
-                            type: "string"
-                        },
-                        hostPart: {
-                            type: "string"
-                        },
-                        displayName: {
-                            type: "string"
+            if (req.query.schemaScript.indexOf("redmond") !== -1) {
+                res.status(200).send({
+                    Schema: {
+                        type: "object",
+                        properties: {
+                            tableName: {
+                                type: "string",
+                                "x-ms-summary": "Table Name"
+                            },
+                            row: {
+                                type: "string",
+                                name: "Row"
+                            },
+                            column: {
+                                type: "string"
+                            }
                         }
                     }
-                }
-            })
+                });
+            } else {
+                res.status(200).send({
+                    Schema: {
+                        type: "object",
+                        properties: {
+                            consent: {
+                                description: "You need to give consent",
+                                type: "string",
+                                enum: [
+                                    "Yes",
+                                    "No"
+                                ],
+                                "x-ms-summary": "You have not consented to this script"
+                            },
+                            row: {
+                                type: "string",
+                                name: "Row"
+                            },
+                            column: {
+                                type: "string"
+                            }
+                        }
+                    }
+                });
+            }
         }
     });
 
