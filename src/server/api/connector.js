@@ -4,9 +4,7 @@ const path = require("path");
 
 "use strict";
 
-console.log(__dirname)
-const token = fs.readFile(path.resolve("..", __dirname, "/token.txt"), (err, data) => console.log(err + "\n\n" + data));
-// const curRange = fs.readFile("../../curRange.txt", (err, data) => console.log(err + "\n\n" + data));
+const token = fs.readFile(path.join(__dirname, "../..", "token.txt"), (err, data) => console.log(err + "\n\n" + data));
 
 module.exports = app => {
     app.get('/onedit', (req, res) => {
@@ -15,7 +13,7 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
 
-        const url = "https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names('test2')/range";
+        const url = `https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names('${req.query.name}')/range`;
         const config = {
             headers: {
                 "Accept": "application/json",
@@ -26,8 +24,12 @@ module.exports = app => {
     
         axios.get(url, config)
             .then(graphRes => {
-                res.status(200).send(graphRes.data);
-                console.log(graphRes.data);
+                const curRange = fs.readFileSync(path.join(__dirname, "../..", "range.txt"));
+                if (curRange !== req.body) {
+                    res.status(200).send(true);
+                } else {
+                    res.status(200).send(false);
+                }
             })
             .catch(err => {
                 res.status(200).send({
@@ -43,7 +45,7 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
 
-        const url = "https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names/add";
+        const url = `https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names/add`;
         const data = {
             "name": req.query.name,
             "reference": `=${req.query.sheet}!${req.query.address}`,
@@ -60,6 +62,8 @@ module.exports = app => {
             .then(graphRes => {
                 res.status(200).send(graphRes.data);
                 console.log(graphRes.data);
+
+                fs.writeFile(path.join(__dirname, "../..", "range.txt"), req.body, (err, data) => console.log(err + "\n\n" + data));
             })
             .catch(err => {
                 res.status(200).send({
