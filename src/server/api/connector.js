@@ -21,9 +21,7 @@ module.exports = app => {
     
         axios.get(url, config)
             .then(graphRes => {
-                res.status(200).send({
-                    success: true
-                });
+                res.status(200).send(graphRes.data);
                 console.log(graphRes.data);
             })
             .catch(err => {
