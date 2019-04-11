@@ -20,7 +20,8 @@ module.exports = app => {
         };
     
         axios.get(url, config)
-            .then(_res => {
+            .then(res => {
+                console.log(JSON.stringify(res, null, 2));
                 res.status(200).send({
                     success: true
                 });
