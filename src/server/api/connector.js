@@ -39,19 +39,19 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
 
         const url = "https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names/add";
+        const data = {
+            "name": "test3",
+            "reference": "=Sheet1!$A$4:$B$5",
+            "comment": "Comment for the named item"
+        };
         const config = {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": token
-            },
-            body: {
-                "name": "test3",
-                "reference": "=Sheet1!$A$4:$B$5",
-                "comment": "Comment for the named item"
             }
         };
     
-        axios.post(url, config)
+        axios.post(url, data, config)
             .then(graphRes => {
                 res.status(200).send(graphRes.data);
                 console.log(graphRes.data);
