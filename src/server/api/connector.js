@@ -4,8 +4,6 @@ const path = require("path");
 
 "use strict";
 
-const token = fs.readFile(path.join(__dirname, "../..", "token.txt"), (err, data) => console.log(err + "\n\n" + data));
-
 module.exports = app => {
     app.get('/onedit', (req, res) => {
         console.log("~~~GET ONEDIT~~~");
