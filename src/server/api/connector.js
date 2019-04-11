@@ -20,8 +20,8 @@ module.exports = app => {
         };
     
         axios.get(url, config)
-            .then(res => {
-                console.log(res);
+            .then(graphRes => {
+                console.log(graphRes);
                 res.status(200).send({
                     success: true
                 });
