@@ -57,6 +57,11 @@ module.exports = app => {
                 "Authorization": fs.readFileSync(path.join(__dirname, "../..", "token.txt"))
             }
         };
+
+        console.log("~~~DATA~~~")
+        console.log(data)
+        console.log("\n~~~HEADERS~~~")
+        console.log(headers)
     
         axios.post(url, data, config)
             .then(graphRes => {
