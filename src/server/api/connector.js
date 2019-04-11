@@ -41,9 +41,8 @@ module.exports = app => {
         const url = "https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names/add";
         const config = {
             headers: {
-                "Accept": "application/json",
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
+                "Authorization": token
             },
             body: {
                 "name": "test",
