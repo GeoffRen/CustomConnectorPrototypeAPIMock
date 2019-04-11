@@ -1,9 +1,74 @@
 const axios = require("axios");
+const fs = require("fs");
+const path = require("path");
+
 "use strict";
 
-const token = "eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFEQ29NcGpKWHJ4VHE5Vkc5dGUtN0ZYTHRGZGtVT0J0LXlONm9XMjFaS1c0TzNhRUVURFlGdkdHUV9hdnlZa0NzVzhFM2RfR1ExZE1UQUVLUzNqdDdzSEhaWDZING0zUEFjS0llSEY1eXdpT2lBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiTi1sQzBuLTlEQUxxd2h1SFluSFE2M0dlQ1hjIiwia2lkIjoiTi1sQzBuLTlEQUxxd2h1SFluSFE2M0dlQ1hjIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNTU0OTk3NzY2LCJuYmYiOjE1NTQ5OTc3NjYsImV4cCI6MTU1NTAwMTY2NiwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFVUUF1LzhMQUFBQXdZczd4VDFrTWI3ZUcvTC9YRWVJTTdNM1h4SzlFc1gvaXcwR04rRVFteVBYK2JDQ0E3bElKL0dBaE81UzJXWEpENFRGbUc5aVhPQUlxMGlXSnNLSHBRPT0iLCJhbXIiOlsicnNhIiwid2lhIiwibWZhIl0sImFwcF9kaXNwbGF5bmFtZSI6IkFwcCBTZXJ2aWNlIiwiYXBwaWQiOiI3YWI3ODYyYy00YzU3LTQ5MWUtOGE0NS1kNTJhN2UwMjM5ODMiLCJhcHBpZGFjciI6IjIiLCJmYW1pbHlfbmFtZSI6IlJlbiIsImdpdmVuX25hbWUiOiJHZW9mZiIsImluX2NvcnAiOiJ0cnVlIiwiaXBhZGRyIjoiMTY3LjIyMC4yLjE2OCIsIm5hbWUiOiJHZW9mZiBSZW4iLCJvaWQiOiIxYzg4OTg2OS0zMjc4LTQ4MGMtYTI0Mi03OTY5YTgyMjQxNjIiLCJvbnByZW1fc2lkIjoiUy0xLTUtMjEtMjEyNzUyMTE4NC0xNjA0MDEyOTIwLTE4ODc5Mjc1MjctMzI4NzUwNjgiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzIwMDAyNjlCRDAzMiIsInJoIjoiSSIsInNjcCI6IkNhbGVuZGFycy5SZWFkV3JpdGUgQ2FsZW5kYXJzLlJlYWRXcml0ZS5TaGFyZWQgQ29udGFjdHMuUmVhZFdyaXRlIEVkdUFkbWluaXN0cmF0aW9uLlJlYWQgRWR1QWRtaW5pc3RyYXRpb24uUmVhZFdyaXRlIEVkdVJvc3Rlci5SZWFkIEVkdVJvc3Rlci5SZWFkV3JpdGUgRmlsZXMuUmVhZFdyaXRlLkFsbCBHcm91cC5SZWFkV3JpdGUuQWxsIE1haWwuUmVhZFdyaXRlIE1haWwuUmVhZFdyaXRlLlNoYXJlZCBNYWlsLlNlbmQgTWFpbC5TZW5kLlNoYXJlZCBNYWlsYm94U2V0dGluZ3MuUmVhZFdyaXRlIFBlb3BsZS5SZWFkIFBlb3BsZS5SZWFkLkFsbCBTaXRlcy5SZWFkLkFsbCBUYXNrcy5SZWFkV3JpdGUgVXNlci5SZWFkIFVzZXIuUmVhZC5BbGwgVXNlci5SZWFkV3JpdGUiLCJzaWduaW5fc3RhdGUiOlsiaW5rbm93bm50d2siLCJrbXNpIl0sInN1YiI6IkdweUZlaFhjU01JTWl3TEVzY0dEMldwb2RYN0NfcXBudENTSHBKS21kckEiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ1bmlxdWVfbmFtZSI6ImdlcmVuQG1pY3Jvc29mdC5jb20iLCJ1cG4iOiJnZXJlbkBtaWNyb3NvZnQuY29tIiwidXRpIjoiSmFxdm1DWnVBVXFlZWVqd1ZvMEdBQSIsInZlciI6IjEuMCIsInhtc190Y2R0IjoxMjg5MjQxNTQ3fQ.kEAiJ74deZSf8sDnj4TD-fKUsTixD-uvh1twhjrofexdeseTU2clzZkGH0q7Ksy1ydXjksOL0YC7ukI0-2HaaapZaY-Wwam4U1GtJ3btPZN2VNr-UdSwycbbLpBb2Npg9KvWBq3Nx2_x8cfKFl2OL_G8POlDHRWQW7Ol6aCNPcp9V7CPPaVg-9N2AMvmIBbnWpQxOvtVe5v5kEZsUDKUiUx2TAfMCsZTNOk1gIs7xJllPjWhFkcX95u4Pny-nli21UGWTiPf7BYBzMEJzZ6v7N9TYRWzhzEcsGIOihFfSv7Ntds8uM3gmjcPDphQbCamsw5cKY_p7Bt9aTHZPcDZrw";
+console.log(__dirname)
+const token = fs.readFile(path.resolve("..", __dirname, "/token.txt"), (err, data) => console.log(err + "\n\n" + data));
+// const curRange = fs.readFile("../../curRange.txt", (err, data) => console.log(err + "\n\n" + data));
 
 module.exports = app => {
+    app.get('/onedit', (req, res) => {
+        console.log("~~~GET ONEDIT~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+
+        const url = "https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names('test2')/range";
+        const config = {
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        };
+    
+        axios.get(url, config)
+            .then(graphRes => {
+                res.status(200).send(graphRes.data);
+                console.log(graphRes.data);
+            })
+            .catch(err => {
+                res.status(200).send({
+                    success: false
+                });
+                console.log(err);
+            });
+    });
+
+    app.post('/onedit', (req, res) => {
+        console.log("~~~POST ONEDIT ITEM~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+
+        const url = "https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names/add";
+        const data = {
+            "name": req.query.name,
+            "reference": `=${req.query.sheet}!${req.query.address}`,
+            "comment": "Comment for the named item"
+        };
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": token
+            }
+        };
+    
+        axios.post(url, data, config)
+            .then(graphRes => {
+                res.status(200).send(graphRes.data);
+                console.log(graphRes.data);
+            })
+            .catch(err => {
+                res.status(200).send({
+                    success: false
+                });
+                console.log(err);
+            });
+    });
+
     app.get('/nameditem', (req, res) => {
         console.log("~~~GET NAMED ITEM~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
