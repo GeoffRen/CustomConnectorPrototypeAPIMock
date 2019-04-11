@@ -52,7 +52,7 @@ module.exports = app => {
             }
         };
     
-        axios.get(url, config)
+        axios.post(url, config)
             .then(graphRes => {
                 res.status(200).send(graphRes.data);
                 console.log(graphRes.data);
