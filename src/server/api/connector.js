@@ -21,14 +21,16 @@ module.exports = app => {
     
         axios.get(url, config)
             .then(graphRes => {
-                // console.log(graphRes.data);
-                res.status(200).send(graphRes);
+                res.status(200).send({
+                    success: true
+                });
+                console.log(graphRes.data);
             })
             .catch(err => {
-                console.log(err);
                 res.status(200).send({
                     success: false
                 });
+                console.log(err);
             });
     });
 
