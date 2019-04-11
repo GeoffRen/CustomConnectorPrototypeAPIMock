@@ -59,7 +59,7 @@ module.exports = app => {
         console.log("~~~DATA~~~")
         console.log(data)
         console.log("\n~~~HEADERS~~~")
-        console.log(headers)
+        console.log(config,headers)
     
         axios.post(url, data, config)
             .then(graphRes => {
