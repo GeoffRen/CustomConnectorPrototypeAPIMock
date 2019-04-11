@@ -16,7 +16,7 @@ module.exports = app => {
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
+                "Authorization": fs.readFileSync(path.join(__dirname, "../..", "token.txt"))
             }
         };
     
