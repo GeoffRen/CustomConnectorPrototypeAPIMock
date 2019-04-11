@@ -21,11 +21,14 @@ module.exports = app => {
     
         axios.get(url, config)
             .then(_res => {
-                console.log("SUCCESSFULLY CONNECTED");
+                res.status(200).send({
+                    success: true
+                });
             })
             .catch(_err => {
-                console.log(_err.response);
-                console.log("FAILED TO CONNECT");
+                res.status(200).send({
+                    success: false
+                });
             });
     });
 
