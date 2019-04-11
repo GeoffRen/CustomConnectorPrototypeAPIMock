@@ -1,6 +1,34 @@
+import axios from "axios";
 "use strict";
 
+const token = "eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFEQ29NcGpKWHJ4VHE5Vkc5dGUtN0ZYSjRMSVpsTE9JbGpONFpRNmFvNUY3Z1lVNGJXaXFaUVpJUjdmVnFJci14aTVZM3JjYlYzSWlxbnRfZ0Q0VGJPSy1PYkVVQVJhMTdXS1dUbndfbGlROVNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiTi1sQzBuLTlEQUxxd2h1SFluSFE2M0dlQ1hjIiwia2lkIjoiTi1sQzBuLTlEQUxxd2h1SFluSFE2M0dlQ1hjIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNTU0OTk0MzI5LCJuYmYiOjE1NTQ5OTQzMjksImV4cCI6MTU1NDk5ODIyOSwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFVUUF1LzhMQUFBQVg1MHFKcDJTUnpBbU5JU0d4OTNNQXYxSU1RRVlyOEQ2VnVRRDNUaEllOWR5UndIbG5JNTJVZkZOa3BXL0NEYUZvY3V3d0hpU0syY0UwQndVZ0hVbVl3PT0iLCJhbXIiOlsicnNhIiwid2lhIiwibWZhIl0sImFwcF9kaXNwbGF5bmFtZSI6IkFwcCBTZXJ2aWNlIiwiYXBwaWQiOiI3YWI3ODYyYy00YzU3LTQ5MWUtOGE0NS1kNTJhN2UwMjM5ODMiLCJhcHBpZGFjciI6IjIiLCJmYW1pbHlfbmFtZSI6IlJlbiIsImdpdmVuX25hbWUiOiJHZW9mZiIsImluX2NvcnAiOiJ0cnVlIiwiaXBhZGRyIjoiMTY3LjIyMC4yLjE2OCIsIm5hbWUiOiJHZW9mZiBSZW4iLCJvaWQiOiIxYzg4OTg2OS0zMjc4LTQ4MGMtYTI0Mi03OTY5YTgyMjQxNjIiLCJvbnByZW1fc2lkIjoiUy0xLTUtMjEtMjEyNzUyMTE4NC0xNjA0MDEyOTIwLTE4ODc5Mjc1MjctMzI4NzUwNjgiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzIwMDAyNjlCRDAzMiIsInJoIjoiSSIsInNjcCI6IkNhbGVuZGFycy5SZWFkV3JpdGUgQ2FsZW5kYXJzLlJlYWRXcml0ZS5TaGFyZWQgQ29udGFjdHMuUmVhZFdyaXRlIEVkdUFkbWluaXN0cmF0aW9uLlJlYWQgRWR1QWRtaW5pc3RyYXRpb24uUmVhZFdyaXRlIEVkdVJvc3Rlci5SZWFkIEVkdVJvc3Rlci5SZWFkV3JpdGUgRmlsZXMuUmVhZFdyaXRlLkFsbCBHcm91cC5SZWFkV3JpdGUuQWxsIE1haWwuUmVhZFdyaXRlIE1haWwuUmVhZFdyaXRlLlNoYXJlZCBNYWlsLlNlbmQgTWFpbC5TZW5kLlNoYXJlZCBNYWlsYm94U2V0dGluZ3MuUmVhZFdyaXRlIFBlb3BsZS5SZWFkIFBlb3BsZS5SZWFkLkFsbCBTaXRlcy5SZWFkLkFsbCBUYXNrcy5SZWFkV3JpdGUgVXNlci5SZWFkIFVzZXIuUmVhZC5BbGwgVXNlci5SZWFkV3JpdGUiLCJzaWduaW5fc3RhdGUiOlsiaW5rbm93bm50d2siLCJrbXNpIl0sInN1YiI6IkdweUZlaFhjU01JTWl3TEVzY0dEMldwb2RYN0NfcXBudENTSHBKS21kckEiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ1bmlxdWVfbmFtZSI6ImdlcmVuQG1pY3Jvc29mdC5jb20iLCJ1cG4iOiJnZXJlbkBtaWNyb3NvZnQuY29tIiwidXRpIjoiYTdLQWdrYl9URVNmMG81WEp4NEdBQSIsInZlciI6IjEuMCIsInhtc190Y2R0IjoxMjg5MjQxNTQ3fQ.rCgwjAQ1uGr-_WTQTNLaIC7h8gBRFMfgWd6kdWRnopd37BLhBZaXT7l1bScUXt8pO6iDBRRTzEtzg4WJBevd80YC51RNdmGzrlGHYzzB9oNTiBYYyazsvxEEc5r8SVvIBOigSNgTizy5qvmQo1J88aK2B1RVFI4ZAEEcgrbCRr6KGi6Km9AqN1sBlg3gBMeG-rt6NLps14HPulxpf4LAdQkrqTm_h1bXrnYJy6jMc2p6kCf73RJ11gqprUxmPzRUD136w075BsPgv5oamsfTc4VutzfvaR5Iz7R4bhb7sQtN3fm20YxPntW0e35Kn9c4KIqjeDVJe0IBQNl2DtIjsw";
+
 module.exports = app => {
+    app.post('/nameditem', (req, res) => {
+        console.log("~~~POST NAMED ITEM~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+
+        const url = "https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names('test2')/range";
+        const config = {
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        };
+    
+        axios.get(url, config)
+            .then(_res => {
+                console.log("SUCCESSFULLY CONNECTED");
+            })
+            .catch(_err => {
+                console.log(_err.response);
+                console.log("FAILED TO CONNECT");
+            });
+    });
+
     app.post('/codeless/metadata/datasets/default/query/pq', (req, res) => {
         console.log("~~~POST POWERQUERY OTHER TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
