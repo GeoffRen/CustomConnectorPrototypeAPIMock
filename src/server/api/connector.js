@@ -45,8 +45,8 @@ module.exports = app => {
                 "Authorization": token
             },
             body: {
-                "name": "test",
-                "reference": "=Sheet1!$A$1:$B$2",
+                "name": "test3",
+                "reference": "=Sheet1!$A$4:$B$5",
                 "comment": "Comment for the named item"
             }
         };
