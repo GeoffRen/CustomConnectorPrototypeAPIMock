@@ -21,7 +21,7 @@ module.exports = app => {
     
         axios.get(url, config)
             .then(graphRes => {
-                const curRange = fs.readFileSync(path.join(__dirname, "../..", "range.txt"));
+                const curRange = fs.readFileSync(path.join(__dirname, "../..", "range.txt"), "utf-8");
                 console.log(graphRes.data);
                 console.log();
                 const parsedVals = ([].concat.apply([], graphRes.data.text)).join(" ");
