@@ -10,6 +10,10 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
 
+        if (!req.query || !req.query.name) {
+            res.status(400).send("No data");
+        }
+
         const url = `https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names('${req.query.name}')/range`;
         const config = {
             headers: {
@@ -47,6 +51,10 @@ module.exports = app => {
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+
+        if (!req.query || !req.query.name || !req.query.sheet || !req.query.address) {
+            res.status(400).send("No data");
+        }
 
         const url = `https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names/add`;
         const data = {
