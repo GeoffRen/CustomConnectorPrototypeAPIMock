@@ -22,7 +22,7 @@ module.exports = app => {
         axios.get(url, config)
             .then(graphRes => {
                 const curRange = JSON.parse(fs.readFileSync(path.join(__dirname, "../..", "range.txt")));
-                console.log(graphRes.body);
+                console.log(graphRes);
                 console.log();
                 console.log(curRange);
                 if (curRange !== graphRes.body) {
