@@ -1,7 +1,6 @@
 const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
-
 "use strict";
 
 module.exports = app => {
@@ -23,6 +22,9 @@ module.exports = app => {
         axios.get(url, config)
             .then(graphRes => {
                 const curRange = fs.readFileSync(path.join(__dirname, "../..", "range.txt"));
+                console.log(curRange);
+                console.log();
+                console.log(req.body);
                 if (curRange !== req.body) {
                     res.status(200).send(true);
                 } else {
