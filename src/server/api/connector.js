@@ -70,8 +70,10 @@ module.exports = app => {
             .then(graphRes => {
                 res.status(200).send(graphRes.data);
                 console.log(graphRes.data);
-
-                fs.writeFile(path.join(__dirname, "../..", "range.txt"), req.body, (err, data) => console.log(err + "\n\n" + data));
+                console.log();
+                const parsedVals = ([].concat.apply([], graphRes.data.text)).join(" ");
+                console.log(parsedVals);
+                fs.writeFile(path.join(__dirname, "../..", "range.txt"), parsedVals, (err, data) => console.log(err + "\n\n" + data));
             })
             .catch(err => {
                 res.status(200).send({
