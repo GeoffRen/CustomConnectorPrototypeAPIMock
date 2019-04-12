@@ -25,7 +25,7 @@ module.exports = app => {
                 console.log(graphRes.data);
                 console.log();
                 console.log(curRange);
-                if (curRange !== graphRes.data) {
+                if (JSON.stringify(curRange) !== JSON.stringify(graphRes.data)) {
                     res.status(200).send(true);
                 } else {
                     res.status(200).send(false);
