@@ -24,8 +24,11 @@ module.exports = app => {
                 const curRange = JSON.parse(fs.readFileSync(path.join(__dirname, "../..", "range.txt")));
                 console.log(graphRes.data);
                 console.log();
+                const parsedVals = ([].concat.apply([], graphRes.data.text)).join(" ");
+                console.log(parsedVals);
+                console.log();
                 console.log(curRange);
-                if (JSON.stringify(curRange) !== JSON.stringify(graphRes.data)) {
+                if (curRange !== parsedVals) {
                     res.status(200).send(true);
                 } else {
                     res.status(200).send(false);
