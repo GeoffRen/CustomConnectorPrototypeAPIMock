@@ -50,8 +50,8 @@ app.get('*', (req, res) => {
     });
 });
 
-let server = app.listen(port, () => {
-    console.log('Assignment 5 app listening on ' + server.address().port);
+let server = app.listen(8000, () => {
+    console.log('Assignment 5 app listening on ' + 8000);
 });
 
 https.createServer({
