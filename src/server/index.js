@@ -7,7 +7,8 @@ let path            = require('path'),
     session         = require('express-session'),
     Influx          = require('influx'),
     https           = require('https'),
-    fs              = require('fs');
+    fs              = require('fs'),
+    cors            = require('cors');
 
 let port = process.env.PORT ? process.env.PORT : 8080;
 let env = process.env.NODE_ENV ? process.env.NODE_ENV : 'dev';
@@ -18,6 +19,8 @@ app.use(express.static(path.join(__dirname, '../../public')));
 if (env !== 'test') app.use(logger('dev'));
 app.engine('pug', require('pug').__express);
 app.set('views', __dirname);
+
+app.use(cors());
 
 app.use(session({
     name: 'session',
@@ -33,37 +36,6 @@ app.use(session({
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// Set up InfluxDB connection.
-app.models = {
-    water: {
-        measurement: 'water',
-        influx: new Influx.InfluxDB({
-            host: 'localhost',
-            database: 'utilities_usage',
-            schema: [
-                {
-                    measurement: 'water',
-                    tags: [
-                        'id_on_network',
-                        'home_id',
-                        'node_id',
-                        'value_id',
-                        'manufacturer_id',
-                        'product_id',
-                        'label'
-                    ],
-                    fields: {
-                        data: Influx.FieldType.FLOAT,
-                        units: Influx.FieldType.STRING,
-                        type: Influx.FieldType.STRING,
-                        type_val: Influx.FieldType.INTEGER
-                    }
-                }
-            ]
-        })
-    }
-};
 
 require('./api/connector')(app);
 
