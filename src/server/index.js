@@ -6,7 +6,8 @@ let path            = require('path'),
     logger          = require('morgan'),
     session         = require('express-session'),
     Influx          = require('influx'),
-    https           = require('https');
+    https           = require('https')
+    fs              = require('fs');
 
 let port = process.env.PORT ? process.env.PORT : 8080;
 let env = process.env.NODE_ENV ? process.env.NODE_ENV : 'dev';
