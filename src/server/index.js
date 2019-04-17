@@ -5,7 +5,6 @@ let path            = require('path'),
     bodyParser      = require('body-parser'),
     logger          = require('morgan'),
     session         = require('express-session'),
-    Influx          = require('influx'),
     https           = require('https'),
     fs              = require('fs'),
     cors            = require('cors');
@@ -51,9 +50,9 @@ app.get('*', (req, res) => {
     });
 });
 
-// let server = app.listen(port, () => {
-    // console.log('Assignment 5 app listening on ' + server.address().port);
-// });
+let server = app.listen(port, () => {
+    console.log('Assignment 5 app listening on ' + server.address().port);
+});
 
 https.createServer({
     key: fs.readFileSync('./src/server/server.key'),
