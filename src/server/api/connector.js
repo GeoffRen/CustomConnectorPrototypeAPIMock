@@ -65,7 +65,7 @@ module.exports = app => {
         const config = {
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": fs.readFileSync(path.join(__dirname, "../..", "token.txt"))
+                "Authorization": fs.readFileSync(path.join(__dirname, "../..", "token.txt"), "utf-8")
             }
         };
 

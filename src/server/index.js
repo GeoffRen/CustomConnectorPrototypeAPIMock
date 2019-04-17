@@ -5,7 +5,8 @@ let path            = require('path'),
     bodyParser      = require('body-parser'),
     logger          = require('morgan'),
     session         = require('express-session'),
-    Influx          = require('influx');
+    Influx          = require('influx'),
+    https           = require('https');
 
 let port = process.env.PORT ? process.env.PORT : 8080;
 let env = process.env.NODE_ENV ? process.env.NODE_ENV : 'dev';
@@ -77,6 +78,14 @@ app.get('*', (req, res) => {
     });
 });
 
-let server = app.listen(port, () => {
-    console.log('Assignment 5 app listening on ' + server.address().port);
-});
+// let server = app.listen(port, () => {
+    // console.log('Assignment 5 app listening on ' + server.address().port);
+// });
+
+https.createServer({
+    key: fs.readFileSync('server.key'),
+    cert: fs.readFileSync('server.cert')
+  }, app)
+  .listen(3000, function () {
+    console.log('Example app listening on port 3000! Go to https://localhost:3000/')
+  })
