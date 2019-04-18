@@ -15,49 +15,50 @@ module.exports = app => {
     const authorityUrl = authorityHostUrl + '/' + tenant;
     const redirectUri = 'https://unattendedmicroserviceprototype.glitch.me/getAToken';
     const resource = 'https://msdefault.crm.dynamics.com';
-    const templateAuthzUrl = 'https://login.windows.net/' + 
-                            tenant + 
-                            '/oauth2/authorize?response_type=code&client_id=' +
-                            clientId + 
-                            '&redirect_uri=' + 
-                            redirectUri + 
-                            '&state=<state>&resource=' + 
-                            resource;
+    const templateAuthzUrl = 'https://login.windows.net/' +
+        tenant +
+        '/oauth2/authorize?response_type=code&client_id=' +
+        clientId +
+        '&redirect_uri=' +
+        redirectUri +
+        '&state=<state>&resource=' +
+        resource;
 
     function createAuthorizationUrl(state) {
-      return templateAuthzUrl.replace('<state>', state);
+        return templateAuthzUrl.replace('<state>', state);
     }
 
-    app.get('/auth', function(req, res) {
-      crypto.randomBytes(48, function(ex, buf) {
-        const token = buf.toString('base64').replace(/\//g,'_').replace(/\+/g,'-');
+    app.get('/auth', function (req, res) {
+        console.log("~~~GET AUTH~~~");
+        crypto.randomBytes(48, function (ex, buf) {
+            const token = buf.toString('base64').replace(/\//g, '_').replace(/\+/g, '-');
 
-        res.cookie('authstate', token);
-        const authorizationUrl = createAuthorizationUrl(token);
+            res.cookie('authstate', token);
+            const authorizationUrl = createAuthorizationUrl(token);
 
-        res.redirect(authorizationUrl);
-      });
+            res.redirect(authorizationUrl);
+        });
     });
 
-    app.get('/getAToken', function(req, res) {
-      const authenticationContext = new AuthenticationContext(authorityUrl);
-
-      authenticationContext.acquireTokenWithAuthorizationCode(
-        req.query.code,
-        redirectUri,
-        resource,
-        clientId, 
-        clientSecret,
-        function(err, response) {
-          const errorMessage = '';
-          if (err) {
-            errorMessage = 'error: ' + err.message + '\n';
-          }
-          errorMessage += 'response: ' + JSON.stringify(response);
-          res.send(errorMessage);
-        }
-      );
-    }); 
+    app.get('/getAToken', function (req, res) {
+        console.log("~~~GET GETATOKEN~~~");
+        const authenticationContext = new AuthenticationContext(authorityUrl);
+        authenticationContext.acquireTokenWithAuthorizationCode(
+            req.query.code,
+            redirectUri,
+            resource,
+            clientId,
+            clientSecret,
+            function (err, response) {
+                const errorMessage = '';
+                if (err) {
+                    errorMessage = 'error: ' + err.message + '\n';
+                }
+                errorMessage += 'response: ' + JSON.stringify(response);
+                res.send(errorMessage);
+            }
+        );
+    });
 
     app.get('/onedit', (req, res) => {
         console.log("~~~GET ONEDIT~~~");
@@ -77,7 +78,7 @@ module.exports = app => {
                 "Authorization": fs.readFileSync(path.join(__dirname, "../..", "token.txt"))
             }
         };
-    
+
         axios.get(url, config)
             .then(graphRes => {
                 const curRange = fs.readFileSync(path.join(__dirname, "../..", "range.txt"), "utf-8");
@@ -130,7 +131,7 @@ module.exports = app => {
         console.log(data)
         console.log("\n~~~HEADERS~~~")
         console.log(config.headers)
-    
+
         axios.post(url, data, config)
             .then(graphRes => {
                 res.status(200).send(graphRes.data);
@@ -162,7 +163,7 @@ module.exports = app => {
                 "Authorization": `Bearer ${token}`
             }
         };
-    
+
         axios.get(url, config)
             .then(graphRes => {
                 res.status(200).send(graphRes.data);
@@ -194,7 +195,7 @@ module.exports = app => {
                 "Authorization": token
             }
         };
-    
+
         axios.post(url, data, config)
             .then(graphRes => {
                 res.status(200).send(graphRes.data);
