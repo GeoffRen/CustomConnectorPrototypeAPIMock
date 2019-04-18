@@ -1,9 +1,64 @@
 const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
+const crypto = require('crypto');
+
 "use strict";
 
 module.exports = app => {
+    const AuthenticationContext = require('adal-node').AuthenticationContext;
+
+    const clientId = '93649854-d49a-4352-9737-280fbe867971';
+    const clientSecret = '6e[#?dTUZGvd^1!;$aw}3IsO+_z#(89@0q%A9!]qn#&MY+q'
+    const authorityHostUrl = 'https://login.windows.net';
+    const tenant = 'common';
+    const authorityUrl = authorityHostUrl + '/' + tenant;
+    const redirectUri = 'https://unattendedmicroserviceprototype.glitch.me/getAToken';
+    const resource = 'https://msdefault.crm.dynamics.com';
+    const templateAuthzUrl = 'https://login.windows.net/' + 
+                            tenant + 
+                            '/oauth2/authorize?response_type=code&client_id=' +
+                            clientId + 
+                            '&redirect_uri=' + 
+                            redirectUri + 
+                            '&state=<state>&resource=' + 
+                            resource;
+
+    function createAuthorizationUrl(state) {
+      return templateAuthzUrl.replace('<state>', state);
+    }
+
+    app.get('/auth', function(req, res) {
+      crypto.randomBytes(48, function(ex, buf) {
+        const token = buf.toString('base64').replace(/\//g,'_').replace(/\+/g,'-');
+
+        res.cookie('authstate', token);
+        const authorizationUrl = createAuthorizationUrl(token);
+
+        res.redirect(authorizationUrl);
+      });
+    });
+
+    app.get('/getAToken', function(req, res) {
+      const authenticationContext = new AuthenticationContext(authorityUrl);
+
+      authenticationContext.acquireTokenWithAuthorizationCode(
+        req.query.code,
+        redirectUri,
+        resource,
+        clientId, 
+        clientSecret,
+        function(err, response) {
+          const errorMessage = '';
+          if (err) {
+            errorMessage = 'error: ' + err.message + '\n';
+          }
+          errorMessage += 'response: ' + JSON.stringify(response);
+          res.send(errorMessage);
+        }
+      );
+    }); 
+
     app.get('/onedit', (req, res) => {
         console.log("~~~GET ONEDIT~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
@@ -52,14 +107,16 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
 
-        if (!req.query || !req.query.name || !req.query.sheet || !req.query.address) {
+        if (!req.query || !req.query.name || !req.query.address) {
             res.status(400).send("No data");
         }
 
+
         const url = `https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names/add`;
+        const [sheet, cells] = req.query.address.split("!");
         const data = {
             "name": req.query.name,
-            "reference": `=${req.query.sheet}!${req.query.address}`,
+            "reference": `=${sheet}!${cells}`,
             "comment": "Comment for the named item"
         };
         const config = {
