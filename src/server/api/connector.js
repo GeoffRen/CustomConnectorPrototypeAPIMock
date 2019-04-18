@@ -13,7 +13,7 @@ module.exports = app => {
     const authorityHostUrl = 'https://login.windows.net';
     const tenant = 'common';
     const authorityUrl = authorityHostUrl + '/' + tenant;
-    const redirectUri = 'https://http://13.58.89.80:8080/getAToken';
+    const redirectUri = 'https://13.58.89.80:8080/getAToken';
     const resource = 'https://msdefault.crm.dynamics.com';
     const templateAuthzUrl = 'https://login.windows.net/' +
         tenant +
