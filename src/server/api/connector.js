@@ -50,7 +50,7 @@ module.exports = app => {
             clientId,
             clientSecret,
             function (err, response) {
-                const errorMessage = '';
+                let errorMessage = '';
                 if (err) {
                     errorMessage = 'error: ' + err.message + '\n';
                 }
