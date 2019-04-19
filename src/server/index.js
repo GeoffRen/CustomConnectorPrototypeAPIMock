@@ -50,14 +50,14 @@ app.get('*', (req, res) => {
     });
 });
 
-// let server = app.listen(port, () => {
-    // console.log('Assignment 5 app listening on ' + server.address().port);
-// });
+let server = app.listen(port, () => {
+    console.log('Assignment 5 app listening on ' + server.address().port);
+});
 
-https.createServer({
-    key: fs.readFileSync('./src/server/server.key'),
-    cert: fs.readFileSync('./src/server/server.cert')
-  }, app)
-  .listen(port, function () {
-    console.log('Example app listening on port 8080!')
-  })
+// https.createServer({
+//     key: fs.readFileSync('./src/server/server.key'),
+//     cert: fs.readFileSync('./src/server/server.cert')
+//   }, app)
+//   .listen(port, function () {
+//     console.log('Example app listening on port 8080!')
+//   })
