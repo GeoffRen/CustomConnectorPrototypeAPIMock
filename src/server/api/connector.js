@@ -60,7 +60,7 @@ module.exports = app => {
         );
     });
 
-    app.get('/WebHook/test', (req, res) => {
+    app.post('/WebHook/test', (req, res) => {
         console.log("~~~GET TEST TRIGGER OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
