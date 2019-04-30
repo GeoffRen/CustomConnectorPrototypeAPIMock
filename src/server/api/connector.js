@@ -333,7 +333,7 @@ module.exports = app => {
 
     app.get('/test', (req, res) => {
         console.log("~~~GET TEST OPERATION~~~");
-        sleep(100);
+        sleep(5000);
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
