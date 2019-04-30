@@ -333,22 +333,16 @@ module.exports = app => {
 
     app.get('/test', (req, res) => {
         console.log("~~~GET TEST OPERATION~~~");
-        sleep(50000);
-        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
-        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
-        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        console.log(req.headers);
-        // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
-        res.sendStatus(200);
+        setTimeout(() => {
+            console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+            console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+            console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+            console.log(req.headers);
+            // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
+            res.sendStatus(200);
+
+        }, 3000)
     });
-
-    async function sleep(ms) {
-        await delay(ms);
-    }
-
-    function delay(ms) {
-        return new Promise(res => setTimeout(res, ms));
-    }
 
     app.get('/test/:drive/:file', (req, res) => {
         console.log("~~~GET FILE PICKER TEST OPERATION~~~");
