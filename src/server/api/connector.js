@@ -331,8 +331,8 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
-    app.get('/test', (req, res) => {
-        console.log("~~~GET TEST OPERATION~~~");
+    app.post('/testconnection', (req, res) => {
+        console.log("~~~POST TESTCONNECTION OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
@@ -340,6 +340,27 @@ module.exports = app => {
         // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
         res.sendStatus(200);
     });
+
+    app.get('/test', (req, res) => {
+        console.log("~~~GET TEST OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        console.log(req.headers);
+        // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
+        res.status(200).send({"test":"success"});
+    });
+
+    app.post('/test', (req, res) => {
+        console.log("~~~POST TEST OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        console.log(req.headers);
+        // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
+        res.status(200).send({"test":"success"});
+    });
+
 
     app.get('/test/:drive/:file', (req, res) => {
         console.log("~~~GET FILE PICKER TEST OPERATION~~~");
