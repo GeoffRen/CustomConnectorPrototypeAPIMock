@@ -456,10 +456,10 @@ module.exports = app => {
             // } else {
             res.status(200).send({
                 scripts: [{
-                    script: "redmondScript",
+                    script: "redScript",
                     id: "soguh348tvb349vtge8rt"
                 }, {
-                    script: "redmondDynamicSchema",
+                    script: "redDynamicSchema",
                     id: "974fg843gf843g4f"
                 }]
             })
@@ -470,10 +470,10 @@ module.exports = app => {
             // } else {
             res.status(200).send({
                 scripts: [{
-                    script: "notRedmondscript",
+                    script: "notRedScript",
                     id: "hrf834g9tn48"
                 }, {
-                    script: "notRedmondDynamicSchema2",
+                    script: "notRedDynamicSchema",
                     id: "4rcn438tvn348"
                 }]
             })
@@ -577,7 +577,7 @@ module.exports = app => {
             });
         } else {
             console.log(req.query);
-            if (req.query.schemaScript.indexOf("dynamic") !== -1) {
+            if (req.query.schemaScript.indexOf("ynamic") !== -1) {
                 res.status(200).send({
                     Schema: {
                         type: "object",
