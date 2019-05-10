@@ -575,7 +575,7 @@ module.exports = app => {
             });
         } else {
             console.log(req.query);
-            if (req.query.schemaScript.indexOf("dynamicSchema") !== -1) {
+            if (req.query.schemaScript.indexOf("1") !== -1) {
                 res.status(200).send({
                     Schema: {
                         type: "object",
