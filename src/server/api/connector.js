@@ -456,10 +456,10 @@ module.exports = app => {
             // } else {
             res.status(200).send({
                 scripts: [{
-                    script: "someoneRedmondScript",
+                    script: "redmondScript",
                     id: "soguh348tvb349vtge8rt"
                 }, {
-                    script: "dynamicSchema1",
+                    script: "redmondDynamicSchema",
                     id: "974fg843gf843g4f"
                 }]
             })
@@ -473,7 +473,7 @@ module.exports = app => {
                     script: "notRedmondscript",
                     id: "hrf834g9tn48"
                 }, {
-                    script: "dynamicSchema2",
+                    script: "notRedmondDynamicSchema2",
                     id: "4rcn438tvn348"
                 }]
             })
@@ -562,7 +562,9 @@ module.exports = app => {
                     }
                 });
             } else {
-                res.sendStatus(200);
+                res.status(200).send({
+                    Schema: {}
+                });            
             }
         }
     });
@@ -593,7 +595,9 @@ module.exports = app => {
                     }
                 });
             } else {
-                res.sendStatus(200);
+                res.status(200).send({
+                    Schema: {}
+                });                    
             }
         }
     });
