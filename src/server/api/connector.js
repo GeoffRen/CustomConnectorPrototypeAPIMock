@@ -456,10 +456,10 @@ module.exports = app => {
             // } else {
             res.status(200).send({
                 scripts: [{
-                    script: "someoneRedmondScript1",
+                    script: "someoneRedmondScript",
                     id: "soguh348tvb349vtge8rt"
                 }, {
-                    script: "dynamicSchema",
+                    script: "dynamicSchema1",
                     id: "974fg843gf843g4f"
                 }]
             })
@@ -470,10 +470,10 @@ module.exports = app => {
             // } else {
             res.status(200).send({
                 scripts: [{
-                    script: "notRedmondscript1",
+                    script: "notRedmondscript",
                     id: "hrf834g9tn48"
                 }, {
-                    script: "dynamicSchema",
+                    script: "dynamicSchema2",
                     id: "4rcn438tvn348"
                 }]
             })
