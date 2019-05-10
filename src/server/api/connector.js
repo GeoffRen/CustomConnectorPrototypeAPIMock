@@ -537,26 +537,7 @@ module.exports = app => {
             });
         } else {
             console.log(req.query);
-            if (req.query.schemaScript.indexOf("redmond") !== -1) {
-                res.status(200).send({
-                    Schema: {
-                        type: "object",
-                        properties: {
-                            tableName: {
-                                type: "string",
-                                "x-ms-summary": "Table Name"
-                            },
-                            row: {
-                                type: "string",
-                                name: "Row"
-                            },
-                            column: {
-                                type: "string"
-                            }
-                        }
-                    }
-                });
-            } else {
+            if (req.query.schemaScript.indexOf("1") !== -1) {
                 res.status(200).send({
                     Schema: {
                         type: "object",
@@ -580,6 +561,8 @@ module.exports = app => {
                         }
                     }
                 });
+            } else {
+                res.sendStatus(200);
             }
         }
     });
@@ -610,22 +593,7 @@ module.exports = app => {
                     }
                 });
             } else {
-                res.status(200).send({
-                    Schema: {
-                        type: "object",
-                        properties: {
-                            otherRetStr: {
-                                type: "string"
-                            },
-                            otherRetInt: {
-                                type: "integer"
-                            },
-                            otherRetArr: {
-                                type: "array"
-                            }
-                        }
-                    }
-                });
+                res.sendStatus(200);
             }
         }
     });
