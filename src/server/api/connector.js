@@ -459,7 +459,7 @@ module.exports = app => {
                     script: "someoneRedmondScript1",
                     id: "soguh348tvb349vtge8rt"
                 }, {
-                    script: "dynamicSchema1",
+                    script: "dynamicSchema",
                     id: "974fg843gf843g4f"
                 }]
             })
@@ -470,10 +470,10 @@ module.exports = app => {
             // } else {
             res.status(200).send({
                 scripts: [{
-                    script: "script1",
+                    script: "notRedmondscript1",
                     id: "hrf834g9tn48"
                 }, {
-                    script: "dynamicSchema3",
+                    script: "dynamicSchema",
                     id: "4rcn438tvn348"
                 }]
             })
