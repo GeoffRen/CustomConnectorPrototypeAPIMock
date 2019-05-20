@@ -460,7 +460,7 @@ module.exports = app => {
                     id: "soguh348tvb349vtge8rt"
                 }, {
                     script: "redDynamicSchema",
-                    id: "974fg843gf843g4f"
+                    id: "974fg8Dynamicf"
                 }]
             })
             // }
@@ -474,7 +474,7 @@ module.exports = app => {
                     id: "hrf834g9tn48"
                 }, {
                     script: "notRedDynamicSchema",
-                    id: "4rcn438tvn348"
+                    id: "4rcDynamicn348"
                 }]
             })
             // }
