@@ -60,6 +60,40 @@ module.exports = app => {
         );
     });
 
+    app.get('/flightingSchema', (req, res) => {
+        console.log("~~~GET FLIGHTING SCHEMA PARAM~~~");
+        if (!req.body || !req.query) {
+            res.status(404).send({
+                error: 'no data'
+            });
+        } else {
+            console.log(req.query);
+            res.status(200).send({
+                Schema: {
+                    type: "object",
+                    properties: {
+                        consent: {
+                            description: "You need to give consent",
+                            type: "string",
+                            enum: [
+                                "Yes",
+                                "No"
+                            ],
+                            "x-ms-summary": "You have not consented to this script"
+                        },
+                        row: {
+                            type: "string",
+                            name: "Row"
+                        },
+                        column: {
+                            type: "string"
+                        }
+                    }
+                }
+            });
+        }
+    });
+
     app.post('/WebHook/test', (req, res) => {
         console.log("~~~GET TEST TRIGGER OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
