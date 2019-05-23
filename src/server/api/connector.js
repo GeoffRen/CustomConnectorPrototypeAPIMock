@@ -67,20 +67,14 @@ module.exports = app => {
                 error: 'no data'
             });
         } else {
-            console.log(req.query);
+            console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+            console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+            console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+            console.log(req.headers.authorization);
             res.status(200).send({
                 Schema: {
                     type: "object",
                     properties: {
-                        consent: {
-                            description: "You need to give consent",
-                            type: "string",
-                            enum: [
-                                "Yes",
-                                "No"
-                            ],
-                            "x-ms-summary": "You have not consented to this script"
-                        },
                         row: {
                             type: "string",
                             name: "Row"
