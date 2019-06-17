@@ -6,60 +6,6 @@ const crypto = require('crypto');
 "use strict";
 
 module.exports = app => {
-    const AuthenticationContext = require('adal-node').AuthenticationContext;
-
-    const clientId = '93649854-d49a-4352-9737-280fbe867971';
-    const clientSecret = '6e[#?dTUZGvd^1!;$aw}3IsO+_z#(89@0q%A9!]qn#&MY+q'
-    const authorityHostUrl = 'https://login.windows.net';
-    const tenant = 'common';
-    const authorityUrl = authorityHostUrl + '/' + tenant;
-    const redirectUri = 'https://13.58.89.80:8080/getAToken';
-    const resource = 'https://msdefault.crm.dynamics.com';
-    const templateAuthzUrl = 'https://login.windows.net/' +
-        tenant +
-        '/oauth2/authorize?response_type=code&client_id=' +
-        clientId +
-        '&redirect_uri=' +
-        redirectUri +
-        '&state=<state>&resource=' +
-        resource;
-
-    function createAuthorizationUrl(state) {
-        return templateAuthzUrl.replace('<state>', state);
-    }
-
-    app.get('/auth', function (req, res) {
-        console.log("~~~GET AUTH~~~");
-        crypto.randomBytes(48, function (ex, buf) {
-            const token = buf.toString('base64').replace(/\//g, '_').replace(/\+/g, '-');
-
-            res.cookie('authstate', token);
-            const authorizationUrl = createAuthorizationUrl(token);
-
-            res.redirect(authorizationUrl);
-        });
-    });
-
-    app.get('/getAToken', function (req, res) {
-        console.log("~~~GET GETATOKEN~~~");
-        const authenticationContext = new AuthenticationContext(authorityUrl);
-        authenticationContext.acquireTokenWithAuthorizationCode(
-            req.query.code,
-            redirectUri,
-            resource,
-            clientId,
-            clientSecret,
-            function (err, response) {
-                let errorMessage = '';
-                if (err) {
-                    errorMessage = 'error: ' + err.message + '\n';
-                }
-                errorMessage += 'response: ' + JSON.stringify(response);
-                res.send(errorMessage);
-            }
-        );
-    });
-
     app.get('/flightingSchema', (req, res) => {
         console.log("~~~GET FLIGHTING SCHEMA PARAM~~~");
         if (!req.body || !req.query) {
