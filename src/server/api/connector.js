@@ -484,11 +484,15 @@ module.exports = app => {
             // } else {
             res.status(200).send({
                 scripts: [{
-                    script: "redScript",
-                    id: "soguh348tvb349vtge8rt"
+                    Metadata: {
+                        Name: "redScript"
+                    },
+                    Id: "soguh348tvb349vtge8rt"
                 }, {
-                    script: "redDynamicSchema",
-                    id: "974fg8Dynamicf"
+                    Metadata: {
+                        Name: "redDynamicSchema"
+                    },
+                    Id: "974fg8Dynamicf"
                 }]
             })
             // }
@@ -498,15 +502,48 @@ module.exports = app => {
             // } else {
             res.status(200).send({
                 scripts: [{
-                    script: "notRedScript",
-                    id: "hrf834g9tn48"
+                    Metadata: {
+                        Name: "notRedScript"
+                    },
+                    Id: "hrf834g9tn48"
                 }, {
-                    script: "notRedDynamicSchema",
-                    id: "4rcDynamicn348"
+                    Metadata: {
+                        Name: "notRedDynamicSchema"
+                    },
+                    Id: "4rcDynamicn348"
                 }]
             })
             // }
         }
+        // if (req.query.location.toLowerCase() === "redmond") {
+        //     // if (userId === "1c889869-3278-480c-a242-7969a8224162") {
+        //     //     res.status(200).send({scripts: [{script: "gerenRedmondScript1"}, {script: "dynamicSchema0"}]})
+        //     // } else {
+        //     res.status(200).send({
+        //         scripts: [{
+        //             script: "redScript",
+        //             id: "soguh348tvb349vtge8rt"
+        //         }, {
+        //             script: "redDynamicSchema",
+        //             id: "974fg8Dynamicf"
+        //         }]
+        //     })
+        //     // }
+        // } else {
+        //     // if (userId === "1c889869-3278-480c-a242-7969a8224162") {
+        //     //     res.status(200).send({scripts: [{script: "gerenScript1"}, {script: "dynamicSchema2"}]})
+        //     // } else {
+        //     res.status(200).send({
+        //         scripts: [{
+        //             script: "notRedScript",
+        //             id: "hrf834g9tn48"
+        //         }, {
+        //             script: "notRedDynamicSchema",
+        //             id: "4rcDynamicn348"
+        //         }]
+        //     })
+        //     // }
+        // }
         // }
         // }
     });
