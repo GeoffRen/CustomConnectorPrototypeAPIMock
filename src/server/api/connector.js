@@ -17,8 +17,8 @@ module.exports = app => {
         const config = {
             headers: req.headers
         };
-        delete config.headers.url;
-        delete config.headers.method;
+        // delete config.headers.url;
+        // delete config.headers.method;
 
         axios.post(req.headers.url, data, config)
         .then(graphRes => {
