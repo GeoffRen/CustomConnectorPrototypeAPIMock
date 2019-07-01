@@ -6,58 +6,31 @@ const crypto = require('crypto');
 "use strict";
 
 module.exports = app => {
-    const AuthenticationContext = require('adal-node').AuthenticationContext;
+    app.post('/contextSwitch', (req, res) => {
+        console.log("~~~POST contextSwitch OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        console.log(req.headers);
 
-    const clientId = '93649854-d49a-4352-9737-280fbe867971';
-    const clientSecret = '6e[#?dTUZGvd^1!;$aw}3IsO+_z#(89@0q%A9!]qn#&MY+q'
-    const authorityHostUrl = 'https://login.windows.net';
-    const tenant = 'common';
-    const authorityUrl = authorityHostUrl + '/' + tenant;
-    const redirectUri = 'https://13.58.89.80:8080/getAToken';
-    const resource = 'https://msdefault.crm.dynamics.com';
-    const templateAuthzUrl = 'https://login.windows.net/' +
-        tenant +
-        '/oauth2/authorize?response_type=code&client_id=' +
-        clientId +
-        '&redirect_uri=' +
-        redirectUri +
-        '&state=<state>&resource=' +
-        resource;
+        const data = req.body;
+        const config = {
+            headers: req.headers
+        };
+        delete config.headers.url;
+        delete config.headers.method;
 
-    function createAuthorizationUrl(state) {
-        return templateAuthzUrl.replace('<state>', state);
-    }
-
-    app.get('/auth', function (req, res) {
-        console.log("~~~GET AUTH~~~");
-        crypto.randomBytes(48, function (ex, buf) {
-            const token = buf.toString('base64').replace(/\//g, '_').replace(/\+/g, '-');
-
-            res.cookie('authstate', token);
-            const authorizationUrl = createAuthorizationUrl(token);
-
-            res.redirect(authorizationUrl);
+        axios.post(req.headers.url, data, config)
+        .then(graphRes => {
+            res.headers = graphRes.headers;
+            res.status(200).send(graphRes.data);
+        })
+        .catch(err => {
+            res.status(200).send({
+                success: false
+            });
+            console.log(err);
         });
-    });
-
-    app.get('/getAToken', function (req, res) {
-        console.log("~~~GET GETATOKEN~~~");
-        const authenticationContext = new AuthenticationContext(authorityUrl);
-        authenticationContext.acquireTokenWithAuthorizationCode(
-            req.query.code,
-            redirectUri,
-            resource,
-            clientId,
-            clientSecret,
-            function (err, response) {
-                let errorMessage = '';
-                if (err) {
-                    errorMessage = 'error: ' + err.message + '\n';
-                }
-                errorMessage += 'response: ' + JSON.stringify(response);
-                res.send(errorMessage);
-            }
-        );
     });
 
     app.get('/flightingSchema', (req, res) => {
