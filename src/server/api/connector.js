@@ -458,7 +458,7 @@ module.exports = app => {
                 Id: "someidthatdenotesgeoffscript"
             }, {
                 Metadata: {
-                    Name: "otherGeoffScript"
+                    Name: "dynamicGeoffScript"
                 },
                 Id: "anotheridthatdenotesothergeoffscript"
             }]
