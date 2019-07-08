@@ -640,7 +640,8 @@ module.exports = app => {
                                 type: "integer"
                             },
                             retArr: {
-                                type: "array"
+                                type: "array",
+                                "x-ms-summary": "retArrName"
                             }
                         }
                     }
