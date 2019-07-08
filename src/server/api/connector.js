@@ -647,7 +647,22 @@ module.exports = app => {
                 });
             } else {
                 res.status(200).send({
-                    Schema: {}
+                    Schema: {
+                        type: "object",
+                        properties: {
+                            retStr: {
+                                type: "string"
+                            },
+                            retInt: {
+                                type: "object",
+                                properties: {
+                                    retTest: {
+                                        type: "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 });                    
             }
         }
