@@ -658,8 +658,16 @@ module.exports = app => {
                                 properties: {
                                     retTest: {
                                         type: "string"
+                                    },
+                                    retTest3: {
+                                        type: "string"
                                     }
                                 }
+                            },
+                            retArr: {
+                                type: "array",
+                                name: "name",
+                                "x-ms-summary": "name2"
                             }
                         }
                     }
