@@ -9,7 +9,7 @@ module.exports = app => {
     var tenant = "common";
     var authorityUrl = authorityHostUrl + "/" + tenant;
     var redirectUri =
-        "https://unattendedmicroserviceprototype.glitch.me/getAToken";
+        "http://13.58.89.80:8080/getAToken";
     var resource = "https://graph.microsoft.com";
     var templateAuthzUrl =
         "https://login.windows.net/" +
