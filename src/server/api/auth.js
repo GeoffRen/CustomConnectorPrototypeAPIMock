@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+
 module.exports = app => {
     var AuthenticationContext = require("adal-node").AuthenticationContext;
 
