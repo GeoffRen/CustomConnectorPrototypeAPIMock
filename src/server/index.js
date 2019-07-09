@@ -37,6 +37,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./api/connector')(app);
+require('./api/auth')(app);
 
 // Start the app.
 app.get('*', (req, res) => {

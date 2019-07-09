@@ -6,33 +6,6 @@ const crypto = require('crypto');
 "use strict";
 
 module.exports = app => {
-    app.post('/contextSwitch', (req, res) => {
-        console.log("~~~POST contextSwitch OPERATION~~~");
-        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
-        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
-        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        console.log(req.headers);
-
-        const data = req.body;
-        const config = {
-            headers: req.headers
-        };
-        // delete config.headers.url;
-        // delete config.headers.method;
-
-        axios.post(req.headers.url, data, config)
-        .then(graphRes => {
-            res.headers = graphRes.headers;
-            res.status(200).send(graphRes.data);
-        })
-        .catch(err => {
-            res.status(200).send({
-                success: false
-            });
-            console.log(err);
-        });
-    });
-
     app.get('/flightingSchema', (req, res) => {
         console.log("~~~GET FLIGHTING SCHEMA PARAM~~~");
         if (!req.body || !req.query) {
