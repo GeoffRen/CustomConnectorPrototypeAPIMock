@@ -561,7 +561,7 @@ module.exports = app => {
             });
         } else {
             console.log(req.query);
-            if (req.query.schemaScript.indexOf("ynamic") !== -1) {
+            if (req.query.scriptId.indexOf("ynamic") !== -1) {
                 res.status(200).send({
                     Schema: {
                         type: "object",
@@ -601,7 +601,7 @@ module.exports = app => {
             });
         } else {
             console.log(req.query);
-            if (req.query.schemaScript.indexOf("ynamic") !== -1) {
+            if (req.query.scriptId.indexOf("ynamic") !== -1) {
                 res.status(200).send({
                     Schema: {
                         type: "object",
