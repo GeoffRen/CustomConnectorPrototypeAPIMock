@@ -587,7 +587,28 @@ module.exports = app => {
                 });
             } else {
                 res.status(200).send({
-                    Schema: {}
+                    Schema: {
+                        type: "object",
+                        properties: {
+                            geofftest: {
+                                type: "string"
+                            },
+                            people: {
+                                type: "array",
+                                items: {
+                                    type: "object",
+                                    properties: {
+                                        name: {
+                                            type: "string"
+                                        },
+                                        email: {
+                                            type: "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 });            
             }
         }
