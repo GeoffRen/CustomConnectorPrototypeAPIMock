@@ -589,10 +589,11 @@ module.exports = app => {
                 res.status(200).send({
                     Schema: {
                         type: "object",
-                        required: ["geofftest"],
+                        required: [{geofftest:true}],
                         properties: {
                             geofftest: {
-                                type: "string"
+                                type: "string",
+                                required: true
                             },
                             people: {
                                 type: "array",
