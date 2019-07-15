@@ -645,24 +645,22 @@ module.exports = app => {
                     Schema: {
                         type: "object",
                         properties: {
-                            retStr: {
+                            geofftest: {
                                 type: "string"
                             },
-                            retInt: {
-                                type: "object",
-                                properties: {
-                                    retTest: {
-                                        type: "string"
-                                    },
-                                    retTest3: {
-                                        type: "string"
+                            people: {
+                                type: "array",
+                                items: {
+                                    type: "object",
+                                    properties: {
+                                        name: {
+                                            type: "string"
+                                        },
+                                        email: {
+                                            type: "string"
+                                        }
                                     }
                                 }
-                            },
-                            retArr: {
-                                type: "array",
-                                name: "name",
-                                "x-ms-summary": "name2"
                             }
                         }
                     }
