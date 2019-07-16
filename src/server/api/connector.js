@@ -583,7 +583,6 @@ module.exports = app => {
                 res.status(200).send({
                     Schema: {
                         type: "object",
-                        required: ["test"],
                         properties: {
                             test: {
                                 type: "string",
