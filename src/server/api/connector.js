@@ -564,24 +564,18 @@ module.exports = app => {
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
                 res.status(200).send({
                     Schema: {
-                        type: "object",
-                        properties: {
-                            consent: {
-                                description: "You need to give consent",
-                                type: "string",
-                                enum: [
-                                    "Yes",
-                                    "No"
-                                ],
-                                "x-ms-summary": "You have not consented to this script"
-                            },
-                            row: {
-                                type: "string",
-                                name: "Row"
-                            },
-                            column: {
-                                type: "string"
-                            }
+                        type : "object",
+                        required : [ "userName" ],
+                        properties : {
+                          userName : {
+                            type : "string"
+                          },
+                          firstName : {
+                            type : "string"
+                          },
+                          lastName : {
+                            type : "string"
+                          }
                         }
                     }
                 });
@@ -589,9 +583,9 @@ module.exports = app => {
                 res.status(200).send({
                     Schema: {
                         type: "object",
-                        required: [{geofftest:true}],
+                        required: ["test"],
                         properties: {
-                            geofftest: {
+                            test: {
                                 type: "string",
                                 required: true
                             },
