@@ -507,6 +507,27 @@ module.exports = app => {
         // }
     });
 
+    app.post('/api/storage', (req, res) => {
+        console.log("~~~GET SCRIPTS~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        console.log(req.headers);
+        res.status(200).send({
+            scripts: [{
+                Metadata: {
+                    Name: "geoffScript"
+                },
+                Id: "someidthatdenotesgeoffscript"
+            }, {
+                Metadata: {
+                    Name: "dynamicGeoffScript"
+                },
+                Id: "anotheridthatdenotesdynamicgeoffscript"
+            }]
+        })
+    });    
+
     app.post('/connector/user', (req, res) => {
         console.log("~~~GET TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
@@ -542,6 +563,19 @@ module.exports = app => {
             retArr: ["str1", "str2", "str3"]
         });
     });
+
+    app.post('/api/unattended/run/:drive/:file', (req, res) => {
+        console.log("~~~POST EXECUTE OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        console.log(req.headers);
+        res.status(200).send({
+            retStr: "TEST RET STRING ",
+            retInt: 2525,
+            retArr: ["str1", "str2", "str3"]
+        });
+    });    
 
     app.get('/v1.0/drives/:drive/items/:file/workbook/worksheets', (req, res) => {
         console.log("~~~GET FILE PICKER OPERATION~~~");
