@@ -507,7 +507,7 @@ module.exports = app => {
         // }
     });
 
-    app.post('/api/storage', (req, res) => {
+    app.get('/api/storage', (req, res) => {
         console.log("~~~GET SCRIPTS~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
