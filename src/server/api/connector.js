@@ -508,24 +508,22 @@ module.exports = app => {
     });
 
     app.get('/api/storage', (req, res) => {
-        console.log("~~~GET SCRIPTS~~~");
+        console.log("~~~GET SCRIPTS API STORAGE~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
-        res.status(200).send({
-            schema: [{
-                Metadata: {
-                    Name: "geoffScript"
+        res.status(200).send([{
+                metadata: {
+                    name: "geoffScript"
                 },
-                Id: "someidthatdenotesgeoffscript"
+                id: "someidthatdenotesgeoffscript"
             }, {
-                Metadata: {
-                    Name: "dynamicGeoffScript"
+                metadata: {
+                    name: "dynamicGeoffScript"
                 },
-                Id: "anotheridthatdenotesdynamicgeoffscript"
-            }]
-        })
+                id: "anotheridthatdenotesdynamicgeoffscript"
+            }])
     });    
 
     app.post('/connector/user', (req, res) => {
