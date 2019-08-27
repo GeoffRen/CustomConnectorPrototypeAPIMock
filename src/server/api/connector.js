@@ -514,7 +514,7 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
         res.status(200).send({
-            items: [{
+            schema: [{
                 Metadata: {
                     Name: "geoffScript"
                 },
