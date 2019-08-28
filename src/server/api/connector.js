@@ -656,10 +656,6 @@ module.exports = app => {
                             numericLiteralType: {
                                 type: "number",
                                 enum: [0, 1, 2]
-                            },
-                            booleanLiteralType: {
-                                type: "boolean",
-                                enum: [true, false]
                             }
                         }
                     }
@@ -721,30 +717,7 @@ module.exports = app => {
                     }
                 });
             } else {
-                res.status(200).send({
-                    Schema: {
-                        type: "object",
-                        properties: {
-                            geofftest: {
-                                type: "string"
-                            },
-                            people: {
-                                type: "array",
-                                items: {
-                                    type: "object",
-                                    properties: {
-                                        name: {
-                                            type: "string"
-                                        },
-                                        email: {
-                                            type: "string"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
+                res.status(200).send();
             }
         }
     });
