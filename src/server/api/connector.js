@@ -661,31 +661,7 @@ module.exports = app => {
                     }
                 });
             } else {
-                res.status(200).send({
-                    Schema: {
-                        type: "object",
-                        properties: {
-                            test: {
-                                type: "string",
-                                required: true
-                            },
-                            people: {
-                                type: "array",
-                                items: {
-                                    type: "object",
-                                    properties: {
-                                        name: {
-                                            type: "string"
-                                        },
-                                        email: {
-                                            type: "string"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
+                res.status(200).send();
             }
         }
     });
