@@ -679,15 +679,34 @@ module.exports = app => {
                     Schema: {
                         type: "object",
                         properties: {
-                            retStr: {
+                            stringType: {
                                 type: "string"
                             },
-                            retInt: {
+                            numberType: {
                                 type: "integer"
                             },
-                            retArr: {
+                            booleanType: {
+                                type: "boolean"
+                            },
+                            arrayType: {
                                 type: "array",
                                 "x-ms-summary": "retArrName"
+                            },
+                            nestedTypeLiteralType: {
+                                type: "object",
+                                properties: {
+                                    nestedStringType: {
+                                        type: "string"
+                                    },
+                                    nestedNestedTypeLiteralType: {
+                                        type: "object",
+                                        properties: {
+                                            nestedNestedStringType: {
+                                                type: "string"
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
