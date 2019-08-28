@@ -1,20 +1,24 @@
 const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
-const crypto = require('crypto');
+const crypto = require("crypto");
 
-"use strict";
+("use strict");
 
 module.exports = app => {
-    app.get('/flightingSchema', (req, res) => {
+    app.get("/flightingSchema", (req, res) => {
         console.log("~~~GET FLIGHTING SCHEMA PARAM~~~");
         if (!req.body || !req.query) {
             res.status(404).send({
-                error: 'no data'
+                error: "no data"
             });
         } else {
-            console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
-            console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+            console.log(
+                `RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`
+            );
+            console.log(
+                `RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`
+            );
             console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
             console.log(req.headers.authorization);
             res.status(200).send({
@@ -34,7 +38,7 @@ module.exports = app => {
         }
     });
 
-    app.post('/WebHook/test', (req, res) => {
+    app.post("/WebHook/test", (req, res) => {
         console.log("~~~GET TEST TRIGGER OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -44,7 +48,7 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
-    app.post('/webhook/subscribe', (req, res) => {
+    app.post("/webhook/subscribe", (req, res) => {
         console.log("~~~GET TEST TRIGGER OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -54,7 +58,7 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
-    app.get('/onedit', (req, res) => {
+    app.get("/onedit", (req, res) => {
         console.log("~~~GET ONEDIT~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -67,18 +71,26 @@ module.exports = app => {
         const url = `https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names('${req.query.name}')/range`;
         const config = {
             headers: {
-                "Accept": "application/json",
+                Accept: "application/json",
                 "Content-Type": "application/json",
-                "Authorization": fs.readFileSync(path.join(__dirname, "../..", "token.txt"))
+                Authorization: fs.readFileSync(
+                    path.join(__dirname, "../..", "token.txt")
+                )
             }
         };
 
-        axios.get(url, config)
+        axios
+            .get(url, config)
             .then(graphRes => {
-                const curRange = fs.readFileSync(path.join(__dirname, "../..", "range.txt"), "utf-8");
+                const curRange = fs.readFileSync(
+                    path.join(__dirname, "../..", "range.txt"),
+                    "utf-8"
+                );
                 console.log(graphRes.data);
                 console.log();
-                const parsedVals = ([].concat.apply([], graphRes.data.text)).join(" ");
+                const parsedVals = [].concat
+                    .apply([], graphRes.data.text)
+                    .join(" ");
                 console.log(parsedVals);
                 console.log();
                 console.log(curRange);
@@ -96,7 +108,7 @@ module.exports = app => {
             });
     });
 
-    app.post('/onedit', (req, res) => {
+    app.post("/onedit", (req, res) => {
         console.log("~~~POST ONEDIT ITEM~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -106,34 +118,43 @@ module.exports = app => {
             res.status(400).send("No data");
         }
 
-
         const url = `https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names/add`;
         const [sheet, cells] = req.query.address.split("!");
         const data = {
-            "name": req.query.name,
-            "reference": `=${sheet}!${cells}`,
-            "comment": "Comment for the named item"
+            name: req.query.name,
+            reference: `=${sheet}!${cells}`,
+            comment: "Comment for the named item"
         };
         const config = {
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": fs.readFileSync(path.join(__dirname, "../..", "token.txt"), "utf-8")
+                Authorization: fs.readFileSync(
+                    path.join(__dirname, "../..", "token.txt"),
+                    "utf-8"
+                )
             }
         };
 
-        console.log("~~~DATA~~~")
-        console.log(data)
-        console.log("\n~~~HEADERS~~~")
-        console.log(config.headers)
+        console.log("~~~DATA~~~");
+        console.log(data);
+        console.log("\n~~~HEADERS~~~");
+        console.log(config.headers);
 
-        axios.post(url, data, config)
+        axios
+            .post(url, data, config)
             .then(graphRes => {
                 res.status(200).send(graphRes.data);
                 console.log(graphRes.data);
                 console.log();
-                const parsedVals = ([].concat.apply([], graphRes.data.text)).join(" ");
+                const parsedVals = [].concat
+                    .apply([], graphRes.data.text)
+                    .join(" ");
                 console.log(parsedVals);
-                fs.writeFile(path.join(__dirname, "../..", "range.txt"), parsedVals, (err, data) => console.log(err + "\n\n" + data));
+                fs.writeFile(
+                    path.join(__dirname, "../..", "range.txt"),
+                    parsedVals,
+                    (err, data) => console.log(err + "\n\n" + data)
+                );
             })
             .catch(err => {
                 res.status(200).send({
@@ -143,22 +164,24 @@ module.exports = app => {
             });
     });
 
-    app.get('/nameditem', (req, res) => {
+    app.get("/nameditem", (req, res) => {
         console.log("~~~GET NAMED ITEM~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
 
-        const url = "https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names('test2')/range";
+        const url =
+            "https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names('test2')/range";
         const config = {
             headers: {
-                "Accept": "application/json",
+                Accept: "application/json",
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
+                Authorization: `Bearer ${token}`
             }
         };
 
-        axios.get(url, config)
+        axios
+            .get(url, config)
             .then(graphRes => {
                 res.status(200).send(graphRes.data);
                 console.log(graphRes.data);
@@ -171,26 +194,28 @@ module.exports = app => {
             });
     });
 
-    app.post('/nameditem', (req, res) => {
+    app.post("/nameditem", (req, res) => {
         console.log("~~~POST NAMED ITEM~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
 
-        const url = "https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names/add";
+        const url =
+            "https://graph.microsoft.com/beta/me/drive/items/01JASD364CH44JPTPRX5BI45G7UV6QTHVE/workbook/names/add";
         const data = {
-            "name": "test3",
-            "reference": "=Sheet1!$A$4:$B$5",
-            "comment": "Comment for the named item"
+            name: "test3",
+            reference: "=Sheet1!$A$4:$B$5",
+            comment: "Comment for the named item"
         };
         const config = {
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": token
+                Authorization: token
             }
         };
 
-        axios.post(url, data, config)
+        axios
+            .post(url, data, config)
             .then(graphRes => {
                 res.status(200).send(graphRes.data);
                 console.log(graphRes.data);
@@ -203,7 +228,7 @@ module.exports = app => {
             });
     });
 
-    app.post('/codeless/metadata/datasets/default/query/pq', (req, res) => {
+    app.post("/codeless/metadata/datasets/default/query/pq", (req, res) => {
         console.log("~~~POST POWERQUERY OTHER TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -214,7 +239,7 @@ module.exports = app => {
         });
     });
 
-    app.post('/codeless/datasets/default/query/pq', (req, res) => {
+    app.post("/codeless/datasets/default/query/pq", (req, res) => {
         console.log("~~~POST POWERQUERY TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -225,77 +250,75 @@ module.exports = app => {
         });
     });
 
-    app.get('/datasets/default/rootfolders', (req, res) => {
+    app.get("/datasets/default/rootfolders", (req, res) => {
         console.log("~~~GET ROOTFOLDERS OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers.authorization);
-        res.status(200).send(
-            [{
-                    Id: "idsomeid0",
-                    Name: "geoff1",
-                    DisplayName: "geren0",
-                    Path: "/unattended/path0",
-                    LastModified: "12-16-1995",
-                    Size: "11",
-                    MediaType: "picture",
-                    IsFolder: true,
-                    ETag: "tag",
-                    FileLocator: "whatsthis"
-                },
-                {
-                    Id: "idsomeid1",
-                    Name: "geoff2",
-                    DisplayName: "geren1",
-                    Path: "/unattended/path1",
-                    LastModified: "12-16-1995",
-                    Size: "11",
-                    MediaType: "picture",
-                    IsFolder: false,
-                    ETag: "tag",
-                    FileLocator: "whatsthis"
-                }
-            ]
-        );
+        res.status(200).send([
+            {
+                Id: "idsomeid0",
+                Name: "geoff1",
+                DisplayName: "geren0",
+                Path: "/unattended/path0",
+                LastModified: "12-16-1995",
+                Size: "11",
+                MediaType: "picture",
+                IsFolder: true,
+                ETag: "tag",
+                FileLocator: "whatsthis"
+            },
+            {
+                Id: "idsomeid1",
+                Name: "geoff2",
+                DisplayName: "geren1",
+                Path: "/unattended/path1",
+                LastModified: "12-16-1995",
+                Size: "11",
+                MediaType: "picture",
+                IsFolder: false,
+                ETag: "tag",
+                FileLocator: "whatsthis"
+            }
+        ]);
     });
 
-    app.get('/datasets/default/folders', (req, res) => {
+    app.get("/datasets/default/folders", (req, res) => {
         console.log("~~~GET FOLDERS OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers.authorization);
-        res.status(200).send(
-            [{
-                    Id: "idsomeid2",
-                    Name: "geoff3",
-                    DisplayName: "geren2",
-                    Path: "/unattended/path2",
-                    LastModified: "12-16-1995",
-                    Size: "11",
-                    MediaType: "picture",
-                    IsFolder: false,
-                    ETag: "tag",
-                    FileLocator: "whatsthis"
-                },
-                {
-                    Id: "idsomeid3",
-                    Name: "geoff4",
-                    DisplayName: "geren3",
-                    Path: "/unattended/path3",
-                    LastModified: "12-16-1995",
-                    Size: "11",
-                    MediaType: "picture",
-                    IsFolder: false,
-                    ETag: "tag",
-                    FileLocator: "whatsthis"
-                }
-            ]
-        );
+        res.status(200).send([
+            {
+                Id: "idsomeid2",
+                Name: "geoff3",
+                DisplayName: "geren2",
+                Path: "/unattended/path2",
+                LastModified: "12-16-1995",
+                Size: "11",
+                MediaType: "picture",
+                IsFolder: false,
+                ETag: "tag",
+                FileLocator: "whatsthis"
+            },
+            {
+                Id: "idsomeid3",
+                Name: "geoff4",
+                DisplayName: "geren3",
+                Path: "/unattended/path3",
+                LastModified: "12-16-1995",
+                Size: "11",
+                MediaType: "picture",
+                IsFolder: false,
+                ETag: "tag",
+                FileLocator: "whatsthis"
+            }
+        ]);
     });
 
-    app.get('/testconnection', (req, res) => {
+    app.get("/testconnection", (req, res) => {
         console.log("~~~GET TESTCONNECTION OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -305,7 +328,7 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
-    app.post('/testconnection', (req, res) => {
+    app.post("/testconnection", (req, res) => {
         console.log("~~~POST TESTCONNECTION OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -315,28 +338,27 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
-    app.get('/test', (req, res) => {
+    app.get("/test", (req, res) => {
         console.log("~~~GET TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
         // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
-        res.status(200).send({"test":"success"});
+        res.status(200).send({ test: "success" });
     });
 
-    app.post('/test', (req, res) => {
+    app.post("/test", (req, res) => {
         console.log("~~~POST TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
         // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
-        res.status(200).send({"test":"success"});
+        res.status(200).send({ test: "success" });
     });
 
-
-    app.get('/test/:drive/:file', (req, res) => {
+    app.get("/test/:drive/:file", (req, res) => {
         console.log("~~~GET FILE PICKER TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -346,11 +368,11 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
-    app.get('/connector/popup', (req, res) => {
+    app.get("/connector/popup", (req, res) => {
         console.log("~~~GET POPUP PARAM~~~");
         if (!req.body || !req.query) {
             res.status(404).send({
-                error: 'no data'
+                error: "no data"
             });
         } else {
             console.log(req.query);
@@ -402,11 +424,11 @@ module.exports = app => {
                         }
                     }
                 }
-            })
+            });
         }
     });
 
-    app.post('/connector/scripts', (req, res) => {
+    app.post("/connector/scripts", (req, res) => {
         console.log("~~~GET SCRIPTS~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -424,18 +446,21 @@ module.exports = app => {
         // console.log("\n~~~~~~~~~~~~~~\n")
         console.log(req.headers);
         res.status(200).send({
-            scripts: [{
-                Metadata: {
-                    Name: "geoffScript"
+            scripts: [
+                {
+                    Metadata: {
+                        Name: "geoffScript"
+                    },
+                    Id: "someidthatdenotesgeoffscript"
                 },
-                Id: "someidthatdenotesgeoffscript"
-            }, {
-                Metadata: {
-                    Name: "dynamicGeoffScript"
-                },
-                Id: "anotheridthatdenotesdynamicgeoffscript"
-            }]
-        })
+                {
+                    Metadata: {
+                        Name: "dynamicGeoffScript"
+                    },
+                    Id: "anotheridthatdenotesdynamicgeoffscript"
+                }
+            ]
+        });
         // console.log("\n~~~~~~~~~~~~~~~~\n");
         // if (req.query.location.toLowerCase() === "redmond") {
         //     // if (userId === "1c889869-3278-480c-a242-7969a8224162") {
@@ -507,26 +532,29 @@ module.exports = app => {
         // }
     });
 
-    app.get('/api/storage', (req, res) => {
+    app.get("/api/storage", (req, res) => {
         console.log("~~~GET SCRIPTS API STORAGE~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
-        res.status(200).send([{
+        res.status(200).send([
+            {
                 metadata: {
                     name: "geoffScript"
                 },
                 id: "someidthatdenotesgeoffscript"
-            }, {
+            },
+            {
                 metadata: {
                     name: "dynamicGeoffScript"
                 },
                 id: "anotheridthatdenotesdynamicgeoffscript"
-            }])
-    });    
+            }
+        ]);
+    });
 
-    app.post('/connector/user', (req, res) => {
+    app.post("/connector/user", (req, res) => {
         console.log("~~~GET TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -536,7 +564,7 @@ module.exports = app => {
         });
     });
 
-    app.post('/connector/execute', (req, res) => {
+    app.post("/connector/execute", (req, res) => {
         console.log("~~~POST EXECUTE OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -549,7 +577,7 @@ module.exports = app => {
         });
     });
 
-    app.post('/connector/execute/:drive/:file', (req, res) => {
+    app.post("/connector/execute/:drive/:file", (req, res) => {
         console.log("~~~POST EXECUTE OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -562,7 +590,7 @@ module.exports = app => {
         });
     });
 
-    app.post('/api/unattended/run/:drive/:file', (req, res) => {
+    app.post("/api/unattended/run/:drive/:file", (req, res) => {
         console.log("~~~POST EXECUTE OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -573,41 +601,66 @@ module.exports = app => {
             retInt: 2525,
             retArr: ["str1", "str2", "str3"]
         });
-    });    
-
-    app.get('/v1.0/drives/:drive/items/:file/workbook/worksheets', (req, res) => {
-        console.log("~~~GET FILE PICKER OPERATION~~~");
-        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
-        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
-        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        res.status(200).send({
-            success: "succeeded"
-        });
     });
 
-    app.get('/connector/schema', (req, res) => {
+    app.get(
+        "/v1.0/drives/:drive/items/:file/workbook/worksheets",
+        (req, res) => {
+            console.log("~~~GET FILE PICKER OPERATION~~~");
+            console.log(
+                `RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`
+            );
+            console.log(
+                `RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`
+            );
+            console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+            res.status(200).send({
+                success: "succeeded"
+            });
+        }
+    );
+
+    app.get("/connector/schema", (req, res) => {
         console.log("~~~GET SCHEMA PARAM~~~");
         if (!req.body || !req.query) {
             res.status(404).send({
-                error: 'no data'
+                error: "no data"
             });
         } else {
             console.log(req.query);
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
                 res.status(200).send({
                     Schema: {
-                        type : "object",
-                        required : [ "userName" ],
-                        properties : {
-                          userName : {
-                            type : "string"
-                          },
-                          firstName : {
-                            type : "string"
-                          },
-                          lastName : {
-                            type : "string"
-                          }
+                        type: "object",
+                        required: ["stringType", "arrayType", "stringLiteralType"],
+                        properties: {
+                            stringType: {
+                                type: "string"
+                            },
+                            numberType: {
+                                type: "number"
+                            },
+                            booleanType: {
+                                type: "boolean"
+                            },
+                            arrayType: {
+                                type: "array",
+                                items: {
+                                    type: "string"
+                                }
+                            },
+                            stringLiteralType: {
+                                type: "string",
+                                enum: ["str1", "str2"]
+                            },
+                            numericLiteralType: {
+                                type: "number",
+                                enum: [0, 1, 2]
+                            },
+                            booleanLiteralType: {
+                                type: "boolean",
+                                enum: [true, false]
+                            }
                         }
                     }
                 });
@@ -636,16 +689,16 @@ module.exports = app => {
                             }
                         }
                     }
-                });            
+                });
             }
         }
     });
 
-    app.get('/connector/schemaresponse', (req, res) => {
+    app.get("/connector/schemaresponse", (req, res) => {
         console.log("~~~GET SCHEMA RESPONSE~~~");
         if (!req.body || !req.query) {
             res.status(404).send({
-                error: 'no data'
+                error: "no data"
             });
         } else {
             console.log(req.query);
@@ -691,12 +744,12 @@ module.exports = app => {
                             }
                         }
                     }
-                });                    
+                });
             }
         }
     });
 
-    app.post('/api/contacts/:name', (req, res) => {
+    app.post("/api/contacts/:name", (req, res) => {
         console.log("~~~GET TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -706,7 +759,7 @@ module.exports = app => {
         });
     });
 
-    app.get('/api/schema', (req, res) => {
+    app.get("/api/schema", (req, res) => {
         console.log("~~~GET TEST SCHEMA~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -725,7 +778,7 @@ module.exports = app => {
                     }
                 }
             }
-        }
+        };
 
         console.log("SENDING RESPONSE OBJECT");
         console.log(JSON.stringify(resp, null, 2));
