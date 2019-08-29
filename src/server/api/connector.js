@@ -680,29 +680,37 @@ module.exports = app => {
                         type: "object",
                         properties: {
                             stringType: {
-                                type: "string"
+                                type: "string",
+                                "x-ms-summary": "stringType name"
                             },
                             numberType: {
-                                type: "integer"
+                                type: "integer",
+                                "x-ms-summary": "numberType name"
                             },
                             booleanType: {
-                                type: "boolean"
+                                type: "boolean",
+                                "x-ms-summary": "booleanType name"
                             },
                             arrayType: {
                                 type: "array",
+                                items: {
+                                    type: "string"
+                                },
                                 "x-ms-summary": "retArrName"
                             },
                             nestedTypeLiteralType: {
                                 type: "object",
                                 properties: {
                                     nestedStringType: {
-                                        type: "string"
+                                        type: "string",
+                                        "x-ms-summary": "nestedStringType name"
                                     },
                                     nestedNestedTypeLiteralType: {
                                         type: "object",
                                         properties: {
                                             nestedNestedStringType: {
-                                                type: "string"
+                                                type: "string",
+                                                "x-ms-summary": "nestedNestedStringType name"
                                             }
                                         }
                                     }
