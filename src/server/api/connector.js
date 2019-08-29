@@ -685,8 +685,7 @@ module.exports = app => {
                             },
                             numberType: {
                                 type: "integer",
-                                "x-ms-summary": "numberType name",
-                                enum: [0, 1, 2]
+                                "x-ms-summary": "numberType name"
                             },
                             booleanType: {
                                 type: "boolean",
