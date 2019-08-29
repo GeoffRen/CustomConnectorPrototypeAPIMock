@@ -709,7 +709,7 @@ module.exports = app => {
                                         type: "object",
                                         properties: {
                                             nestedNestedStringType: {
-                                                type: "string",
+                                                type: "array",
                                                 "x-ms-summary": "nestedNestedStringType name"
                                             }
                                         }
