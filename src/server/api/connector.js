@@ -716,25 +716,21 @@ module.exports = app => {
                     Schema: {
                         type: "object",
                         properties: {
-                            stringType: {
-                                type: "string",
-                                "x-ms-summary": "stringType name"
-                            },
-                            numberType: {
-                                type: "integer",
-                                "x-ms-summary": "numberType name"
-                            },
-                            booleanType: {
-                                type: "boolean",
-                                "x-ms-summary": "booleanType name"
-                            },
-                            arrayType: {
-                                type: "array",
-                                items: {
-                                    type: "string"
-                                },
-                                "x-ms-summary": "retArrName"
-                            },
+                            // stringType: {
+                            //     type: "string",
+                            // },
+                            // numberType: {
+                            //     type: "integer",
+                            // },
+                            // booleanType: {
+                            //     type: "boolean",
+                            // },
+                            // arrayType: {
+                            //     type: "array",
+                            //     items: {
+                            //         type: "string"
+                            //     },
+                            // },
                             arrayType2: {
                                 type: "array",
                                 items: {
@@ -747,12 +743,12 @@ module.exports = app => {
                             nestedTypeLiteralType: {
                                 type: "object",
                                 properties: {
-                                    nestedStringType: {
-                                        type: "array",
-                                        items: {
-                                            type: "string"
-                                        }
-                                    },
+                                    // nestedStringType: {
+                                    //     type: "array",
+                                    //     items: {
+                                    //         type: "string"
+                                    //     }
+                                    // },
                                     nestedStringType2: {
                                         type: "array",
                                         items: {
@@ -761,15 +757,14 @@ module.exports = app => {
                                                 type: "string"
                                             }
                                         }
-                                    },
-                                    nestedNestedTypeLiteralType: {
-                                        type: "object",
-                                        properties: {
-                                            nestedNestedStringType: {
-                                                type: "array",
-                                                "x-ms-summary": "nestedNestedStringType name"
-                                            }
-                                        }
+                                    // },
+                                    // nestedNestedTypeLiteralType: {
+                                    //     type: "object",
+                                    //     properties: {
+                                    //         nestedNestedStringType: {
+                                    //             type: "array",
+                                    //         }
+                                    //     }
                                     }
                                 }
                             }
