@@ -735,12 +735,32 @@ module.exports = app => {
                                 },
                                 "x-ms-summary": "retArrName"
                             },
+                            arrayType2: {
+                                type: "array",
+                                items: {
+                                    type: "array",
+                                    items: {
+                                        type: "string"
+                                    }
+                                }
+                            },
                             nestedTypeLiteralType: {
                                 type: "object",
                                 properties: {
                                     nestedStringType: {
-                                        type: "string",
-                                        "x-ms-summary": "nestedStringType name"
+                                        type: "array",
+                                        items: {
+                                            type: "string"
+                                        }
+                                    },
+                                    nestedStringType2: {
+                                        type: "array",
+                                        items: {
+                                            type: "array",
+                                            items: {
+                                                type: "string"
+                                            }
+                                        }
                                     },
                                     nestedNestedTypeLiteralType: {
                                         type: "object",
