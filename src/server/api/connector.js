@@ -657,7 +657,35 @@ module.exports = app => {
                                         type: "string"
                                     }
                                 }
-                            },                            
+                            },
+                            arrayType3: {
+                                type: "array",
+                                items: {
+                                    type: "object",
+                                    properties: {
+                                        p1: {
+                                            type: "string"
+                                        },
+                                        p2: {
+                                            type: "boolean"
+                                        }
+                                    }
+                                }
+                            },     
+                            obj: {
+                                type: "object",
+                                properties: {
+                                    p3: {
+                                        type: "string",
+                                    },
+                                    p4: {
+                                        type: "array",
+                                        items: {
+                                            type: "number"
+                                        }
+                                    }
+                                }
+                            },         
                             stringLiteralType: {
                                 type: "string",
                                 enum: ["str1", "str2"]
