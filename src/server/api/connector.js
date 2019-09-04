@@ -649,6 +649,15 @@ module.exports = app => {
                                     type: "string"
                                 }
                             },
+                            arrayType2: {
+                                type: "array",
+                                items: {
+                                    type: "array",
+                                    items: {
+                                        type: "string"
+                                    }
+                                }
+                            },                            
                             stringLiteralType: {
                                 type: "string",
                                 enum: ["str1", "str2"]
