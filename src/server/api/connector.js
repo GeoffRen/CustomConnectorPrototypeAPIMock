@@ -740,15 +740,26 @@ module.exports = app => {
                                     }
                                 }
                             },
+                            arrayType3: {
+                                type: "array",
+                                items: {
+                                    type: "object",
+                                    properties: {
+                                        arrType3Prop: {
+                                            type: "string"
+                                        }
+                                    }
+                                }
+                            },
                             nestedTypeLiteralType: {
                                 type: "object",
                                 properties: {
-                                    // nestedStringType: {
-                                    //     type: "array",
-                                    //     items: {
-                                    //         type: "string"
-                                    //     }
-                                    // },
+                                    nestedStringType: {
+                                        type: "array",
+                                        items: {
+                                            type: "string"
+                                        }
+                                    },
                                     nestedStringType2: {
                                         type: "array",
                                         items: {
