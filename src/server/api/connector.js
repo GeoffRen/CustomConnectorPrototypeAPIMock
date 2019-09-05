@@ -635,21 +635,32 @@ module.exports = app => {
                         required: ["stringType", "arrayType", "stringLiteralType"],
                         properties: {
                             stringType: {
-                                type: "string"
+                                type: "string",
+                                default: "def1"
                             },
                             numberType: {
-                                type: "number"
+                                type: "number",
+                                default: 11
                             },
                             booleanType: {
-                                type: "boolean"
+                                type: "boolean",
+                                default: true
                             },
                             arrayType: {
                                 type: "array",
                                 items: {
                                     type: "string"
-                                }
+                                },
+                                default: ["arr1"]
                             },
                             arrayType2: {
+                                type: "array",
+                                items: {
+                                    type: "string"
+                                },
+                                default: ["arr1", "arr2", "arr3"]
+                            },
+                            arrayType3: {
                                 type: "array",
                                 items: {
                                     type: "array",
@@ -658,7 +669,7 @@ module.exports = app => {
                                     }
                                 }
                             },
-                            arrayType3: {
+                            arrayType4: {
                                 type: "array",
                                 items: {
                                     type: "object",
@@ -688,11 +699,13 @@ module.exports = app => {
                             },         
                             stringLiteralType: {
                                 type: "string",
-                                enum: ["str1", "str2"]
+                                enum: ["str1", "str2"],
+                                default: "str1"
                             },
                             numericLiteralType: {
                                 type: "number",
-                                enum: [0, 1, 2]
+                                enum: [0, 1, 2],
+                                default: 4
                             }
                         }
                     }
