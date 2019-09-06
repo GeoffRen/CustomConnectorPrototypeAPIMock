@@ -644,34 +644,34 @@ module.exports = app => {
                     required: [],
                     properties: {
                         p1: {
-                            type: FlowType.FlowType.Array,
+                            type: 'Array',
                             items: {
-                                type: FlowType.FlowType.String
+                                type: 'String'
                             }
                         },
                         p2: {
-                            type: FlowType.FlowType.Array,
+                            type: 'Array',
                             items: {
-                                type: FlowType.FlowType.Number
+                                type: 'Number'
                             }
                         },
                         p3: {
-                            type: FlowType.FlowType.Array,
+                            type: 'Array',
                             items: {
-                                type: FlowType.FlowType.Boolean
+                                type: 'Boolean'
                             }
                         },
                         p4: {
-                            type: FlowType.FlowType.Array,
+                            type: 'Array',
                             items: {
-                                type: FlowType.FlowType.String,
+                                type: 'String',
                                 enum: ['str1', 'str2']
                             }
                         },
                         p5: {
-                            type: FlowType.FlowType.Array,
+                            type: 'Array',
                             items: {
-                                type: FlowType.FlowType.Number,
+                                type: 'Number',
                                 enum: [1, 2]
                             }
                         }
