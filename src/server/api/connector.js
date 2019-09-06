@@ -639,87 +639,101 @@ module.exports = app => {
         } else {
             console.log(req.query);
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
-                res.status(200).send({
-                    Schema: {
-                        type: "object",
-                        required: ["stringType", "arrayType", "stringLiteralType"],
-                        properties: {
-                            stringType: {
-                                type: "string",
-                                default: "def1"
-                            },
-                            numberType: {
-                                type: "number",
-                                default: 11
-                            },
-                            booleanType: {
-                                type: "boolean",
-                                default: true
-                            },
-                            arrayType: {
-                                type: "array",
-                                items: {
-                                    type: "string"
-                                },
-                                default: ["arr1"],
-                                isRest: true
-                            },
-                            arrayType2: {
-                                type: "array",
-                                items: {
-                                    type: "string"
-                                },
-                                default: ["arr1", "arr2", "arr3"]
-                            },
-                            arrayType3: {
-                                type: "array",
-                                items: {
-                                    type: "array",
-                                    items: {
-                                        type: "string"
-                                    }
-                                }
-                            },
-                            arrayType4: {
-                                type: "array",
-                                items: {
-                                    type: "object",
-                                    properties: {
-                                        p1: {
-                                            type: "string"
-                                        },
-                                        p2: {
-                                            type: "boolean"
-                                        }
-                                    }
-                                }
-                            },     
-                            obj: {
-                                type: "object",
-                                properties: {
-                                    p3: {
-                                        type: "string",
-                                    },
-                                    p4: {
-                                        type: "array",
-                                        items: {
-                                            type: "number"
-                                        }
-                                    }
-                                }
-                            },         
-                            stringLiteralType: {
-                                type: "string",
-                                enum: ["str1", "str2"],
-                                default: "str1"
-                            },
-                            numericLiteralType: {
-                                type: "number",
-                                enum: [0, 1, 2],
-                                default: 4
-                            }
+                res.status(200).send({        Schema: {
+                    type: 'object',
+                    required: ['p1', 'p2', 'p3'],
+                    properties: {
+                        p1: {
+                            type: FlowType.FlowType.String
+                        },
+                        p2: {
+                            type: FlowType.FlowType.Number
+                        },
+                        p3: {
+                            type: FlowType.FlowType.Boolean
                         }
                     }
+                }
+                    // Schema: {
+                    //     type: "object",
+                    //     required: ["stringType", "arrayType", "stringLiteralType"],
+                    //     properties: {
+                    //         stringType: {
+                    //             type: "string",
+                    //             default: "def1"
+                    //         },
+                    //         numberType: {
+                    //             type: "number",
+                    //             default: 11
+                    //         },
+                    //         booleanType: {
+                    //             type: "boolean",
+                    //             default: true
+                    //         },
+                    //         arrayType: {
+                    //             type: "array",
+                    //             items: {
+                    //                 type: "string"
+                    //             },
+                    //             default: ["arr1"],
+                    //             isRest: true
+                    //         },
+                    //         arrayType2: {
+                    //             type: "array",
+                    //             items: {
+                    //                 type: "string"
+                    //             },
+                    //             default: ["arr1", "arr2", "arr3"]
+                    //         },
+                    //         arrayType3: {
+                    //             type: "array",
+                    //             items: {
+                    //                 type: "array",
+                    //                 items: {
+                    //                     type: "string"
+                    //                 }
+                    //             }
+                    //         },
+                    //         arrayType4: {
+                    //             type: "array",
+                    //             items: {
+                    //                 type: "object",
+                    //                 properties: {
+                    //                     p1: {
+                    //                         type: "string"
+                    //                     },
+                    //                     p2: {
+                    //                         type: "boolean"
+                    //                     }
+                    //                 }
+                    //             }
+                    //         },     
+                    //         obj: {
+                    //             type: "object",
+                    //             properties: {
+                    //                 p3: {
+                    //                     type: "string",
+                    //                 },
+                    //                 p4: {
+                    //                     type: "array",
+                    //                     items: {
+                    //                         type: "number"
+                    //                     }
+                    //                 }
+                    //             }
+                    //         },         
+                    //         stringLiteralType: {
+                    //             type: "string",
+                    //             enum: ["str1", "str2"],
+                    //             default: "str1"
+                    //         },
+                    //         numericLiteralType: {
+                    //             type: "number",
+                    //             enum: [0, 1, 2],
+                    //             default: 4
+                    //         }
+                    //     }
+                    // }
                 });
             } else {
                 res.status(200).send();
