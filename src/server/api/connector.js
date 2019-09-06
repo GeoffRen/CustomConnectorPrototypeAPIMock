@@ -644,13 +644,13 @@ module.exports = app => {
                     required: ['p1', 'p2', 'p3'],
                     properties: {
                         p1: {
-                            type: FlowType.FlowType.String
+                            type: 'string'
                         },
                         p2: {
-                            type: FlowType.FlowType.Number
+                            type: 'number'
                         },
                         p3: {
-                            type: FlowType.FlowType.Boolean
+                            type: 'boolean'
                         }
                     }
                 }
