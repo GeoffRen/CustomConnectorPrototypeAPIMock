@@ -639,7 +639,7 @@ module.exports = app => {
         } else {
             console.log(req.query);
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
-                res.status(200).send({        Schema: {
+                res.status(200).send({         Schema: {
                     type: 'object',
                     required: ['p1', 'p2', 'p3', 'p4', 'p5'],
                     properties: {
