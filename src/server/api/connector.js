@@ -641,38 +641,15 @@ module.exports = app => {
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
                 res.status(200).send({         Schema: {
                     type: 'object',
-                    required: ['p1', 'p2', 'p3', 'p4', 'p5'],
+                    required: ['p1'],
                     properties: {
                         p1: {
                             type: 'Array',
                             items: {
-                                type: 'String'
-                            }
-                        },
-                        p2: {
-                            type: 'Array',
-                            items: {
-                                type: 'Number'
-                            }
-                        },
-                        p3: {
-                            type: 'Array',
-                            items: {
-                                type: 'Boolean'
-                            }
-                        },
-                        p4: {
-                            type: 'Array',
-                            items: {
-                                type: 'String',
-                                enum: ['str1', 'str2']
-                            }
-                        },
-                        p5: {
-                            type: 'Array',
-                            items: {
-                                type: 'Number',
-                                enum: [1, 2]
+                                type: 'Array',
+                                items: {
+                                    type: 'String'
+                                }
                             }
                         }
                     }
