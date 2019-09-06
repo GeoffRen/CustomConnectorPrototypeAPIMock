@@ -368,7 +368,7 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
-    app.get("/api/api/api/unattended/run/:drive/:file", (req, res) => {
+    app.post("/api/api/api/unattended/run/:drive/:file", (req, res) => {
         console.log("~~~GET FILE PICKER TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
