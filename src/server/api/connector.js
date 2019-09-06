@@ -639,49 +639,17 @@ module.exports = app => {
         } else {
             console.log(req.query);
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
-                res.status(200).send({                Schema: {
+                res.status(200).send({                        Schema: {
                     type: 'object',
-                    required: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'],
+                    required: ['p1', 'p2'],
                     properties: {
                         p1: {
                             type: 'String',
-                            default: 'foo'
+                            enum: ['str1', 'str2']
                         },
                         p2: {
                             type: 'Number',
-                            default: 5
-                        },
-                        p3: {
-                            type: 'Boolean',
-                            default: true
-                        },
-                        p4: {
-                            type: 'Array',
-                            items: {
-                                type: 'String'
-                            },
-                            default: []
-                        },
-                        p5: {
-                            type: 'Array',
-                            items: {
-                                type: 'String'
-                            },
-                            default: ['v1', 'v2']
-                        },
-                        p6: {
-                            type: 'Array',
-                            items: {
-                                type: 'Number'
-                            },
-                            default: [0, 1, 2]
-                        },
-                        p7: {
-                            type: 'Array',
-                            items: {
-                                type: 'Boolean'
-                            },
-                            default: [true, false, false]
+                            enum: [1, 2]
                         }
                     }
                 }
