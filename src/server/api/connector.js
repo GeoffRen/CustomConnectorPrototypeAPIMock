@@ -661,7 +661,8 @@ module.exports = app => {
                                 items: {
                                     type: "string"
                                 },
-                                default: ["arr1"]
+                                default: ["arr1"],
+                                isRest: true
                             },
                             arrayType2: {
                                 type: "array",
