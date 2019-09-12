@@ -888,7 +888,7 @@ module.exports = app => {
                         properties: {
                         }
                     }
-                }
+                });
             }
         }
     });
