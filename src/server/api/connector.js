@@ -793,7 +793,7 @@ module.exports = app => {
                     Schema: {
                         type: 'object',
                         properties: {},
-                        "x-ms-visibility": "internal"
+                        // "x-ms-visibility": "internal"
                     }
                 });
             }
