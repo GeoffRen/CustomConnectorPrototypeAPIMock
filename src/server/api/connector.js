@@ -791,15 +791,15 @@ module.exports = app => {
             } else {
                 res.status(200).send({
                     Schema: {
-                        "x-ms-visibility": "internal"
-                        // type: 'object',
-                        // required: [],
-                        // properties: {
+                        type: 'object',
+                        required: [],
+                        properties: {
                         //     stringType: {
                         //         type: "string",
                         //         "x-ms-visibility": "internal"
                         //     }                          
-                        // }
+                        }
+                        // "x-ms-visibility": "internal"
                     }
                 });
             }
