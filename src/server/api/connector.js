@@ -794,6 +794,10 @@ module.exports = app => {
                         type: 'object',
                         required: [],
                         properties: {
+                            stringType: {
+                                type: "string",
+                                "x-ms-visibility": "internal"
+                            }                          
                         }
                     }
                 });
