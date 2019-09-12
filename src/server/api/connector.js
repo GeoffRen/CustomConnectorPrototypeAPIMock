@@ -791,6 +791,7 @@ module.exports = app => {
             } else {
                 res.status(200).send({
                     Schema: {
+                        type: "string"
                         // type: 'object',
                         // required: [],
                         // properties: {
