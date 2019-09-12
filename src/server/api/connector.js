@@ -798,8 +798,8 @@ module.exports = app => {
                         //         type: "string",
                         //         "x-ms-visibility": "internal"
                         //     }                          
-                        }
-                        // "x-ms-visibility": "internal"
+                        },
+                        "x-ms-visibility": "internal"
                     }
                 });
             }
