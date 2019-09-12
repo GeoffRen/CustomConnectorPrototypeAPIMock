@@ -792,13 +792,13 @@ module.exports = app => {
                 res.status(200).send({
                     Schema: {
                         type: 'object',
-                        required: [],
-                        properties: {
+                        // required: [],
+                        // properties: {
                         //     stringType: {
                         //         type: "string",
                         //         "x-ms-visibility": "internal"
-                        //     }                          
-                        },
+                            // }                          
+                        // },
                         "x-ms-visibility": "internal"
                     }
                 });
