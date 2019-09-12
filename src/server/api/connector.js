@@ -789,7 +789,20 @@ module.exports = app => {
                     // }
                 });
             } else {
-                res.status(200).send();
+                res.status(200).send({
+                    Schema: {
+                        type: 'object',
+                        required: [],
+                        properties: {
+                            p1: {
+                                type: 'Array',
+                                items: {
+                                    type: 'String'
+                                }
+                            }
+                        }
+                    }
+                });
             }
         }
     });
