@@ -792,6 +792,7 @@ module.exports = app => {
                 res.status(200).send({
                     Schema: {
                         type: 'object',
+                        properties: {},
                         "x-ms-visibility": "internal"
                     }
                 });
@@ -882,6 +883,7 @@ module.exports = app => {
                 res.status(200).send({
                     Schema: {
                         type: 'object',
+                        properties: {},
                         "x-ms-visibility": "internal"
                     }
                 });
