@@ -794,12 +794,6 @@ module.exports = app => {
                         type: 'object',
                         required: [],
                         properties: {
-                            p1: {
-                                type: 'Array',
-                                items: {
-                                    type: 'String'
-                                }
-                            }
                         }
                     }
                 });
