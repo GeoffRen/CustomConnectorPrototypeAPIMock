@@ -793,12 +793,12 @@ module.exports = app => {
                     Schema: {
                         type: 'object',
                         required: [],
-                        properties: {
-                            stringType: {
-                                type: "string",
-                                "x-ms-visibility": "internal"
-                            }                          
-                        }
+                        // properties: {
+                        //     stringType: {
+                        //         type: "string",
+                        //         "x-ms-visibility": "internal"
+                        //     }                          
+                        // }
                     }
                 });
             }
