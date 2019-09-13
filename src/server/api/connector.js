@@ -696,13 +696,10 @@ module.exports = app => {
                         p3: {
                             type: 'Boolean'
                         },
-                        // p4: {
-                        //     type: 'Array',
-                        //     items: {
-                        //         type: 'String',
-                        //         enum: ['str1', 'str2']
-                        //     }
-                        // },
+                        p4: {
+                            type: 'String',
+                            enum: ['str1', 'str2']
+                        },
                         // p5: {
                         //     type: 'Array',
                         //     items: {
