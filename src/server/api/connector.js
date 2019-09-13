@@ -680,31 +680,25 @@ module.exports = app => {
                             }
                         },
                         p2: {
-                            type: 'Array',
-                            items: {
-                                type: 'Number'
-                            }
+                            type: 'Number'
                         },
                         p3: {
-                            type: 'Array',
-                            items: {
-                                type: 'Boolean'
-                            }
+                            type: 'Boolean'
                         },
-                        p4: {
-                            type: 'Array',
-                            items: {
-                                type: 'String',
-                                enum: ['str1', 'str2']
-                            }
-                        },
-                        p5: {
-                            type: 'Array',
-                            items: {
-                                type: 'Number',
-                                enum: [1, 2]
-                            }
-                        }
+                        // p4: {
+                        //     type: 'Array',
+                        //     items: {
+                        //         type: 'String',
+                        //         enum: ['str1', 'str2']
+                        //     }
+                        // },
+                        // p5: {
+                        //     type: 'Array',
+                        //     items: {
+                        //         type: 'Number',
+                        //         enum: [1, 2]
+                        //     }
+                        // }
                     }
                 }
                     // Schema: {
@@ -793,7 +787,7 @@ module.exports = app => {
                     Schema: {
                         type: 'object',
                         properties: {},
-                        // "x-ms-visibility": "internal"
+                        "x-ms-visibility": "internal"
                     }
                 });
             }
