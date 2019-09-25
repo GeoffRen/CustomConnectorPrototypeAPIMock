@@ -680,35 +680,77 @@ module.exports = app => {
         } else {
             console.log(req.query);
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
-                res.status(200).send({         Schema: {
-                    type: 'object',
-                    required: [],
-                    properties: {
-                        p1: {
-                            type: 'Array',
-                            items: {
-                                type: 'String'
+                res.status(200).send(
+                    {
+                        "originalParameterOrder": [
+                          {
+                            "name": "p0",
+                            "index": 0
+                          },
+                          {
+                            "name": "p1",
+                            "index": 1
+                          },
+                          {
+                            "name": "p2",
+                            "index": 2
+                          }
+                        ],
+                          "Schema": {
+                            "type": "object",
+                            "required": [
+                              "p0",
+                              "p2"
+                            ],
+                            "properties": {
+                              "p0": {
+                                "type": "String"
+                              },
+                              "p1": {
+                                "type": "Number",
+                                "default": 5
+                              },
+                              "p2": {
+                                "type": "Array",
+                                "items": {
+                                  "type": "String"
+                                }
+                              }
                             }
                         },
-                        p2: {
-                            type: 'Number'
-                        },
-                        p3: {
-                            type: 'Boolean'
-                        },
-                        p4: {
-                            type: 'String',
-                            enum: ['str1', 'str2']
-                        },
-                        // p5: {
-                        //     type: 'Array',
-                        //     items: {
-                        //         type: 'Number',
-                        //         enum: [1, 2]
-                        //     }
-                        // }
-                    }
-                }
+                        "flowReturnSchema": {
+                          "Schema": {
+                            "type": "object",
+                            "properties": {
+                              "main": {
+                                "type": "Object",
+                                "properties": {
+                                  "r0": {
+                                    "type": "String"
+                                  },
+                                  "r1": {
+                                    "type": "Object",
+                                    "properties": {
+                                      "r2": {
+                                        "type": "Object",
+                                        "properties": {
+                                          "r3": {
+                                            "type": "Number"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "r4": {
+                                    "type": "Boolean"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    // {
                     // Schema: {
                     //     type: "object",
                     //     required: ["stringType", "arrayType", "stringLiteralType"],
@@ -789,7 +831,8 @@ module.exports = app => {
                     //         }
                     //     }
                     // }
-                });
+                    // }
+                );
             } else {
                 res.status(200).send({
                     Schema: {
@@ -811,76 +854,147 @@ module.exports = app => {
         } else {
             console.log(req.query);
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
-                res.status(200).send({
-                    Schema: {
-                        type: "object",
-                        properties: {
-                            // stringType: {
-                            //     type: "string",
-                            // },
-                            // numberType: {
-                            //     type: "integer",
-                            // },
-                            // booleanType: {
-                            //     type: "boolean",
-                            // },
-                            // arrayType: {
-                            //     type: "array",
-                            //     items: {
-                            //         type: "string"
-                            //     },
-                            // },
-                            arrayType2: {
-                                type: "array",
-                                items: {
-                                    type: "array",
-                                    items: {
-                                        type: "string"
-                                    }
+                res.status(200).send(
+                    {
+                        "originalParameterOrder": [
+                          {
+                            "name": "p0",
+                            "index": 0
+                          },
+                          {
+                            "name": "p1",
+                            "index": 1
+                          },
+                          {
+                            "name": "p2",
+                            "index": 2
+                          }
+                        ],
+                        "flowParameterSchema": {
+                          "Schema": {
+                            "type": "object",
+                            "required": [
+                              "p0",
+                              "p2"
+                            ],
+                            "properties": {
+                              "p0": {
+                                "type": "String"
+                              },
+                              "p1": {
+                                "type": "Number",
+                                "default": 5
+                              },
+                              "p2": {
+                                "type": "Array",
+                                "items": {
+                                  "type": "String"
                                 }
-                            },
-                            arrayType3: {
-                                type: "array",
-                                items: {
-                                    type: "object",
-                                    properties: {
-                                        arrType3Prop: {
-                                            type: "string"
-                                        }
-                                    }
-                                }
-                            },
-                            nestedTypeLiteralType: {
-                                type: "object",
-                                properties: {
-                                    nestedStringType: {
-                                        type: "array",
-                                        items: {
-                                            type: "string"
-                                        }
-                                    },
-                                    nestedStringType2: {
-                                        type: "array",
-                                        items: {
-                                            type: "array",
-                                            items: {
-                                                type: "string"
-                                            }
-                                        }
-                                    // },
-                                    // nestedNestedTypeLiteralType: {
-                                    //     type: "object",
-                                    //     properties: {
-                                    //         nestedNestedStringType: {
-                                    //             type: "array",
-                                    //         }
-                                    //     }
-                                    }
-                                }
+                              }
                             }
-                        }
-                    }
-                });
+                          }
+                        },
+                          "Schema": {
+                            "type": "object",
+                            "properties": {
+                              "main": {
+                                "type": "Object",
+                                "properties": {
+                                  "r0": {
+                                    "type": "String"
+                                  },
+                                  "r1": {
+                                    "type": "Object",
+                                    "properties": {
+                                      "r2": {
+                                        "type": "Object",
+                                        "properties": {
+                                          "r3": {
+                                            "type": "Number"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "r4": {
+                                    "type": "Boolean"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                      }
+                    // {
+                    //     Schema: {
+                    //         type: "object",
+                    //         properties: {
+                    //             // stringType: {
+                    //             //     type: "string",
+                    //             // },
+                    //             // numberType: {
+                    //             //     type: "integer",
+                    //             // },
+                    //             // booleanType: {
+                    //             //     type: "boolean",
+                    //             // },
+                    //             // arrayType: {
+                    //             //     type: "array",
+                    //             //     items: {
+                    //             //         type: "string"
+                    //             //     },
+                    //             // },
+                    //             arrayType2: {
+                    //                 type: "array",
+                    //                 items: {
+                    //                     type: "array",
+                    //                     items: {
+                    //                         type: "string"
+                    //                     }
+                    //                 }
+                    //             },
+                    //             arrayType3: {
+                    //                 type: "array",
+                    //                 items: {
+                    //                     type: "object",
+                    //                     properties: {
+                    //                         arrType3Prop: {
+                    //                             type: "string"
+                    //                         }
+                    //                     }
+                    //                 }
+                    //             },
+                    //             nestedTypeLiteralType: {
+                    //                 type: "object",
+                    //                 properties: {
+                    //                     nestedStringType: {
+                    //                         type: "array",
+                    //                         items: {
+                    //                             type: "string"
+                    //                         }
+                    //                     },
+                    //                     nestedStringType2: {
+                    //                         type: "array",
+                    //                         items: {
+                    //                             type: "array",
+                    //                             items: {
+                    //                                 type: "string"
+                    //                             }
+                    //                         }
+                    //                     // },
+                    //                     // nestedNestedTypeLiteralType: {
+                    //                     //     type: "object",
+                    //                     //     properties: {
+                    //                     //         nestedNestedStringType: {
+                    //                     //             type: "array",
+                    //                     //         }
+                    //                     //     }
+                    //                     }
+                    //                 }
+                    //             }
+                    //         }
+                    //     }
+                    // }
+                );
             } else {
                 res.status(200).send({
                     Schema: {
