@@ -858,10 +858,14 @@ module.exports = app => {
                 );
             } else {
                 res.status(200).send({
-                    Schema: {
-                        type: 'object',
+                    "Schema": {
+                        "type": 'object',
                         "required": [],
-                        properties: {},
+                        "properties": {
+                            "p0": {
+                                "type": "String"
+                              },
+                        },
                         // "x-ms-visibility": "internal"
                     },
                     flowReturnSchema: {
