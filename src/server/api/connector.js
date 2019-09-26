@@ -862,7 +862,7 @@ module.exports = app => {
                         type: 'object',
                         "required": [],
                         properties: {},
-                        "x-ms-visibility": "internal"
+                        // "x-ms-visibility": "internal"
                     },
                     flowReturnSchema: {
                         type: 'object',
