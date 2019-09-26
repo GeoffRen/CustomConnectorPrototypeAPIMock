@@ -864,6 +864,16 @@ module.exports = app => {
                         type: 'object',
                         properties: {},
                         "x-ms-visibility": "internal"
+                    },
+                    flowReturnSchema: {
+                        type: 'object',
+                        properties: {},
+                        "x-ms-visibility": "internal"
+                    },
+                    flowParameterSchema: {
+                        type: 'object',
+                        properties: {},
+                        "x-ms-visibility": "internal"
                     }
                 });
             }
@@ -1058,6 +1068,16 @@ module.exports = app => {
             } else {
                 res.status(200).send({
                     Schema: {
+                        type: 'object',
+                        properties: {},
+                        "x-ms-visibility": "internal"
+                    },
+                    flowReturnSchema: {
+                        type: 'object',
+                        properties: {},
+                        "x-ms-visibility": "internal"
+                    },
+                    flowParameterSchema: {
                         type: 'object',
                         properties: {},
                         "x-ms-visibility": "internal"
