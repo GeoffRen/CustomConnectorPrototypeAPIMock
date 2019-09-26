@@ -862,8 +862,9 @@ module.exports = app => {
                         "type": 'object',
                         "properties": {
                             "p0": {
-                                "type": "String"
-                              }
+                                "type": "String",
+                                "x-ms-visibility": "important"
+                            }
                         },
                         // "x-ms-visibility": "internal"
                     },
