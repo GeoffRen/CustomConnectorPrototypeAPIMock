@@ -865,7 +865,7 @@ module.exports = app => {
                                 "type": "String"
                               }
                         },
-                        "x-ms-visibility": "internal"
+                        // "x-ms-visibility": "internal"
                     },
                     flowReturnSchema: {
                         type: 'object',
