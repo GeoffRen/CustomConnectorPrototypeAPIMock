@@ -863,7 +863,7 @@ module.exports = app => {
                         "properties": {
                             "p0": {
                                 "type": "String",
-                                "x-ms-visibility": "important"
+                                "x-ms-visibility": "internal"
                             }
                         },
                         // "x-ms-visibility": "internal"
