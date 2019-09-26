@@ -860,11 +860,10 @@ module.exports = app => {
                 res.status(200).send({
                     "Schema": {
                         "type": 'object',
-                        "required": [],
                         "properties": {
                             "p0": {
                                 "type": "String"
-                              },
+                              }
                         },
                         // "x-ms-visibility": "internal"
                     },
