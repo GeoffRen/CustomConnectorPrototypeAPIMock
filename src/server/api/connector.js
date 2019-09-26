@@ -699,8 +699,6 @@ module.exports = app => {
                           "Schema": {
                             "type": "object",
                             "required": [
-                              "p0",
-                              "p2"
                             ],
                             "properties": {
                               "p0": {
