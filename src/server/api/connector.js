@@ -425,8 +425,11 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers.authorization);
-        res.status(200).send(JSON.parse('{}'));
-        // res.sendStatus(200);
+        res.status(200).send({
+            retStr: "TEST RET STRING ",
+            retInt: 2525
+            // retArr: ["str1", "str2", "str3"]
+        });
     });
 
     app.get("/connector/popup", (req, res) => {
@@ -864,6 +867,17 @@ module.exports = app => {
                           }
                         },
                         Schema: {
+                            type: "object",
+                            properties: {
+                                retStr: {
+                                    type: "String"
+                                },
+                                retInt: {
+                                    type: "Number"
+                                }
+                            }
+                        },
+                        Schema1: {
                             type: "object",
                             properties: {
                               main: {
