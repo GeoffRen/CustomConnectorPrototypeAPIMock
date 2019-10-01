@@ -773,88 +773,6 @@ module.exports = app => {
                           }
                         }
                       }
-                    // {
-                    // Schema: {
-                    //     type: "object",
-                    //     required: ["stringType", "arrayType", "stringLiteralType"],
-                    //     properties: {
-                    //         stringType: {
-                    //             type: "string",
-                    //             default: "def1"
-                    //         },
-                    //         numberType: {
-                    //             type: "number",
-                    //             default: 11
-                    //         },
-                    //         booleanType: {
-                    //             type: "boolean",
-                    //             default: true
-                    //         },
-                    //         arrayType: {
-                    //             type: "array",
-                    //             items: {
-                    //                 type: "string"
-                    //             },
-                    //             default: ["arr1"],
-                    //             isRest: true
-                    //         },
-                    //         arrayType2: {
-                    //             type: "array",
-                    //             items: {
-                    //                 type: "string"
-                    //             },
-                    //             default: ["arr1", "arr2", "arr3"]
-                    //         },
-                    //         arrayType3: {
-                    //             type: "array",
-                    //             items: {
-                    //                 type: "array",
-                    //                 items: {
-                    //                     type: "string"
-                    //                 }
-                    //             }
-                    //         },
-                    //         arrayType4: {
-                    //             type: "array",
-                    //             items: {
-                    //                 type: "object",
-                    //                 properties: {
-                    //                     p1: {
-                    //                         type: "string"
-                    //                     },
-                    //                     p2: {
-                    //                         type: "boolean"
-                    //                     }
-                    //                 }
-                    //             }
-                    //         },     
-                    //         obj: {
-                    //             type: "object",
-                    //             properties: {
-                    //                 p3: {
-                    //                     type: "string",
-                    //                 },
-                    //                 p4: {
-                    //                     type: "array",
-                    //                     items: {
-                    //                         type: "number"
-                    //                     }
-                    //                 }
-                    //             }
-                    //         },         
-                    //         stringLiteralType: {
-                    //             type: "string",
-                    //             enum: ["str1", "str2"],
-                    //             default: "str1"
-                    //         },
-                    //         numericLiteralType: {
-                    //             type: "number",
-                    //             enum: [0, 1, 2],
-                    //             default: 4
-                    //         }
-                    //     }
-                    // }
-                    // }
                 );
             } else {
                 res.status(200).send({
@@ -865,8 +783,7 @@ module.exports = app => {
                                 "type": "String",
                                 "x-ms-visibility": "internal"
                             }
-                        },
-                        // "x-ms-visibility": "internal"
+                        }
                     },
                     flowReturnSchema: {
                         type: 'object',
@@ -875,8 +792,12 @@ module.exports = app => {
                     },
                     flowParameterSchema: {
                         type: 'object',
-                        properties: {},
-                        "x-ms-visibility": "internal"
+                        "properties": {
+                            "p0": {
+                                "type": "String",
+                                "x-ms-visibility": "internal"
+                            }
+                        }
                     }
                 });
             }
@@ -932,35 +853,35 @@ module.exports = app => {
                             }
                           }
                         },
-                        "Schema": {
-                            "type": "object",
-                            "properties": {
-                              "main": {
-                                "type": "Object",
-                                "properties": {
-                                  "r0": {
-                                    "type": "String"
+                        Schema: {
+                            type: "object",
+                            properties: {
+                              main: {
+                                type: "Object",
+                                properties: {
+                                  r0: {
+                                    type: "String"
                                   },
-                                  "r1": {
-                                    "type": "Object",
-                                    "properties": {
-                                      "r2": {
-                                        "type": "Object",
-                                        "properties": {
-                                          "r3": {
-                                            "type": "Number"
+                                  r1: {
+                                    type: "Object",
+                                    properties: {
+                                      r2: {
+                                        type: "Object",
+                                        properties: {
+                                          r3: {
+                                            type: "Number"
                                           }
                                         }
                                       }
                                     }
                                   },
-                                  "r4": {
-                                    "type": "Boolean"
+                                  r4: {
+                                    type: "Boolean"
                                   }
                                 }
                               }
                             }
-                          },                       
+                          },                    
                           "flowReturnSchema": {
                             "type": "object",
                             "properties": {
@@ -997,76 +918,6 @@ module.exports = app => {
                             }
                           }
                       }
-                    // {
-                    //     Schema: {
-                    //         type: "object",
-                    //         properties: {
-                    //             // stringType: {
-                    //             //     type: "string",
-                    //             // },
-                    //             // numberType: {
-                    //             //     type: "integer",
-                    //             // },
-                    //             // booleanType: {
-                    //             //     type: "boolean",
-                    //             // },
-                    //             // arrayType: {
-                    //             //     type: "array",
-                    //             //     items: {
-                    //             //         type: "string"
-                    //             //     },
-                    //             // },
-                    //             arrayType2: {
-                    //                 type: "array",
-                    //                 items: {
-                    //                     type: "array",
-                    //                     items: {
-                    //                         type: "string"
-                    //                     }
-                    //                 }
-                    //             },
-                    //             arrayType3: {
-                    //                 type: "array",
-                    //                 items: {
-                    //                     type: "object",
-                    //                     properties: {
-                    //                         arrType3Prop: {
-                    //                             type: "string"
-                    //                         }
-                    //                     }
-                    //                 }
-                    //             },
-                    //             nestedTypeLiteralType: {
-                    //                 type: "object",
-                    //                 properties: {
-                    //                     nestedStringType: {
-                    //                         type: "array",
-                    //                         items: {
-                    //                             type: "string"
-                    //                         }
-                    //                     },
-                    //                     nestedStringType2: {
-                    //                         type: "array",
-                    //                         items: {
-                    //                             type: "array",
-                    //                             items: {
-                    //                                 type: "string"
-                    //                             }
-                    //                         }
-                    //                     // },
-                    //                     // nestedNestedTypeLiteralType: {
-                    //                     //     type: "object",
-                    //                     //     properties: {
-                    //                     //         nestedNestedStringType: {
-                    //                     //             type: "array",
-                    //                     //         }
-                    //                     //     }
-                    //                     }
-                    //                 }
-                    //             }
-                    //         }
-                    //     }
-                    // }
                 );
             } else {
                 res.status(200).send({
