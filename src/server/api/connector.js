@@ -375,8 +375,10 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers.authorization);
         if (!req.body.scriptParameters) {
+            console.log("~~~NO PARAMETERS~~~");
             res.status(200).send({});
         } else {
+            console.log("~~~SOME PARAMETERS~~~");
             res.status(200).send({
                 retStr: "TEST RET STRING ",
                 retInt: 2525,
