@@ -376,7 +376,16 @@ module.exports = app => {
         console.log(req.headers.authorization);
         if (!req.body.scriptParameters) {
             console.log("~~~NO PARAMETERS~~~");
-            res.status(200).send({});
+            res.status(200).send({
+                "result": null,
+                "logs": [
+                    "[2019-10-01T20:58:01.581Z] str",
+                    "[2019-10-01T20:58:01.581Z] undefined",
+                    "[2019-10-01T20:58:01.581Z] true",
+                    "[2019-10-01T20:58:01.581Z] arr1,arr2,arr3",
+                    "[2019-10-01T20:58:01.581Z] undefined"
+                ]
+            });
         } else {
             console.log("~~~SOME PARAMETERS~~~");
             res.status(200).send({
