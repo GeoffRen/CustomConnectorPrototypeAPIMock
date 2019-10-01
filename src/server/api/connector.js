@@ -879,39 +879,30 @@ module.exports = app => {
                         Schema: {
                             type: "object",
                             properties: {
-                                r0: {
+                              main: {
+                                type: "Object",
+                                properties: {
+                                  r0: {
                                     type: "String"
-                                },
-                                r3: {
-                                    type: "Number"
-                                },
-                                r4: {
+                                  },
+                                  r1: {
+                                    type: "Object",
+                                    properties: {
+                                      r2: {
+                                        type: "Object",
+                                        properties: {
+                                          r3: {
+                                            type: "Number"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  r4: {
                                     type: "Boolean"
+                                  }
                                 }
-                            //   main: {
-                            //     type: "Object",
-                            //     properties: {
-                            //       r0: {
-                            //         type: "String"
-                            //       },
-                            //       r1: {
-                            //         type: "Object",
-                            //         properties: {
-                            //           r2: {
-                            //             type: "Object",
-                            //             properties: {
-                            //               r3: {
-                            //                 type: "Number"
-                            //               }
-                            //             }
-                            //           }
-                            //         }
-                            //       },
-                            //       r4: {
-                            //         type: "Boolean"
-                            //       }
-                            //     }
-                            //   }
+                              }
                             }
                           },                    
                           "flowReturnSchema": {
