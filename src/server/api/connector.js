@@ -419,6 +419,16 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
+    app.post("/api/api/api/api/unattended/run/:drive/:file", (req, res) => {
+        console.log("~~~DYNAMIC RETURN TEST~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        console.log(req.headers.authorization);
+        res.status(200).send(JSON.parse('{}'));
+        // res.sendStatus(200);
+    });
+
     app.get("/connector/popup", (req, res) => {
         console.log("~~~GET POPUP PARAM~~~");
         if (!req.body || !req.query) {
