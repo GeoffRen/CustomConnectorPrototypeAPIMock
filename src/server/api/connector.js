@@ -380,9 +380,9 @@ module.exports = app => {
         } else {
             console.log("~~~SOME PARAMETERS~~~");
             res.status(200).send({
-                retStr: "TEST RET STRING ",
-                retInt: 2525,
-                retArr: ["str1", "str2", "str3"]
+                r0: "TEST RET STRING ",
+                r3: 2525,
+                r4: true
             });
         }
     });
@@ -876,17 +876,6 @@ module.exports = app => {
                           }
                         },
                         Schema: {
-                            type: "object",
-                            properties: {
-                                retStr: {
-                                    type: "String"
-                                },
-                                retInt: {
-                                    type: "Number"
-                                }
-                            }
-                        },
-                        Schema1: {
                             type: "object",
                             properties: {
                               main: {
