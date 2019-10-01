@@ -380,7 +380,7 @@ module.exports = app => {
         } else {
             console.log("~~~SOME PARAMETERS~~~");
             res.status(200).send({
-                    "result": "{\"r0\":\"str\",\"r1\":{\"r2\":{\"r3\":0},\"r4\":true}}",
+                    "result": JSON.parse("{\"r0\":\"str\",\"r1\":{\"r2\":{\"r3\":0},\"r4\":true}}"),
                     "logs": [
                         "[2019-10-01T17:05:28.325Z] str",
                         "[2019-10-01T17:05:28.325Z] undefined",
