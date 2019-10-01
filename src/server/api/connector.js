@@ -380,7 +380,15 @@ module.exports = app => {
         } else {
             console.log("~~~SOME PARAMETERS~~~");
             res.status(200).send({
-                main: { r0: 'str', r1: { r2: { r3: 0 } }, r4: true }
+                result: {r0:"str",r1:{r2:{r3:0},r4:true}},
+                logs: [
+                    "[2019-10-01T17:05:28.325Z] str",
+                    "[2019-10-01T17:05:28.325Z] undefined",
+                    "[2019-10-01T17:05:28.343Z] true",
+                    "[2019-10-01T17:05:28.343Z] arr1,arr2,arr3",
+                    "[2019-10-01T17:05:28.343Z] undefined"
+                ]
+                // main: { r0: 'str', r1: { r2: { r3: 0 } }, r4: true }
             });
         }
     });
