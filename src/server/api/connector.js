@@ -380,9 +380,15 @@ module.exports = app => {
         } else {
             console.log("~~~SOME PARAMETERS~~~");
             res.status(200).send({
-                r0: "TEST RET STRING ",
-                r3: 2525,
-                r4: true
+                main: {
+                      r0: "TEST RET STRING",
+                      r1: {
+                        r2: {
+                            r3: 2525
+                        }
+                      },
+                      r4: true
+                    }
             });
         }
     });
