@@ -370,37 +370,36 @@ module.exports = app => {
 
     app.post("/api/unattended/run", (req, res) => {
         console.log("~~~DYNAMIC RETURN TEST~~~");
-        console.log(req.headers);
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        res.status(503).send('Invalid Request Match');
-        // if (!req.body.scriptParameters || req.body.scriptParameters.length === 0) {
-        //     console.log("~~~NO PARAMETERS~~~");
-        //     res.status(200).send({
-        //         "result": null,
-        //         "logs": [
-        //             "[2019-10-01T20:58:01.581Z] str",
-        //             "[2019-10-01T20:58:01.581Z] undefined",
-        //             "[2019-10-01T20:58:01.581Z] true",
-        //             "[2019-10-01T20:58:01.581Z] arr1,arr2,arr3",
-        //             "[2019-10-01T20:58:01.581Z] undefined"
-        //         ]
-        //     });
-        // } else {
-        //     console.log("~~~SOME PARAMETERS~~~");
-        //     res.status(200).send({
-        //             "result": JSON.parse("{\"r0\":\"str\",\"r1\":{\"r2\":{\"r3\":0}},\"r4\":true}"),
-        //             "logs": [
-        //                 "[2019-10-01T17:05:28.325Z] str",
-        //                 "[2019-10-01T17:05:28.325Z] undefined",
-        //                 "[2019-10-01T17:05:28.343Z] true",
-        //                 "[2019-10-01T17:05:28.343Z] arr1,arr2,arr3",
-        //                 "[2019-10-01T17:05:28.343Z] undefined"
-        //             ]
-        //         // main: { r0: 'str', r1: { r2: { r3: 0 } }, r4: true }
-        //     });
-        // }
+        console.log(req.headers.authorization);
+        if (!req.body.scriptParameters || req.body.scriptParameters.length === 0) {
+            console.log("~~~NO PARAMETERS~~~");
+            res.status(200).send({
+                "result": null,
+                "logs": [
+                    "[2019-10-01T20:58:01.581Z] str",
+                    "[2019-10-01T20:58:01.581Z] undefined",
+                    "[2019-10-01T20:58:01.581Z] true",
+                    "[2019-10-01T20:58:01.581Z] arr1,arr2,arr3",
+                    "[2019-10-01T20:58:01.581Z] undefined"
+                ]
+            });
+        } else {
+            console.log("~~~SOME PARAMETERS~~~");
+            res.status(200).send({
+                    "result": JSON.parse("{\"r0\":\"str\",\"r1\":{\"r2\":{\"r3\":0}},\"r4\":true}"),
+                    "logs": [
+                        "[2019-10-01T17:05:28.325Z] str",
+                        "[2019-10-01T17:05:28.325Z] undefined",
+                        "[2019-10-01T17:05:28.343Z] true",
+                        "[2019-10-01T17:05:28.343Z] arr1,arr2,arr3",
+                        "[2019-10-01T17:05:28.343Z] undefined"
+                    ]
+                // main: { r0: 'str', r1: { r2: { r3: 0 } }, r4: true }
+            });
+        }
     });
 
     app.post("/api/unattended/run/:source", (req, res) => {
