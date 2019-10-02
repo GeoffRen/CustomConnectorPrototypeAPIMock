@@ -374,7 +374,7 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers.authorization);
-        if (!req.body.scriptParameters) {
+        if (!req.body.scriptParameters || req.body.scriptParameters.length === 0) {
             console.log("~~~NO PARAMETERS~~~");
             res.status(200).send({
                 "result": null,
