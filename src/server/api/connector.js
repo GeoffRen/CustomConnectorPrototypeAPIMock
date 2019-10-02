@@ -921,29 +921,29 @@ module.exports = app => {
                             }
                           },                    
                           "flowReturnSchema": {
-                            type: "object",
-                            properties: {
-                              result: {
-                                type: "Object",
-                                properties: {
-                                  r0: {
-                                    type: "String"
+                            "type": "object",
+                            "properties": {
+                              "result": {
+                                "type": "Object",
+                                "properties": {
+                                  "r0": {
+                                    "type": "String"
                                   },
-                                  r1: {
-                                    type: "Object",
-                                    properties: {
-                                      r2: {
-                                        type: "Object",
-                                        properties: {
-                                          r3: {
-                                            type: "Number"
+                                  "r1": {
+                                    "type": "Object",
+                                    "properties": {
+                                      "r2": {
+                                        "type": "Object",
+                                        "properties": {
+                                          "r3": {
+                                            "type": "Number"
                                           }
                                         }
                                       }
                                     }
                                   },
-                                  r4: {
-                                    type: "Boolean"
+                                  "r4": {
+                                    "type": "Boolean"
                                   }
                                 }
                               }
