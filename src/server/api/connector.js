@@ -354,26 +354,7 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
-        // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
         res.status(200).send({ test: "success" });
-    });
-
-    app.get("/test/:drive/:file", (req, res) => {
-        console.log("~~~GET FILE PICKER TEST OPERATION~~~");
-        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
-        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
-        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        console.log(req.headers.authorization);
-        // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
-        res.sendStatus(200);
-    });
-
-    app.post("/api/unattended/run", (req, res) => {
-        console.log("~~~DYNAMIC RETURN TEST~~~");
-        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
-        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
-        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        console.log(req.headers.authorization);
         if (!req.body.scriptParameters || req.body.scriptParameters.length === 0) {
             console.log("~~~NO PARAMETERS~~~");
             res.status(200).send({
@@ -400,6 +381,53 @@ module.exports = app => {
                 // main: { r0: 'str', r1: { r2: { r3: 0 } }, r4: true }
             });
         }
+    });
+
+    app.get("/test/:drive/:file", (req, res) => {
+        console.log("~~~GET FILE PICKER TEST OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        console.log(req.headers.authorization);
+        // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
+        res.sendStatus(200);
+    });
+
+    app.post("/api/unattended/run", (req, res) => {
+        console.log("~~~DYNAMIC RETURN TEST~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        console.log(req.headers.authorization);
+        res.headers.location = 'http://13.58.89.80:8080/test';
+        res.headers['retry-after'] = 5;
+        res.sendStatus(202);
+        // if (!req.body.scriptParameters || req.body.scriptParameters.length === 0) {
+        //     console.log("~~~NO PARAMETERS~~~");
+        //     res.status(200).send({
+        //         "result": null,
+        //         "logs": [
+        //             "[2019-10-01T20:58:01.581Z] str",
+        //             "[2019-10-01T20:58:01.581Z] undefined",
+        //             "[2019-10-01T20:58:01.581Z] true",
+        //             "[2019-10-01T20:58:01.581Z] arr1,arr2,arr3",
+        //             "[2019-10-01T20:58:01.581Z] undefined"
+        //         ]
+        //     });
+        // } else {
+        //     console.log("~~~SOME PARAMETERS~~~");
+        //     res.status(200).send({
+        //             "result": JSON.parse("{\"r0\":\"str\",\"r1\":{\"r2\":{\"r3\":0}},\"r4\":true}"),
+        //             "logs": [
+        //                 "[2019-10-01T17:05:28.325Z] str",
+        //                 "[2019-10-01T17:05:28.325Z] undefined",
+        //                 "[2019-10-01T17:05:28.343Z] true",
+        //                 "[2019-10-01T17:05:28.343Z] arr1,arr2,arr3",
+        //                 "[2019-10-01T17:05:28.343Z] undefined"
+        //             ]
+        //         // main: { r0: 'str', r1: { r2: { r3: 0 } }, r4: true }
+        //     });
+        // }
     });
 
     app.post("/api/unattended/run/:source", (req, res) => {
