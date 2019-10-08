@@ -399,8 +399,10 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers.authorization);
-        res.headers.location = 'http://13.58.89.80:8080/test';
-        res.headers['retry-after'] = 5;
+        res.set({
+            location: 'http://13.58.89.80:8080/test',
+            'retry-after': 5
+        })
         res.sendStatus(202);
         // if (!req.body.scriptParameters || req.body.scriptParameters.length === 0) {
         //     console.log("~~~NO PARAMETERS~~~");
