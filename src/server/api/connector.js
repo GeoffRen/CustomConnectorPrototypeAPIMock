@@ -654,7 +654,7 @@ module.exports = app => {
         // }
     });
 
-    app.get("/api/storage", (req, res) => {
+    app.all("/api/storage", (req, res) => {
         console.log("~~~GET SCRIPTS API STORAGE~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
@@ -680,7 +680,7 @@ module.exports = app => {
         ]);
     });
 
-    app.get("/api/storage/:scriptId", (req, res) => {
+    app.all("/api/storage/:scriptId", (req, res) => {
         console.log("~~~GET SCRIPTS API STORAGE~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
