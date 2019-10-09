@@ -676,52 +676,54 @@ module.exports = app => {
             {
                 name: "geoffTest",
                 id: "someId",
-                flowParameterSchema: {
-                    type: "object",
-                    required: ["p0", "p2"],
-                    properties: {
-                        p0: {
-                            type: "String"
-                        },
-                        p1: {
-                            type: "Number",
-                            default: 5
-                        },
-                        p2: {
-                            type: "Array",
-                            items: {
+                parameterInfo: {
+                    flowParameterSchema: {
+                        type: "object",
+                        required: ["p0", "p2"],
+                        properties: {
+                            p0: {
                                 type: "String"
-                            }
-                        },
-                        p3: {
-                            type: "Boolean"
-                        }
-                    }
-                },
-                flowReturnSchema: {
-                    type: "object",
-                    properties: {
-                        result: {
-                            type: "Object",
-                            properties: {
-                                r0: {
+                            },
+                            p1: {
+                                type: "Number",
+                                default: 5
+                            },
+                            p2: {
+                                type: "Array",
+                                items: {
                                     type: "String"
-                                },
-                                r1: {
-                                    type: "Object",
-                                    properties: {
-                                        r2: {
-                                            type: "Object",
-                                            properties: {
-                                                r3: {
-                                                    type: "Number"
+                                }
+                            },
+                            p3: {
+                                type: "Boolean"
+                            }
+                        }
+                    },
+                    flowReturnSchema: {
+                        type: "object",
+                        properties: {
+                            result: {
+                                type: "Object",
+                                properties: {
+                                    r0: {
+                                        type: "String"
+                                    },
+                                    r1: {
+                                        type: "Object",
+                                        properties: {
+                                            r2: {
+                                                type: "Object",
+                                                properties: {
+                                                    r3: {
+                                                        type: "Number"
+                                                    }
                                                 }
                                             }
                                         }
+                                    },
+                                    r4: {
+                                        type: "Boolean"
                                     }
-                                },
-                                r4: {
-                                    type: "Boolean"
                                 }
                             }
                         }
