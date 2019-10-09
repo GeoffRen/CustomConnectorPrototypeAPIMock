@@ -690,59 +690,59 @@ module.exports = app => {
             {
                 name: "geoffTest",
                 id: "someId",
-                // parameterInfo: "{ \"flowParameterSchema\": { \"type\": \"object\", \"required\": [\"p00\"], \"properties\": { \"p00\": { \"type\": \"String\" } } }, \"flowReturnSchema\": { \"type\": \"object\", \"properties\": { \"result\": { \"type\": \"Object\", \"properties\": { \"r00\": { \"type\": \"String\" } } } } } }"
-                parameterInfo: {
-                    flowParameterSchema: {
-                        type: "object",
-                        required: ["p00"],
-                        properties: {
-                            p00: {
-                                type: "String"
-                            // },
-                            // p01: {
-                            //     type: "Number",
-                            //     default: 5
-                            // },
-                            // p02: {
-                            //     type: "Array",
-                            //     items: {
-                            //         type: "String"
-                            //     }
-                            // },
-                            // p03: {
-                            //     type: "Boolean"
-                            }
-                        }
-                    },
-                    flowReturnSchema: {
-                        type: "object",
-                        properties: {
-                            result: {
-                                type: "Object",
-                                properties: {
-                                    r00: {
-                                        type: "String"
-                                    // },
-                                    // r01: {
-                                    //     type: "Object",
-                                    //     properties: {
-                                    //         r2: {
-                                    //             type: "Object",
-                                    //             properties: {
-                                    //                 r3: {
-                                    //                     type: "Number"
-                                    //                 }
-                                    //             }
-                                    //         }
-                                    //     }
-                                    // },
-                                    // r04: {
-                                    //     type: "Boolean"
-                                    }
-                                }
-                            }
-                        }
-                    }
+                parameterInfo: "{ \"flowParameterSchema\": { \"type\": \"object\", \"required\": [\"p00\"], \"properties\": { \"p00\": { \"type\": \"String\" } } }, \"flowReturnSchema\": { \"type\": \"object\", \"properties\": { \"result\": { \"type\": \"Object\", \"properties\": { \"r00\": { \"type\": \"String\" } } } } } }"
+                // parameterInfo: {
+                //     flowParameterSchema: {
+                //         type: "object",
+                //         required: ["p00"],
+                //         properties: {
+                //             p00: {
+                //                 type: "String"
+                //             // },
+                //             // p01: {
+                //             //     type: "Number",
+                //             //     default: 5
+                //             // },
+                //             // p02: {
+                //             //     type: "Array",
+                //             //     items: {
+                //             //         type: "String"
+                //             //     }
+                //             // },
+                //             // p03: {
+                //             //     type: "Boolean"
+                //             }
+                //         }
+                //     },
+                //     flowReturnSchema: {
+                //         type: "object",
+                //         properties: {
+                //             result: {
+                //                 type: "Object",
+                //                 properties: {
+                //                     r00: {
+                //                         type: "String"
+                //                     // },
+                //                     // r01: {
+                //                     //     type: "Object",
+                //                     //     properties: {
+                //                     //         r2: {
+                //                     //             type: "Object",
+                //                     //             properties: {
+                //                     //                 r3: {
+                //                     //                     type: "Number"
+                //                     //                 }
+                //                     //             }
+                //                     //         }
+                //                     //     }
+                //                     // },
+                //                     // r04: {
+                //                     //     type: "Boolean"
+                //                     }
+                //                 }
+                //             }
+                //         }
+                //     }
                 }
             }
         );
