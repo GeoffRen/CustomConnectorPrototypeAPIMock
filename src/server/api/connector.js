@@ -660,7 +660,7 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
-        res.status(200).send(
+        res.status(200).send([
             // {
             //     // metadata: {
             //         name: "geoffScript",
@@ -681,20 +681,20 @@ module.exports = app => {
                         type: "object",
                         required: ["p0", "p2"],
                         properties: {
-                            p000: {
+                            p0: {
                                 type: "String"
                             },
-                            p001: {
+                            p1: {
                                 type: "Number",
                                 default: 5
                             },
-                            p002: {
+                            p2: {
                                 type: "Array",
                                 items: {
                                     type: "String"
                                 }
                             },
-                            p003: {
+                            p3: {
                                 type: "Boolean"
                             }
                         }
@@ -730,7 +730,7 @@ module.exports = app => {
                     }
                 }
             }
-        );
+        ]);
     });
 
     app.post("/connector/user", (req, res) => {
