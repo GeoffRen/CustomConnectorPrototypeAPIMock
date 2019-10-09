@@ -681,7 +681,7 @@ module.exports = app => {
     });
 
     app.all("/api/storage/:scriptId", (req, res) => {
-        console.log("~~~GET SCRIPTS API STORAGE~~~");
+        console.log("~~~GET SINGLE SCRIPT API STORAGE~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
