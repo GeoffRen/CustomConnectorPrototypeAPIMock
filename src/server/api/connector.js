@@ -693,23 +693,23 @@ module.exports = app => {
                 parameterInfo: {
                     flowParameterSchema: {
                         type: "object",
-                        required: ["p0", "p2"],
+                        required: ["p00"],
                         properties: {
-                            p0: {
+                            p00: {
                                 type: "String"
-                            },
-                            p1: {
-                                type: "Number",
-                                default: 5
-                            },
-                            p2: {
-                                type: "Array",
-                                items: {
-                                    type: "String"
-                                }
-                            },
-                            p3: {
-                                type: "Boolean"
+                            // },
+                            // p01: {
+                            //     type: "Number",
+                            //     default: 5
+                            // },
+                            // p02: {
+                            //     type: "Array",
+                            //     items: {
+                            //         type: "String"
+                            //     }
+                            // },
+                            // p03: {
+                            //     type: "Boolean"
                             }
                         }
                     },
@@ -719,24 +719,24 @@ module.exports = app => {
                             result: {
                                 type: "Object",
                                 properties: {
-                                    r0: {
+                                    r00: {
                                         type: "String"
-                                    },
-                                    r1: {
-                                        type: "Object",
-                                        properties: {
-                                            r2: {
-                                                type: "Object",
-                                                properties: {
-                                                    r3: {
-                                                        type: "Number"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    r4: {
-                                        type: "Boolean"
+                                    // },
+                                    // r01: {
+                                    //     type: "Object",
+                                    //     properties: {
+                                    //         r2: {
+                                    //             type: "Object",
+                                    //             properties: {
+                                    //                 r3: {
+                                    //                     type: "Number"
+                                    //                 }
+                                    //             }
+                                    //         }
+                                    //     }
+                                    // },
+                                    // r04: {
+                                    //     type: "Boolean"
                                     }
                                 }
                             }
