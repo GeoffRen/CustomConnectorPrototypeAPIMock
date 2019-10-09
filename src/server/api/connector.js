@@ -681,20 +681,20 @@ module.exports = app => {
                         type: "object",
                         required: ["p0", "p2"],
                         properties: {
-                            p0: {
+                            p000: {
                                 type: "String"
                             },
-                            p1: {
+                            p001: {
                                 type: "Number",
                                 default: 5
                             },
-                            p2: {
+                            p002: {
                                 type: "Array",
                                 items: {
                                     type: "String"
                                 }
                             },
-                            p3: {
+                            p003: {
                                 type: "Boolean"
                             }
                         }
