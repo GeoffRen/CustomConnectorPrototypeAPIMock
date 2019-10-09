@@ -699,7 +699,7 @@ module.exports = app => {
                 // "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0},{\"name\":\"p1\",\"index\":1},{\"name\":\"p2\",\"index\":2},{\"name\":\"p3\",\"index\":3},{\"name\":\"p4\",\"index\":4}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\",\"p2\",\"p3\"],\"properties\":{\"p0\":{\"type\":\"String\"},\"p1\":{\"type\":\"Number\"},\"p2\":{\"type\":\"Boolean\"},\"p3\":{\"type\":\"Array\",\"items\":{\"type\":\"String\"}},\"p4\":{\"type\":\"Number\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"String\"}}}}"
                 name: "geoffTest",
                 id: "someId",
-                parameterInfo: '{ "flowParameterSchema": { "type": "object",  "properties": { "p00": { "type": "String" } } }, "flowReturnSchema": { "type": "object", "properties": { "result": { "type": "Object", "properties": { "r00": { "type": "String" } } } } } }'
+                parameterInfo: "{ \"flowParameterSchema\": { \"type\": \"object\",  \"properties\": { \"p00\": { \"type\": \"String\" } } }, \"flowReturnSchema\": { \"type\": \"object\", \"properties\": { \"result\": { \"type\": \"Object\", \"properties\": { \"r00\": { \"type\": \"String\" } } } } } }"
                 // parameterInfo: {
                 //     flowParameterSchema: {
                 //         type: "object",
