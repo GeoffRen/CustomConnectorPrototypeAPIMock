@@ -660,7 +660,7 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
-        res.status(200).send(
+        res.status(200).send([
             // {
             //     // metadata: {
             //         name: "geoffScript",
@@ -676,64 +676,61 @@ module.exports = app => {
             {
                 name: "geoffTest",
                 id: "someId",
-                parameterInfo: { flowParameterSchema: 
-                    "{ \"type\": \"object\", \"required\": [\"p0\"], \"properties\": { \"p0\": { \"type\": \"String\" }, \"p1\": { \"type\": \"Number\", \"default\": 5 } } }", 
-                    flowReturnSchema: "{ \"type\": \"object\", \"properties\": { \"result\": { \"type\": \"Object\", \"properties\": { \"r0\": { \"type\": \"String\" } } } } } }" }
-                // parameterInfo: {
-                //     flowParameterSchema: {
-                //         type: "object",
-                //         required: ["p0", "p2"],
-                //         properties: {
-                //             p0: {
-                //                 type: "String"
-                //             },
-                //             p1: {
-                //                 type: "Number",
-                //                 default: 5
-                //             },
-                //             p2: {
-                //                 type: "Array",
-                //                 items: {
-                //                     type: "String"
-                //                 }
-                //             },
-                //             p3: {
-                //                 type: "Boolean"
-                //             }
-                //         }
-                //     },
-                //     flowReturnSchema: {
-                //         type: "object",
-                //         properties: {
-                //             result: {
-                //                 type: "Object",
-                //                 properties: {
-                //                     r0: {
-                //                         type: "String"
-                //                     },
-                //                     r1: {
-                //                         type: "Object",
-                //                         properties: {
-                //                             r2: {
-                //                                 type: "Object",
-                //                                 properties: {
-                //                                     r3: {
-                //                                         type: "Number"
-                //                                     }
-                //                                 }
-                //                             }
-                //                         }
-                //                     },
-                //                     r4: {
-                //                         type: "Boolean"
-                //                     }
-                //                 }
-                //             }
-                //         }
-                //     }
-                // }
+                parameterInfo: {
+                    flowParameterSchema: {
+                        type: "object",
+                        required: ["p0", "p2"],
+                        properties: {
+                            p0: {
+                                type: "String"
+                            },
+                            p1: {
+                                type: "Number",
+                                default: 5
+                            },
+                            p2: {
+                                type: "Array",
+                                items: {
+                                    type: "String"
+                                }
+                            },
+                            p3: {
+                                type: "Boolean"
+                            }
+                        }
+                    },
+                    flowReturnSchema: {
+                        type: "object",
+                        properties: {
+                            result: {
+                                type: "Object",
+                                properties: {
+                                    r0: {
+                                        type: "String"
+                                    },
+                                    r1: {
+                                        type: "Object",
+                                        properties: {
+                                            r2: {
+                                                type: "Object",
+                                                properties: {
+                                                    r3: {
+                                                        type: "Number"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    r4: {
+                                        type: "Boolean"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
-        );
+        ]);
     });
 
     app.post("/connector/user", (req, res) => {
