@@ -678,7 +678,7 @@ module.exports = app => {
                 id: "someId",
                 parameterInfo: { flowParameterSchema: 
                     "{ \"type\": \"object\", \"required\": [\"p0\"], \"properties\": { \"p0\": { \"type\": \"String\" }, \"p1\": { \"type\": \"Number\", \"default\": 5 } } }", 
-                    flowReturnSchema: "{ \"type\": \"object\", \"properties\": { \"result\": { \"type\": \"Object\", \"properties\": { \"r0\": { \"type\": \"String\" } } } } } }"
+                    flowReturnSchema: "{ \"type\": \"object\", \"properties\": { \"result\": { \"type\": \"Object\", \"properties\": { \"r0\": { \"type\": \"String\" } } } } } }" }
                 // parameterInfo: {
                 //     flowParameterSchema: {
                 //         type: "object",
