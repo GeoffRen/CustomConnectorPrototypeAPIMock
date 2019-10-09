@@ -400,15 +400,18 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers.authorization);
         res.set({
-            location: 'http://13.58.89.80:8080/test',
-            'retry-after': 5
-        })
+            location: "http://13.58.89.80:8080/test",
+            "retry-after": 5
+        });
         // res.sendStatus(202);
-        if (!req.body.scriptParameters || req.body.scriptParameters.length === 0) {
+        if (
+            !req.body.scriptParameters ||
+            req.body.scriptParameters.length === 0
+        ) {
             console.log("~~~NO PARAMETERS~~~");
             res.status(200).send({
-                "result": null,
-                "logs": [
+                result: null,
+                logs: [
                     "[2019-10-01T20:58:01.581Z] str",
                     "[2019-10-01T20:58:01.581Z] undefined",
                     "[2019-10-01T20:58:01.581Z] true",
@@ -419,14 +422,16 @@ module.exports = app => {
         } else {
             console.log("~~~SOME PARAMETERS~~~");
             res.status(200).send({
-                    "result": JSON.parse("{\"r0\":\"str\",\"r1\":{\"r2\":{\"r3\":0}},\"r4\":true}"),
-                    "logs": [
-                        "[2019-10-01T17:05:28.325Z] str",
-                        "[2019-10-01T17:05:28.325Z] undefined",
-                        "[2019-10-01T17:05:28.343Z] true",
-                        "[2019-10-01T17:05:28.343Z] arr1,arr2,arr3",
-                        "[2019-10-01T17:05:28.343Z] undefined"
-                    ]
+                result: JSON.parse(
+                    '{"r0":"str","r1":{"r2":{"r3":0}},"r4":true}'
+                ),
+                logs: [
+                    "[2019-10-01T17:05:28.325Z] str",
+                    "[2019-10-01T17:05:28.325Z] undefined",
+                    "[2019-10-01T17:05:28.343Z] true",
+                    "[2019-10-01T17:05:28.343Z] arr1,arr2,arr3",
+                    "[2019-10-01T17:05:28.343Z] undefined"
+                ]
                 // main: { r0: 'str', r1: { r2: { r3: 0 } }, r4: true }
             });
         }
@@ -452,7 +457,6 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
-    
     app.post("/api/api/unattended/run/:drive/:file", (req, res) => {
         console.log("~~~GET FILE PICKER TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
@@ -657,17 +661,72 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
         res.status(200).send([
+            // {
+            //     // metadata: {
+            //         name: "geoffScript",
+            //     // },
+            //     id: "someidthatdenotesgeoffscript"
+            // },
+            // {
+            //     // metadata: {
+            //         name: "dynamicGeoffScript",
+            //     // },
+            //     id: "anotheridthatdenotesdynamicgeoffscript"
+            // }
             {
-                // metadata: {
-                    name: "geoffScript",
-                // },
-                id: "someidthatdenotesgeoffscript"
-            },
-            {
-                // metadata: {
-                    name: "dynamicGeoffScript",
-                // },
-                id: "anotheridthatdenotesdynamicgeoffscript"
+                name: "geoffTest",
+                id: "someId",
+                flowParameterSchema: {
+                    type: "object",
+                    required: ["p0", "p2"],
+                    properties: {
+                        p0: {
+                            type: "String"
+                        },
+                        p1: {
+                            type: "Number",
+                            default: 5
+                        },
+                        p2: {
+                            type: "Array",
+                            items: {
+                                type: "String"
+                            }
+                        },
+                        p3: {
+                            type: "Boolean"
+                        }
+                    }
+                },
+                flowReturnSchema: {
+                    type: "object",
+                    properties: {
+                        result: {
+                            type: "Object",
+                            properties: {
+                                r0: {
+                                    type: "String"
+                                },
+                                r1: {
+                                    type: "Object",
+                                    properties: {
+                                        r2: {
+                                            type: "Object",
+                                            properties: {
+                                                r3: {
+                                                    type: "Number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                r4: {
+                                    type: "Boolean"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         ]);
     });
@@ -747,121 +806,115 @@ module.exports = app => {
         } else {
             console.log(req.query);
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
-                res.status(200).send(
-                    {
-                        "originalParameterOrder": [
-                          {
-                            "name": "p0",
-                            "index": 0
-                          },
-                          {
-                            "name": "p1",
-                            "index": 1
-                          },
-                          {
-                            "name": "p2",
-                            "index": 2
-                          }
-                        ],
-                          "Schema": {
-                            "type": "object",
-                            "required": [
-                            ],
-                            "properties": {
-                              "p0": {
-                                "type": "String"
-                              },
-                              "p1": {
-                                "type": "Number",
-                                "default": 5
-                              },
-                              "p2": {
-                                "type": "Array",
-                                "items": {
-                                  "type": "String"
-                                }
-                              }
-                            }
+                res.status(200).send({
+                    originalParameterOrder: [
+                        {
+                            name: "p0",
+                            index: 0
                         },
-                        "flowParameterSchema": {
-                            "type": "object",
-                            "required": [
-                              "p0",
-                              "p2"
-                            ],
-                            "properties": {
-                              "p0": {
-                                "type": "String"
-                              },
-                              "p1": {
-                                "type": "Number",
-                                "default": 5
-                              },
-                              "p2": {
-                                "type": "Array",
-                                "items": {
-                                  "type": "String"
-                                }
-                              },
-                              "p3": {
-                                "type": "Boolean"
-                              }
-                            }
+                        {
+                            name: "p1",
+                            index: 1
                         },
-                        "flowReturnSchema": {
-                          "Schema": {
-                            "type": "object",
-                            "properties": {
-                              "main": {
-                                "type": "Object",
-                                "properties": {
-                                  "r0": {
-                                    "type": "String"
-                                  },
-                                  "r1": {
-                                    "type": "Object",
-                                    "properties": {
-                                      "r2": {
-                                        "type": "Object",
-                                        "properties": {
-                                          "r3": {
-                                            "type": "Number"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "r4": {
-                                    "type": "Boolean"
-                                  }
-                                }
-                              }
-                            }
-                          }
+                        {
+                            name: "p2",
+                            index: 2
                         }
-                      }
-                );
+                    ],
+                    Schema: {
+                        type: "object",
+                        required: [],
+                        properties: {
+                            p0: {
+                                type: "String"
+                            },
+                            p1: {
+                                type: "Number",
+                                default: 5
+                            },
+                            p2: {
+                                type: "Array",
+                                items: {
+                                    type: "String"
+                                }
+                            }
+                        }
+                    },
+                    flowParameterSchema: {
+                        type: "object",
+                        required: ["p0", "p2"],
+                        properties: {
+                            p0: {
+                                type: "String"
+                            },
+                            p1: {
+                                type: "Number",
+                                default: 5
+                            },
+                            p2: {
+                                type: "Array",
+                                items: {
+                                    type: "String"
+                                }
+                            },
+                            p3: {
+                                type: "Boolean"
+                            }
+                        }
+                    },
+                    flowReturnSchema: {
+                        Schema: {
+                            type: "object",
+                            properties: {
+                                main: {
+                                    type: "Object",
+                                    properties: {
+                                        r0: {
+                                            type: "String"
+                                        },
+                                        r1: {
+                                            type: "Object",
+                                            properties: {
+                                                r2: {
+                                                    type: "Object",
+                                                    properties: {
+                                                        r3: {
+                                                            type: "Number"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        r4: {
+                                            type: "Boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
             } else {
                 res.status(200).send({
-                    "Schema": {
-                        "type": 'object',
-                        "properties": {
-                            "p0": {
-                                "type": "String",
+                    Schema: {
+                        type: "object",
+                        properties: {
+                            p0: {
+                                type: "String",
                                 "x-ms-visibility": "internal"
                             }
                         }
                     },
                     flowReturnSchema: {
-                        type: 'object',
+                        type: "object",
                         properties: {},
                         "x-ms-visibility": "internal"
                     },
                     flowParameterSchema: {
-                        type: 'object',
-                        "properties": {
-                            "p0": {
-                                "type": "String",
+                        type: "object",
+                        properties: {
+                            p0: {
+                                type: "String",
                                 "x-ms-visibility": "internal"
                             }
                         }
@@ -880,122 +933,117 @@ module.exports = app => {
         } else {
             console.log(req.query);
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
-                console.log("~~~DYNAMIC~~~")
-                res.status(200).send(
-                    {
-                        "originalParameterOrder": [
-                          {
-                            "name": "p0",
-                            "index": 0
-                          },
-                          {
-                            "name": "p1",
-                            "index": 1
-                          },
-                          {
-                            "name": "p2",
-                            "index": 2
-                          }
-                        ],
-                        "flowParameterSchema": {
-                          "Schema": {
-                            "type": "object",
-                            "required": [
-                              "p0",
-                              "p2"
-                            ],
-                            "properties": {
-                              "p0": {
-                                "type": "String"
-                              },
-                              "p1": {
-                                "type": "Number",
-                                "default": 5
-                              },
-                              "p2": {
-                                "type": "Array",
-                                "items": {
-                                  "type": "String"
-                                }
-                              }
-                            }
-                          }
+                console.log("~~~DYNAMIC~~~");
+                res.status(200).send({
+                    originalParameterOrder: [
+                        {
+                            name: "p0",
+                            index: 0
                         },
+                        {
+                            name: "p1",
+                            index: 1
+                        },
+                        {
+                            name: "p2",
+                            index: 2
+                        }
+                    ],
+                    flowParameterSchema: {
                         Schema: {
                             type: "object",
+                            required: ["p0", "p2"],
                             properties: {
-                              result: {
+                                p0: {
+                                    type: "String"
+                                },
+                                p1: {
+                                    type: "Number",
+                                    default: 5
+                                },
+                                p2: {
+                                    type: "Array",
+                                    items: {
+                                        type: "String"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    Schema: {
+                        type: "object",
+                        properties: {
+                            result: {
                                 type: "Object",
                                 properties: {
-                                  r0: {
-                                    type: "String"
-                                  },
-                                  r1: {
-                                    type: "Object",
-                                    properties: {
-                                      r2: {
+                                    r0: {
+                                        type: "String"
+                                    },
+                                    r1: {
                                         type: "Object",
                                         properties: {
-                                          r3: {
-                                            type: "Number"
-                                          }
+                                            r2: {
+                                                type: "Object",
+                                                properties: {
+                                                    r3: {
+                                                        type: "Number"
+                                                    }
+                                                }
+                                            }
                                         }
-                                      }
+                                    },
+                                    r4: {
+                                        type: "Boolean"
                                     }
-                                  },
-                                  r4: {
-                                    type: "Boolean"
-                                  }
                                 }
-                              }
                             }
-                          },                    
-                          "flowReturnSchema": {
-                            "type": "object",
-                            "properties": {
-                              "result": {
-                                "type": "Object",
-                                "properties": {
-                                  "r0": {
-                                    "type": "String"
-                                  },
-                                  "r1": {
-                                    "type": "Object",
-                                    "properties": {
-                                      "r2": {
-                                        "type": "Object",
-                                        "properties": {
-                                          "r3": {
-                                            "type": "Number"
-                                          }
+                        }
+                    },
+                    flowReturnSchema: {
+                        type: "object",
+                        properties: {
+                            result: {
+                                type: "Object",
+                                properties: {
+                                    r0: {
+                                        type: "String"
+                                    },
+                                    r1: {
+                                        type: "Object",
+                                        properties: {
+                                            r2: {
+                                                type: "Object",
+                                                properties: {
+                                                    r3: {
+                                                        type: "Number"
+                                                    }
+                                                }
+                                            }
                                         }
-                                      }
+                                    },
+                                    r4: {
+                                        type: "Boolean"
                                     }
-                                  },
-                                  "r4": {
-                                    "type": "Boolean"
-                                  }
                                 }
-                              }
                             }
-                          }
-                      }
-                );
+                        }
+                    }
+                });
             } else {
-                console.log("~~~EMPTY~~~")
+                console.log("~~~EMPTY~~~");
                 res.status(200).send({
                     Schema: {
-                        type: 'object',
+                        type: "object",
                         properties: {},
                         "x-ms-visibility": "internal"
                     },
                     flowReturnSchema: {
-                        type: 'object',
+                        type: "object",
                         properties: {},
                         "x-ms-visibility": "internal"
                     },
                     flowParameterSchema: {
-                        type: 'object',
+                        type: "object",
                         properties: {},
                         "x-ms-visibility": "internal"
                     }
