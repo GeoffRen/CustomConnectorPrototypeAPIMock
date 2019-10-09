@@ -661,18 +661,32 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
         res.status(200).send([
-            // {
-            //     // metadata: {
-            //         name: "geoffScript",
-            //     // },
-            //     id: "someidthatdenotesgeoffscript"
-            // },
-            // {
-            //     // metadata: {
-            //         name: "dynamicGeoffScript",
-            //     // },
-            //     id: "anotheridthatdenotesdynamicgeoffscript"
-            // }
+            {
+                // metadata: {
+                    name: "geoffScript",
+                // },
+                id: "someidthatdenotesgeoffscript"
+            },
+            {
+                // metadata: {
+                    name: "dynamicGeoffScript",
+                // },
+                id: "anotheridthatdenotesdynamicgeoffscript"
+            },
+            {
+                name: "geoffTest",
+                id: "someId",
+            }
+        ]);
+    });
+
+    app.get("/api/storage/:scriptId", (req, res) => {
+        console.log("~~~GET SCRIPTS API STORAGE~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        console.log(req.headers);
+        res.status(200).send(
             {
                 name: "geoffTest",
                 id: "someId",
@@ -730,7 +744,7 @@ module.exports = app => {
                     }
                 }
             }
-        ]);
+        );
     });
 
     app.post("/connector/user", (req, res) => {
