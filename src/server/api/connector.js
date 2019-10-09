@@ -688,10 +688,18 @@ module.exports = app => {
         console.log(req.headers);
         res.status(200).send(
             {
-                name: "geoffTest",
-                id: "someId",
-                parameterInfo: "{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0},{\"name\":\"p1\",\"index\":1},{\"name\":\"p2\",\"index\":2},{\"name\":\"p3\",\"index\":3},{\"name\":\"p4\",\"index\":4}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\",\"p2\",\"p3\"],\"properties\":{\"p0\":{\"type\":\"String\"},\"p1\":{\"type\":\"Number\"},\"p2\":{\"type\":\"Boolean\"},\"p3\":{\"type\":\"Array\",\"items\":{\"type\":\"String\"}},\"p4\":{\"type\":\"Number\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"String\"}}}}"
-                // parameterInfo: "{ \"flowParameterSchema\": { \"type\": \"object\", \"required\": [\"p00\"], \"properties\": { \"p00\": { \"type\": \"String\" } } }, \"flowReturnSchema\": { \"type\": \"object\", \"properties\": { \"result\": { \"type\": \"Object\", \"properties\": { \"r00\": { \"type\": \"String\" } } } } } }"
+                "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD362OH6F2HU4HBRD3P4Z4W4VNJNA5",
+                "owner":"1c889869-3278-480c-a242-7969a8224162",
+                "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
+                "dateFirstPublished":1570646822,
+                "dateLastPublished":1570646822,
+                "body":"async function main(c: Excel.RequestContext, p0: string, p1: number | undefined, p2: boolean, p3: string[], p4?: number): Promise<string> {console.log(p0);console.log(p1);console.log(p2);console.log(p3);console.log(p4); const ret = { r0: 'str', r1: { r2: { r3: 0 } }, r4: true }; return 'GEOFF TEST';",
+                "name":"GeoffTestScript1",
+                "description":"Wow",
+                // "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0},{\"name\":\"p1\",\"index\":1},{\"name\":\"p2\",\"index\":2},{\"name\":\"p3\",\"index\":3},{\"name\":\"p4\",\"index\":4}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\",\"p2\",\"p3\"],\"properties\":{\"p0\":{\"type\":\"String\"},\"p1\":{\"type\":\"Number\"},\"p2\":{\"type\":\"Boolean\"},\"p3\":{\"type\":\"Array\",\"items\":{\"type\":\"String\"}},\"p4\":{\"type\":\"Number\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"String\"}}}}"
+                // name: "geoffTest",
+                // id: "someId",
+                parameterInfo: "{ \"flowParameterSchema\": { \"type\": \"object\", \"required\": [\"p00\"], \"properties\": { \"p00\": { \"type\": \"String\" } } }, \"flowReturnSchema\": { \"type\": \"object\", \"properties\": { \"result\": { \"type\": \"Object\", \"properties\": { \"r00\": { \"type\": \"String\" } } } } } }"
                 // parameterInfo: {
                 //     flowParameterSchema: {
                 //         type: "object",
