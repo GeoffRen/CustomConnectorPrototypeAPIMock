@@ -714,7 +714,8 @@ module.exports = app => {
                 "body":"async function main(c: Excel.RequestContext, p0: string): Promise<string> { console.log(p0); return 'GEOFF TEST'; }",
                 "name":"GeoffTestScript4",
                 "description":"Wow",
-                "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\"],\"properties\":{\"p0\":{\"type\":\"String\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"String\"}}}}"
+                // "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\"],\"properties\":{\"p0\":{\"type\":\"String\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"String\"}}}}"
+                "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"dummyParameter\":{\"type\":\"String\",\"x-ms-visibility\":\"internal\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
                 // name: "geoffTest",
                 // id: "someId",
                 // parameterInfo: "{ \"flowParameterSchema\": { \"type\": \"object\",  \"properties\": { \"p00\": { \"type\": \"String\" } } }, \"flowReturnSchema\": { \"type\": \"object\", \"properties\": { \"result\": { \"type\": \"Object\", \"properties\": { \"r00\": { \"type\": \"String\" } } } } } }"
