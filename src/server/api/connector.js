@@ -406,7 +406,7 @@ module.exports = app => {
         // res.sendStatus(202);
         if (
             !req.body.scriptParameters ||
-            req.body.scriptParameters.length === 0
+            req.body.scriptParameters === "[]"
         ) {
             console.log("~~~NO PARAMETERS~~~");
             res.status(200).send({
