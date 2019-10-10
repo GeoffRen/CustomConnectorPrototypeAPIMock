@@ -662,23 +662,40 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
         res.status(200).send([
-            {
-                // metadata: {
-                    name: "geoffScript",
-                // },
-                id: "someidthatdenotesgeoffscript"
-            },
-            {
-                // metadata: {
-                    name: "dynamicGeoffScript",
-                // },
-                id: "anotheridthatdenotesdynamicgeoffscript"
-            },
-            {
-                name: "geoffTest",
-                id: "someId",
-            }
-        ]);
+     { 
+        "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3647EHN3KS6ONBHJDRPPQXES6N6Q",
+        "owner":"1c889869-3278-480c-a242-7969a8224162",
+        "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
+        "dateFirstPublished":1570647604,
+        "dateLastPublished":1570647604,
+        "body":"",
+        "name":"GeoffTestScript2",
+        "description":"",
+        "parameterInfo":""
+     },
+     { 
+        "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD366EFZK65IVGCJDKHBGVKD7VUIYF",
+        "owner":"1c889869-3278-480c-a242-7969a8224162",
+        "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
+        "dateFirstPublished":1570647604,
+        "dateLastPublished":1570647604,
+        "body":"",
+        "name":"GeoffTestScript3",
+        "description":"",
+        "parameterInfo":""
+     },
+     { 
+        "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
+        "owner":"1c889869-3278-480c-a242-7969a8224162",
+        "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
+        "dateFirstPublished":1570722333,
+        "dateLastPublished":1570722333,
+        "body":"",
+        "name":"GeoffTestScript4",
+        "description":"",
+        "parameterInfo":""
+     }
+  ]);
     });
 
     app.all("/api/storage/:scriptId", (req, res) => {
