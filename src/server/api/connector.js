@@ -399,10 +399,10 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
-        res.set({
-            location: "http://13.58.89.80:8080/test",
-            "retry-after": 5
-        });
+        // res.set({
+        //     location: "http://13.58.89.80:8080/test",
+        //     "retry-after": 5
+        // });
         // res.sendStatus(202);
         if (
             !req.body.scriptParameters ||
@@ -662,40 +662,40 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
         res.status(200).send([
-     { 
-        "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3647EHN3KS6ONBHJDRPPQXES6N6Q",
-        "owner":"1c889869-3278-480c-a242-7969a8224162",
-        "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
-        "dateFirstPublished":1570647604,
-        "dateLastPublished":1570647604,
-        "body":"",
-        "name":"GeoffTestScript2",
-        "description":"",
-        "parameterInfo":""
-     },
-     { 
-        "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD366EFZK65IVGCJDKHBGVKD7VUIYF",
-        "owner":"1c889869-3278-480c-a242-7969a8224162",
-        "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
-        "dateFirstPublished":1570647604,
-        "dateLastPublished":1570647604,
-        "body":"",
-        "name":"GeoffTestScript3",
-        "description":"",
-        "parameterInfo":""
-     },
-     { 
-        "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
-        "owner":"1c889869-3278-480c-a242-7969a8224162",
-        "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
-        "dateFirstPublished":1570722333,
-        "dateLastPublished":1570722333,
-        "body":"",
-        "name":"GeoffTestScript4",
-        "description":"",
-        "parameterInfo":""
-     }
-  ]);
+             { 
+                "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
+                "owner":"1c889869-3278-480c-a242-7969a8224162",
+                "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
+                "dateFirstPublished":1570722333,
+                "dateLastPublished":1570722333,
+                "body":"",
+                "name":"GeoffTestScript4",
+                "description":"",
+                "parameterInfo":""
+             },
+             { 
+                "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD366IE3JUHOOK4RAKFZQQG3KJRBZW",
+                "owner":"1c889869-3278-480c-a242-7969a8224162",
+                "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
+                "dateFirstPublished":1570728245,
+                "dateLastPublished":1570728245,
+                "body":"",
+                "name":"GeoffTestScript5",
+                "description":"",
+                "parameterInfo":""
+             },
+             { 
+                "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD367XMXYZXPP6MBFLVJBOLPQBVM3X",
+                "owner":"1c889869-3278-480c-a242-7969a8224162",
+                "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
+                "dateFirstPublished":1570732515,
+                "dateLastPublished":1570732515,
+                "body":"",
+                "name":"GeoffTestScript6",
+                "description":"",
+                "parameterInfo":""
+             }
+        ]);
     });
 
     app.all("/api/storage/:scriptId", (req, res) => {
