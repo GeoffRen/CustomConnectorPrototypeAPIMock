@@ -422,17 +422,18 @@ module.exports = app => {
         } else {
             console.log("~~~SOME PARAMETERS~~~");
             res.status(200).send({
-                result: JSON.parse(
-                    '{"r0":"str","r1":{"r2":{"r3":0}},"r4":true}'
-                ),
-                logs: [
-                    "[2019-10-01T17:05:28.325Z] str",
-                    "[2019-10-01T17:05:28.325Z] undefined",
-                    "[2019-10-01T17:05:28.343Z] true",
-                    "[2019-10-01T17:05:28.343Z] arr1,arr2,arr3",
-                    "[2019-10-01T17:05:28.343Z] undefined"
-                ]
-                // main: { r0: 'str', r1: { r2: { r3: 0 } }, r4: true }
+                "result":"GEOFF TEST",
+                "logs":["[2019-10-10T15:50:57.991Z] str"]
+                // result: JSON.parse(
+                //     '{"r0":"str","r1":{"r2":{"r3":0}},"r4":true}'
+                // ),
+                // logs: [
+                //     "[2019-10-01T17:05:28.325Z] str",
+                //     "[2019-10-01T17:05:28.325Z] undefined",
+                //     "[2019-10-01T17:05:28.343Z] true",
+                //     "[2019-10-01T17:05:28.343Z] arr1,arr2,arr3",
+                //     "[2019-10-01T17:05:28.343Z] undefined"
+                // ]
             });
         }
     });
@@ -688,15 +689,15 @@ module.exports = app => {
         console.log(req.headers);
         res.status(200).send(
             {
-                "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD362OH6F2HU4HBRD3P4Z4W4VNJNA5",
+                "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
                 "owner":"1c889869-3278-480c-a242-7969a8224162",
                 "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
-                "dateFirstPublished":1570646822,
-                "dateLastPublished":1570646822,
-                "body":"async function main(c: Excel.RequestContext, p0: string, p1: number | undefined, p2: boolean, p3: string[], p4?: number): Promise<string> {console.log(p0);console.log(p1);console.log(p2);console.log(p3);console.log(p4); const ret = { r0: 'str', r1: { r2: { r3: 0 } }, r4: true }; return 'GEOFF TEST';",
-                "name":"GeoffTestScript1",
+                "dateFirstPublished":1570722333,
+                "dateLastPublished":1570722333,
+                "body":"async function main(c: Excel.RequestContext, p0: string): Promise<string> { console.log(p0); return 'GEOFF TEST'; }",
+                "name":"GeoffTestScript4",
                 "description":"Wow",
-                "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0},{\"name\":\"p1\",\"index\":1},{\"name\":\"p2\",\"index\":2},{\"name\":\"p3\",\"index\":3},{\"name\":\"p4\",\"index\":4}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\",\"p2\",\"p3\"],\"properties\":{\"p0\":{\"type\":\"String\"},\"p1\":{\"type\":\"Number\"},\"p2\":{\"type\":\"Boolean\"},\"p3\":{\"type\":\"Array\",\"items\":{\"type\":\"String\"}},\"p4\":{\"type\":\"Number\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"String\"}}}}"
+                "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\"],\"properties\":{\"p0\":{\"type\":\"String\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"String\"}}}}"
                 // name: "geoffTest",
                 // id: "someId",
                 // parameterInfo: "{ \"flowParameterSchema\": { \"type\": \"object\",  \"properties\": { \"p00\": { \"type\": \"String\" } } }, \"flowReturnSchema\": { \"type\": \"object\", \"properties\": { \"result\": { \"type\": \"Object\", \"properties\": { \"r00\": { \"type\": \"String\" } } } } } }"
