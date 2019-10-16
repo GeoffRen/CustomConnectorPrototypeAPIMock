@@ -1038,35 +1038,41 @@ module.exports = app => {
                             }
                         }
                     },
-                    flowReturnSchema: {
-                        type: "object",
-                        properties: {
-                            result: {
-                                type: "Object",
-                                properties: {
-                                    r0: {
-                                        type: "String"
+                    "flowReturnSchema": {
+                        "type": "object",
+                        "properties": {
+                          "result": {
+                            "type": "Object",
+                            "properties": {
+                              "people": {
+                                "type": "Array",
+                                "items": {
+                                  "type": "Object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "String"
                                     },
-                                    r1: {
-                                        type: "Object",
-                                        properties: {
-                                            r2: {
-                                                type: "Object",
-                                                properties: {
-                                                    r3: {
-                                                        type: "Number"
-                                                    }
-                                                }
-                                            }
+                                    "emails": {
+                                      "type": "String"
+                                    },
+                                    "misc": {
+                                      "type": "Array",
+                                      "items": {
+                                        "type": "Object",
+                                        "properties": {
+                                          "prop": {
+                                            "type": "String"
+                                          }
                                         }
-                                    },
-                                    r4: {
-                                        type: "Boolean"
+                                      }
                                     }
+                                  }
                                 }
+                              }
                             }
+                          }
                         }
-                    }
+                      }
                 });
             } else {
                 console.log("~~~EMPTY~~~");
