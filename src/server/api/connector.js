@@ -711,7 +711,7 @@ module.exports = app => {
             description: "Wow",
             parameterInfo: {
                 flowParameterSchema: {type:"object",properties:{dummyParameter:{type:"String"}}},
-                flowReturnSchema:{type:"object",properties:{ahh:{type:"number"}}}
+                flowReturnSchema:{type:"object",properties:{result:{ahh:{type:"number"}}}}
             }
             // "{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"dummyParameter\":{\"type\":\"String\",\"x-ms-visibility\":\"internal\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}",
         });
