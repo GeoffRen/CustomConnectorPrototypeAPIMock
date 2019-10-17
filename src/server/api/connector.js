@@ -714,8 +714,8 @@ module.exports = app => {
             //     flowReturnSchema:{type:"object",properties:{why2:{type:"String"}}}
             // }
             parameterInfo: JSON.stringify({
-                flowParameterSchema: {type:"object",properties:{why:{type:"String"}}},
-                flowReturnSchema:{type:"object",properties:{why2:{type:"String"}}}
+                flowParameterSchema: {type:"object",properties:{STRINGIFIED:{type:"String"}}},
+                flowReturnSchema:{type:"object",properties:{STRINGIFIEDRETURN:{type:"String"}}}
             })
         });
     });
