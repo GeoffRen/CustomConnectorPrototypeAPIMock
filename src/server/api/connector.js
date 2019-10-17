@@ -710,8 +710,8 @@ module.exports = app => {
             name: "GeoffTestScript4",
             description: "Wow",
             parameterInfo: {
-                flowParameterSchema: {type:"object",properties:{dummyParameter:{type:"String"}}},
-                flowReturnSchema:{type:"object",properties:{result:{ahh:{type:"number"}}}}
+                flowParameterSchema: {type:"object",properties:{why:{type:"String"}}},
+                flowReturnSchema:{type:"object",properties:{why2:{type:"String"}}}
             }
             // "{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"dummyParameter\":{\"type\":\"String\",\"x-ms-visibility\":\"internal\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}",
         });
