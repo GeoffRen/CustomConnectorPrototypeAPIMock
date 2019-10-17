@@ -709,14 +709,14 @@ module.exports = app => {
                 "async function main(c: Excel.RequestContext, p0: string): Promise<string> { console.log(p0); return 'GEOFF TEST'; }",
             name: "GeoffTestScript4",
             description: "Wow",
-            // parameterInfo: {
-            //     flowParameterSchema: {type:"object",properties:{why:{type:"String"}}},
-            //     flowReturnSchema:{type:"object",properties:{why2:{type:"String"}}}
-            // }
-            parameterInfo: JSON.stringify({
-                flowParameterSchema: {type:"object",properties:{STRINGIFIED:{type:"String"}}},
-                flowReturnSchema:{type:"object",properties:{STRINGIFIEDRETURN:{type:"String"}}}
-            })
+            parameterInfo: {
+                flowParameterSchema: {type:"object",properties:{why:{type:"String"}}},
+                flowReturnSchema:{type:"object",properties:{why2:{type:"String"}}}
+            }
+            // parameterInfo: JSON.stringify({
+                // flowParameterSchema: {type:"object",properties:{STRINGIFIED:{type:"String"}}},
+                // flowReturnSchema:{type:"object",properties:{STRINGIFIEDRETURN:{type:"String"}}}
+            // })
         });
     });
 
