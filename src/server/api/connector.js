@@ -404,10 +404,7 @@ module.exports = app => {
         //     "retry-after": 5
         // });
         // res.sendStatus(202);
-        if (
-            !req.body.scriptParameters ||
-            req.body.scriptParameters === "[]"
-        ) {
+        if (!req.body.scriptParameters || req.body.scriptParameters === "[]") {
             console.log("~~~NO PARAMETERS~~~");
             res.status(200).send({
                 result: null,
@@ -416,8 +413,8 @@ module.exports = app => {
         } else {
             console.log("~~~SOME PARAMETERS~~~");
             res.status(200).send({
-                "result":"GEOFF TEST",
-                "logs":["[2019-10-10T15:50:57.991Z] str"]
+                result: "GEOFF TEST",
+                logs: ["[2019-10-10T15:50:57.991Z] str"]
                 // result: JSON.parse(
                 //     '{"r0":"str","r1":{"r2":{"r3":0}},"r4":true}'
                 // ),
@@ -656,39 +653,42 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
         res.status(200).send([
-             { 
-                "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
-                "owner":"1c889869-3278-480c-a242-7969a8224162",
-                "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
-                "dateFirstPublished":1570722333,
-                "dateLastPublished":1570722333,
-                "body":"",
-                "name":"GeoffTestScript4",
-                "description":"",
-                "parameterInfo":""
-             },
-             { 
-                "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD366IE3JUHOOK4RAKFZQQG3KJRBZW",
-                "owner":"1c889869-3278-480c-a242-7969a8224162",
-                "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
-                "dateFirstPublished":1570728245,
-                "dateLastPublished":1570728245,
-                "body":"",
-                "name":"GeoffTestScript5",
-                "description":"",
-                "parameterInfo":""
-             },
-             { 
-                "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD367XMXYZXPP6MBFLVJBOLPQBVM3X",
-                "owner":"1c889869-3278-480c-a242-7969a8224162",
-                "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
-                "dateFirstPublished":1570732515,
-                "dateLastPublished":1570732515,
-                "body":"",
-                "name":"GeoffTestScript6",
-                "description":"",
-                "parameterInfo":""
-             }
+            {
+                id:
+                    "ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
+                owner: "1c889869-3278-480c-a242-7969a8224162",
+                lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
+                dateFirstPublished: 1570722333,
+                dateLastPublished: 1570722333,
+                body: "",
+                name: "GeoffTestScript4",
+                description: "",
+                parameterInfo: ""
+            },
+            {
+                id:
+                    "ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD366IE3JUHOOK4RAKFZQQG3KJRBZW",
+                owner: "1c889869-3278-480c-a242-7969a8224162",
+                lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
+                dateFirstPublished: 1570728245,
+                dateLastPublished: 1570728245,
+                body: "",
+                name: "GeoffTestScript5",
+                description: "",
+                parameterInfo: ""
+            },
+            {
+                id:
+                    "ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD367XMXYZXPP6MBFLVJBOLPQBVM3X",
+                owner: "1c889869-3278-480c-a242-7969a8224162",
+                lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
+                dateFirstPublished: 1570732515,
+                dateLastPublished: 1570732515,
+                body: "",
+                name: "GeoffTestScript6",
+                description: "",
+                parameterInfo: ""
+            }
         ]);
     });
 
@@ -698,76 +698,20 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
-        res.status(200).send(
-            {
-                "id":"ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
-                "owner":"1c889869-3278-480c-a242-7969a8224162",
-                "lastModifiedBy":"1c889869-3278-480c-a242-7969a8224162",
-                "dateFirstPublished":1570722333,
-                "dateLastPublished":1570722333,
-                "body":"async function main(c: Excel.RequestContext, p0: string): Promise<string> { console.log(p0); return 'GEOFF TEST'; }",
-                "name":"GeoffTestScript4",
-                "description":"Wow",
-                // "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\"],\"properties\":{\"p0\":{\"type\":\"String\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"String\"}}}}"
-                "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"dummyParameter\":{\"type\":\"String\",\"x-ms-visibility\":\"internal\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
-                // name: "geoffTest",
-                // id: "someId",
-                // parameterInfo: "{ \"flowParameterSchema\": { \"type\": \"object\",  \"properties\": { \"p00\": { \"type\": \"String\" } } }, \"flowReturnSchema\": { \"type\": \"object\", \"properties\": { \"result\": { \"type\": \"Object\", \"properties\": { \"r00\": { \"type\": \"String\" } } } } } }"
-                // parameterInfo: {
-                //     flowParameterSchema: {
-                //         type: "object",
-                //         required: ["p00"],
-                //         properties: {
-                //             p00: {
-                //                 type: "String"
-                //             // },
-                //             // p01: {
-                //             //     type: "Number",
-                //             //     default: 5
-                //             // },
-                //             // p02: {
-                //             //     type: "Array",
-                //             //     items: {
-                //             //         type: "String"
-                //             //     }
-                //             // },
-                //             // p03: {
-                //             //     type: "Boolean"
-                //             }
-                //         }
-                //     },
-                //     flowReturnSchema: {
-                //         type: "object",
-                //         properties: {
-                //             result: {
-                //                 type: "Object",
-                //                 properties: {
-                //                     r00: {
-                //                         type: "String"
-                //                     // },
-                //                     // r01: {
-                //                     //     type: "Object",
-                //                     //     properties: {
-                //                     //         r2: {
-                //                     //             type: "Object",
-                //                     //             properties: {
-                //                     //                 r3: {
-                //                     //                     type: "Number"
-                //                     //                 }
-                //                     //             }
-                //                     //         }
-                //                     //     }
-                //                     // },
-                //                     // r04: {
-                //                     //     type: "Boolean"
-                //                     }
-                //                 }
-                //             }
-                //         }
-                //     }
-                // }
-            }
-        );
+        res.status(200).send({
+            id:
+                "ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
+            owner: "1c889869-3278-480c-a242-7969a8224162",
+            lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
+            dateFirstPublished: 1570722333,
+            dateLastPublished: 1570722333,
+            body:
+                "async function main(c: Excel.RequestContext, p0: string): Promise<string> { console.log(p0); return 'GEOFF TEST'; }",
+            name: "GeoffTestScript4",
+            description: "Wow",
+            parameterInfo:
+            "{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"dummyParameter\":{\"type\":\"String\",\"x-ms-visibility\":\"internal\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
+        });
     });
 
     app.post("/connector/user", (req, res) => {
@@ -1038,41 +982,41 @@ module.exports = app => {
                             }
                         }
                     },
-                    "flowReturnSchema": {
-                        "type": "object",
-                        "properties": {
-                          "result": {
-                            "type": "Object",
-                            "properties": {
-                              "people": {
-                                "type": "Array",
-                                "items": {
-                                  "type": "Object",
-                                  "properties": {
-                                    "name": {
-                                      "type": "String"
-                                    },
-                                    "emails": {
-                                      "type": "String"
-                                    },
-                                    "misc": {
-                                      "type": "Array",
-                                      "items": {
-                                        "type": "Object",
-                                        "properties": {
-                                          "prop": {
-                                            "type": "String"
-                                          }
+                    flowReturnSchema: {
+                        type: "object",
+                        properties: {
+                            result: {
+                                type: "Object",
+                                properties: {
+                                    people: {
+                                        type: "Array",
+                                        items: {
+                                            type: "Object",
+                                            properties: {
+                                                name: {
+                                                    type: "String"
+                                                },
+                                                emails: {
+                                                    type: "String"
+                                                },
+                                                misc: {
+                                                    type: "Array",
+                                                    items: {
+                                                        type: "Object",
+                                                        properties: {
+                                                            prop: {
+                                                                type: "String"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
-                                      }
                                     }
-                                  }
                                 }
-                              }
                             }
-                          }
                         }
-                      }
+                    }
                 });
             } else {
                 console.log("~~~EMPTY~~~");
