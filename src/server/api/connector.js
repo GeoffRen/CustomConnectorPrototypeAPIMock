@@ -713,10 +713,43 @@ module.exports = app => {
             //     flowParameterSchema: {type:"object",properties:{why:{type:"String"}}},
             //     flowReturnSchema:{type:"object",properties:{why2:{type:"String"}}}
             // }
-            parameterInfo: JSON.stringify({
-                flowParameterSchema: {type:"object",properties:{STRINGIFIED:{type:"String"}}},
-                flowReturnSchema:{type:"object",properties:{STRINGIFIEDRETURN:{type:"String"}}}
-            })
+            parameterInfo: JSON.stringify({ 
+                "parameterInfo":{ 
+                   "originalParameterOrder":[ 
+                      { 
+                         "name":"foo",
+                         "index":0
+                      }
+                   ],
+                   "flowParameterSchema":{ 
+                      "type":"object",
+                      "required":[ 
+                         "foo"
+                      ],
+                      "properties":{ 
+                         "foo":{ 
+                            "type":"String"
+                         }
+                      }
+                   },
+                   "flowReturnSchema":{ 
+                      "type":"object",
+                      "properties":{ 
+                         "result":{ 
+                            "type":"Object",
+                            "properties":{ 
+                               "foo":{ 
+                                  "type":"String"
+                               },
+                               "bar":{ 
+                                  "type":"Number"
+                               }
+                            }
+                         }
+                      }
+                   }
+                }
+             })
         });
     });
 
