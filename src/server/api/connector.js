@@ -709,47 +709,78 @@ module.exports = app => {
                 "async function main(c: Excel.RequestContext, p0: string): Promise<string> { console.log(p0); return 'GEOFF TEST'; }",
             name: "GeoffTestScript4",
             description: "Wow",
-            // parameterInfo: {
-            //     flowParameterSchema: {type:"object",properties:{why:{type:"String"}}},
-            //     flowReturnSchema:{type:"object",properties:{why2:{type:"String"}}}
-            // }
-            parameterInfo: JSON.stringify({ 
-                "parameterInfo":{ 
-                   "originalParameterOrder":[ 
-                      { 
-                         "name":"foo",
-                         "index":0
-                      }
+            "parameterInfo":{ 
+                "originalParameterOrder":[ 
+                   { 
+                      "name":"foo",
+                      "index":0
+                   }
+                ],
+                "flowParameterSchema":{ 
+                   "type":"object",
+                   "required":[ 
+                      "foo"
                    ],
-                   "flowParameterSchema":{ 
-                      "type":"object",
-                      "required":[ 
-                         "foo"
-                      ],
-                      "properties":{ 
-                         "foo":{ 
-                            "type":"String"
-                         }
+                   "properties":{ 
+                      "foo":{ 
+                         "type":"String"
                       }
-                   },
-                   "flowReturnSchema":{ 
-                      "type":"object",
-                      "properties":{ 
-                         "result":{ 
-                            "type":"Object",
-                            "properties":{ 
-                               "foo":{ 
-                                  "type":"String"
-                               },
-                               "bar":{ 
-                                  "type":"Number"
-                               }
+                   }
+                },
+                "flowReturnSchema":{ 
+                   "type":"object",
+                   "properties":{ 
+                      "result":{ 
+                         "type":"Object",
+                         "properties":{ 
+                            "foo":{ 
+                               "type":"String"
+                            },
+                            "bar":{ 
+                               "type":"Number"
                             }
                          }
                       }
                    }
                 }
-             })
+             }
+            // parameterInfo: JSON.stringify({ 
+            //     "parameterInfo":{ 
+            //        "originalParameterOrder":[ 
+            //           { 
+            //              "name":"foo",
+            //              "index":0
+            //           }
+            //        ],
+            //        "flowParameterSchema":{ 
+            //           "type":"object",
+            //           "required":[ 
+            //              "foo"
+            //           ],
+            //           "properties":{ 
+            //              "foo":{ 
+            //                 "type":"String"
+            //              }
+            //           }
+            //        },
+            //        "flowReturnSchema":{ 
+            //           "type":"object",
+            //           "properties":{ 
+            //              "result":{ 
+            //                 "type":"Object",
+            //                 "properties":{ 
+            //                    "foo":{ 
+            //                       "type":"String"
+            //                    },
+            //                    "bar":{ 
+            //                       "type":"Number"
+            //                    }
+            //                 }
+            //              }
+            //           }
+            //        }
+            //     }
+            //  })
         });
     });
 
