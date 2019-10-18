@@ -709,6 +709,33 @@ module.exports = app => {
                 "async function main(c: Excel.RequestContext, p0: string): Promise<string> { console.log(p0); return 'GEOFF TEST'; }",
             name: "GeoffTestScript4",
             description: "Wow",
+            "flowParameterSchema":{ 
+                "type":"object",
+                "required":[ 
+                   "foo"
+                ],
+                "properties":{ 
+                   "foo":{ 
+                      "type":"String"
+                   }
+                }
+             },
+             "flowReturnSchema":{ 
+                "type":"object",
+                "properties":{ 
+                   "result":{ 
+                      "type":"Object",
+                      "properties":{ 
+                         "foo":{ 
+                            "type":"String"
+                         },
+                         "bar":{ 
+                            "type":"Number"
+                         }
+                      }
+                   }
+                }
+             },
             "parameterInfo":{ 
                 "originalParameterOrder":[ 
                    { 
