@@ -895,6 +895,7 @@ module.exports = app => {
         } else {
             console.log(req.query);
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
+                console.log('DYNAMIC');
                 res.status(200).send({
                     Schema: {
                         type: "object",
