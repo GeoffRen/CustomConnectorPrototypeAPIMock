@@ -698,7 +698,9 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers);
-        res.status(200).send({
+
+        if (req.query.scriptId.indexOf("6") !== -1) {
+            res.status(200).send({
                 id:
                     "ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
                 owner: "1c889869-3278-480c-a242-7969a8224162",
@@ -709,106 +711,83 @@ module.exports = app => {
                     "async function main(c: Excel.RequestContext, p0: string): Promise<string> { console.log(p0); return 'GEOFF TEST'; }",
                 name: "GeoffTestScript4",
                 description: "Wow",
-                "flowParameterSchema":{
-                    "type":"object",
-                    "required":[
-                       "foo"
-                    ],
-                    "properties":{
-                       "foo":{
-                          "type":"string"
-                       }
+                flowParameterSchema: {
+                    type: "object",
+                    required: ["foo"],
+                    properties: {
+                        foo: {
+                            type: "string"
+                        }
                     }
-                 },
-                 "flowReturnSchema":{
-                    "type":"object",
-                    "properties":{
-                       "result":{
-                          "type":"object",
-                          "properties":{
-                             "foo":{
-                                "type":"string"
-                             },
-                             "bar":{
-                                "type":"number"
-                             }
-                          }
-                       }
-                    }
-                 },
-                "parameterInfo":{
-                    "originalParameterOrder":[
-                       {
-                          "name":"foo",
-                          "index":0
-                       }
-                    ],
-                    "flowParameterSchema":{
-                       "type":"object",
-                       "required":[
-                          "foo"
-                       ],
-                       "properties":{
-                          "foo":{
-                             "type":"string"
-                          }
-                       }
-                    },
-                    "flowReturnSchema":{
-                       "type":"object",
-                       "properties":{
-                          "result":{
-                             "type":"Object",
-                             "properties":{
-                                "foo":{
-                                   "type":"string"
+                },
+                flowReturnSchema: {
+                    type: "object",
+                    properties: {
+                        result: {
+                            type: "object",
+                            properties: {
+                                foo: {
+                                    type: "string"
                                 },
-                                "bar":{
-                                   "type":"number"
+                                bar: {
+                                    type: "number"
                                 }
-                             }
-                          }
-                       }
+                            }
+                        }
                     }
-                 }
-            // parameterInfo: JSON.stringify({
-            //     "parameterInfo":{
-            //        "originalParameterOrder":[
-            //           {
-            //              "name":"foo",
-            //              "index":0
-            //           }
-            //        ],
-            //        "flowParameterSchema":{
-            //           "type":"object",
-            //           "required":[
-            //              "foo"
-            //           ],
-            //           "properties":{
-            //              "foo":{
-            //                 "type":"String"
-            //              }
-            //           }
-            //        },
-            //        "flowReturnSchema":{
-            //           "type":"object",
-            //           "properties":{
-            //              "result":{
-            //                 "type":"Object",
-            //                 "properties":{
-            //                    "foo":{
-            //                       "type":"String"
-            //                    },
-            //                    "bar":{
-            //                       "type":"Number"
-            //                    }
-            //                 }
-            //              }
-            //           }
-            //        }
-            //     }
-            //  })
-        });
+                },
+                parameterInfo: {
+                    originalParameterOrder: [
+                        {
+                            name: "foo",
+                            index: 0
+                        }
+                    ],
+                    flowParameterSchema: {
+                        type: "object",
+                        required: ["foo"],
+                        properties: {
+                            foo: {
+                                type: "string"
+                            }
+                        }
+                    },
+                    flowReturnSchema: {
+                        type: "object",
+                        properties: {
+                            result: {
+                                type: "Object",
+                                properties: {
+                                    foo: {
+                                        type: "string"
+                                    },
+                                    bar: {
+                                        type: "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        } else {
+            res.status(200).send({
+                flowParameterSchema: {
+                    type: "object",
+                    properties: {
+                        dummyParameter: {
+                            type: "string",
+                            "x-ms-visibility": "internal"
+                        }
+                    }
+                },
+                flowReturnSchema: {
+                    type: "object",
+                    properties: {},
+                    "x-ms-visibility": "internal"
+                },
+            });
+        }
     });
 
     app.post("/connector/user", (req, res) => {
@@ -888,20 +867,20 @@ module.exports = app => {
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
                 console.log("DYNAMIC");
                 res.status(200).send({
-                        // Schema: {
-                        //   type: "object",
-                        //   properties: {
-                        //     p0: {
-                        //       type: "string"
-                            // },
-                            // hostPart: {
-                            //   type: "string"
-                            // },
-                            // displayName: {
-                            //   type: "string"
-                            // }
-                        //   }
-                        // }
+                    // Schema: {
+                    //   type: "object",
+                    //   properties: {
+                    //     p0: {
+                    //       type: "string"
+                    // },
+                    // hostPart: {
+                    //   type: "string"
+                    // },
+                    // displayName: {
+                    //   type: "string"
+                    // }
+                    //   }
+                    // }
                     Schema: {
                         type: "object",
                         properties: {
