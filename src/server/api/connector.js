@@ -716,7 +716,7 @@ module.exports = app => {
                     ],
                     "properties":{
                        "foo":{
-                          "type":"String"
+                          "type":"string"
                        }
                     }
                  },
@@ -727,10 +727,10 @@ module.exports = app => {
                           "type":"Object",
                           "properties":{
                              "foo":{
-                                "type":"String"
+                                "type":"string"
                              },
                              "bar":{
-                                "type":"Number"
+                                "type":"number"
                              }
                           }
                        }
