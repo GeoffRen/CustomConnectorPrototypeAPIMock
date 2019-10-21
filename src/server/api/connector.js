@@ -700,7 +700,7 @@ module.exports = app => {
         // console.log(req.headers);
 
         if (req.params.scriptId.indexOf("6") !== -1) {
-            console.log('HAS STUFF');
+            console.log('~~~HAS STUFF~~~');
             res.status(200).send({
                 id:
                     "ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
@@ -772,7 +772,7 @@ module.exports = app => {
                 }
             });
         } else {
-            console.log('DOES NOT HAVE STUFF');
+            console.log('~~~DOES NOT HAS STUFF~~~');
             res.status(200).send({
                 flowParameterSchema: {
                     type: "object",
