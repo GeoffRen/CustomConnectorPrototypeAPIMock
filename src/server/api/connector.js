@@ -699,116 +699,116 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers);
         res.status(200).send({
-            properties : {
-              foo : {
-                  type: "string",
-                  "x-ms-property-name-alias": "scriptParameters/foo"
-              },
-              required: ["foo"],
-              type: "object"
-          }
-        // res.status(200).send({
-        //     id:
-        //         "ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
-        //     owner: "1c889869-3278-480c-a242-7969a8224162",
-        //     lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
-        //     dateFirstPublished: 1570722333,
-        //     dateLastPublished: 1570722333,
-        //     body:
-        //         "async function main(c: Excel.RequestContext, p0: string): Promise<string> { console.log(p0); return 'GEOFF TEST'; }",
-        //     name: "GeoffTestScript4",
-        //     description: "Wow",
-        //     "flowParameterSchema":{ 
-        //         "type":"object",
-        //         "required":[ 
-        //            "foo"
-        //         ],
-        //         "properties":{ 
-        //            "foo":{ 
-        //               "type":"String"
-        //            }
-        //         }
-        //      },
-        //      "flowReturnSchema":{ 
-        //         "type":"object",
-        //         "properties":{ 
-        //            "result":{ 
-        //               "type":"Object",
-        //               "properties":{ 
-        //                  "foo":{ 
-        //                     "type":"String"
-        //                  },
-        //                  "bar":{ 
-        //                     "type":"Number"
-        //                  }
-        //               }
-        //            }
-        //         }
-        //      },
-        //     "parameterInfo":{ 
-        //         "originalParameterOrder":[ 
-        //            { 
-        //               "name":"foo",
-        //               "index":0
-        //            }
-        //         ],
-        //         "flowParameterSchema":{ 
-        //            "type":"object",
-        //            "required":[ 
-        //               "foo"
-        //            ],
-        //            "properties":{ 
-        //               "foo":{ 
-        //                  "type":"String"
-        //               }
-        //            }
-        //         },
-        //         "flowReturnSchema":{ 
-        //            "type":"object",
-        //            "properties":{ 
-        //               "result":{ 
-        //                  "type":"Object",
-        //                  "properties":{ 
-        //                     "foo":{ 
-        //                        "type":"String"
-        //                     },
-        //                     "bar":{ 
-        //                        "type":"Number"
-        //                     }
-        //                  }
-        //               }
-        //            }
-        //         }
-        //      }
-            // parameterInfo: JSON.stringify({ 
-            //     "parameterInfo":{ 
-            //        "originalParameterOrder":[ 
-            //           { 
+            properties: {
+                foo: {
+                    type: "string",
+                    "x-ms-property-name-alias": "scriptParameters/foo"
+                },
+                required: ["foo"],
+                type: "object"
+            }
+            // res.status(200).send({
+            //     id:
+            //         "ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
+            //     owner: "1c889869-3278-480c-a242-7969a8224162",
+            //     lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
+            //     dateFirstPublished: 1570722333,
+            //     dateLastPublished: 1570722333,
+            //     body:
+            //         "async function main(c: Excel.RequestContext, p0: string): Promise<string> { console.log(p0); return 'GEOFF TEST'; }",
+            //     name: "GeoffTestScript4",
+            //     description: "Wow",
+            //     "flowParameterSchema":{
+            //         "type":"object",
+            //         "required":[
+            //            "foo"
+            //         ],
+            //         "properties":{
+            //            "foo":{
+            //               "type":"String"
+            //            }
+            //         }
+            //      },
+            //      "flowReturnSchema":{
+            //         "type":"object",
+            //         "properties":{
+            //            "result":{
+            //               "type":"Object",
+            //               "properties":{
+            //                  "foo":{
+            //                     "type":"String"
+            //                  },
+            //                  "bar":{
+            //                     "type":"Number"
+            //                  }
+            //               }
+            //            }
+            //         }
+            //      },
+            //     "parameterInfo":{
+            //         "originalParameterOrder":[
+            //            {
+            //               "name":"foo",
+            //               "index":0
+            //            }
+            //         ],
+            //         "flowParameterSchema":{
+            //            "type":"object",
+            //            "required":[
+            //               "foo"
+            //            ],
+            //            "properties":{
+            //               "foo":{
+            //                  "type":"String"
+            //               }
+            //            }
+            //         },
+            //         "flowReturnSchema":{
+            //            "type":"object",
+            //            "properties":{
+            //               "result":{
+            //                  "type":"Object",
+            //                  "properties":{
+            //                     "foo":{
+            //                        "type":"String"
+            //                     },
+            //                     "bar":{
+            //                        "type":"Number"
+            //                     }
+            //                  }
+            //               }
+            //            }
+            //         }
+            //      }
+            // parameterInfo: JSON.stringify({
+            //     "parameterInfo":{
+            //        "originalParameterOrder":[
+            //           {
             //              "name":"foo",
             //              "index":0
             //           }
             //        ],
-            //        "flowParameterSchema":{ 
+            //        "flowParameterSchema":{
             //           "type":"object",
-            //           "required":[ 
+            //           "required":[
             //              "foo"
             //           ],
-            //           "properties":{ 
-            //              "foo":{ 
+            //           "properties":{
+            //              "foo":{
             //                 "type":"String"
             //              }
             //           }
             //        },
-            //        "flowReturnSchema":{ 
+            //        "flowReturnSchema":{
             //           "type":"object",
-            //           "properties":{ 
-            //              "result":{ 
+            //           "properties":{
+            //              "result":{
             //                 "type":"Object",
-            //                 "properties":{ 
-            //                    "foo":{ 
+            //                 "properties":{
+            //                    "foo":{
             //                       "type":"String"
             //                    },
-            //                    "bar":{ 
+            //                    "bar":{
             //                       "type":"Number"
             //                    }
             //                 }
@@ -895,27 +895,24 @@ module.exports = app => {
         } else {
             console.log(req.query);
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
-                console.log('DYNAMIC');
+                console.log("DYNAMIC");
                 res.status(200).send({
-                    Schema: {
-                        type: "object",
-                        required: [],
-                        properties: {
-                            p0: {
-                                type: "String"
-                            },
-                            p1: {
-                                type: "Number",
-                                default: 5
-                            },
-                            p2: {
-                                type: "Array",
-                                items: {
-                                    type: "String"
-                                }
-                            }
+                    type: "object",
+                    properties: {
+                        p0: {
+                            type: "String"
+                        // },
+                        // p1: {
+                        //     type: "Number",
+                        //     default: 5
+                        // },
+                        // p2: {
+                        //     type: "Array",
+                        //     items: {
+                        //         type: "String"
+                        //     }
                         }
-                    },
+                    }
                 });
             } else {
                 res.status(200).send({
@@ -986,7 +983,7 @@ module.exports = app => {
                                 }
                             }
                         }
-                    },
+                    }
                 });
             } else {
                 console.log("~~~EMPTY~~~");
