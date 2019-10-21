@@ -788,7 +788,8 @@ module.exports = app => {
                 //     properties: {},
                 //     "x-ms-visibility": "internal"
                 // },
-                parameterInfo: ""
+                "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"dummyParameter\":{\"type\":\"String\",\"x-ms-visibility\":\"internal\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
+                // parameterInfo: ""
                 // parameterInfo: JSON.stringify({
                 //     originalParameterOrder: [
                 //         {
