@@ -788,6 +788,28 @@ module.exports = app => {
                     properties: {},
                     "x-ms-visibility": "internal"
                 },
+                parameterInfo: {
+                    originalParameterOrder: [
+                        {
+                            name: "foo",
+                            index: 0
+                        }
+                    ],
+                    flowParameterSchema: {
+                        type: "object",
+                        properties: {
+                            dummyParameter: {
+                                type: "string",
+                                "x-ms-visibility": "internal"
+                            }
+                        }
+                    },
+                    flowReturnSchema: {
+                        type: "object",
+                        properties: {},
+                        "x-ms-visibility": "internal"
+                    },
+                }
             });
         }
     });
