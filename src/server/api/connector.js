@@ -699,7 +699,6 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers);
         res.status(200).send({
-            res.status(200).send({
                 id:
                     "ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
                 owner: "1c889869-3278-480c-a242-7969a8224162",
