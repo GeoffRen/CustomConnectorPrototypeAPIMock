@@ -897,22 +897,40 @@ module.exports = app => {
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
                 console.log("DYNAMIC");
                 res.status(200).send({
-                    "Schema": {
-                      "title": "Email",
-                      "type": "object",
-                      "properties": {
-                        "localPart": {
-                          "type": "string"
-                        },
-                        "hostPart": {
-                          "type": "string"
-                        },
-                        "displayName": {
-                          "type": "string"
+                        Schema: {
+                          title: "Email",
+                          type: "object",
+                          properties: {
+                            localPart: {
+                              type: "string"
+                            },
+                            hostPart: {
+                              type: "string"
+                            },
+                            displayName: {
+                              type: "string"
+                            }
+                          }
                         }
-                      }
-                    }
-                  });
+                    // Schema: {
+                    //     type: "object",
+                    //     properties: {
+                    //         p0: {
+                    //             type: "String"
+                    //         },
+                    //         p1: {
+                    //             type: "Number",
+                    //             default: 5
+                    //         },
+                    //         p2: {
+                    //             type: "Array",
+                    //             items: {
+                    //                 type: "String"
+                    //             }
+                    //         }
+                    //     }
+                    // }
+                });
             } else {
                 res.status(200).send({
                     Schema: {
