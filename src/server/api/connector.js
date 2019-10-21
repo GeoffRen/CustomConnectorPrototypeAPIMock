@@ -901,7 +901,7 @@ module.exports = app => {
                           title: "Email",
                           type: "object",
                           properties: {
-                            localPart: {
+                            p0: {
                               type: "string"
                             },
                             hostPart: {
