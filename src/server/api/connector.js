@@ -916,16 +916,16 @@ module.exports = app => {
                         properties: {
                             p0: {
                                 type: "string"
-                            // },
-                            // p1: {
-                            //     type: "Number",
-                            //     default: 5
-                            // },
-                            // p2: {
-                            //     type: "Array",
-                            //     items: {
-                            //         type: "String"
-                            //     }
+                            },
+                            p1: {
+                                type: "number",
+                                default: 5
+                            },
+                            p2: {
+                                type: "array",
+                                items: {
+                                    type: "string"
+                                }
                             }
                         }
                     }
