@@ -699,7 +699,7 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers);
 
-        if (req.query.scriptId.indexOf("6") !== -1) {
+        if (req.params.scriptId.indexOf("6") !== -1) {
             res.status(200).send({
                 id:
                     "ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
