@@ -896,20 +896,6 @@ module.exports = app => {
             console.log(req.query);
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
                 res.status(200).send({
-                    originalParameterOrder: [
-                        {
-                            name: "p0",
-                            index: 0
-                        },
-                        {
-                            name: "p1",
-                            index: 1
-                        },
-                        {
-                            name: "p2",
-                            index: 2
-                        }
-                    ],
                     Schema: {
                         type: "object",
                         required: [],
@@ -929,59 +915,6 @@ module.exports = app => {
                             }
                         }
                     },
-                    flowParameterSchema: {
-                        type: "object",
-                        required: ["p0", "p2"],
-                        properties: {
-                            p0: {
-                                type: "String"
-                            },
-                            p1: {
-                                type: "Number",
-                                default: 5
-                            },
-                            p2: {
-                                type: "Array",
-                                items: {
-                                    type: "String"
-                                }
-                            },
-                            p3: {
-                                type: "Boolean"
-                            }
-                        }
-                    },
-                    flowReturnSchema: {
-                        Schema: {
-                            type: "object",
-                            properties: {
-                                main: {
-                                    type: "Object",
-                                    properties: {
-                                        r0: {
-                                            type: "String"
-                                        },
-                                        r1: {
-                                            type: "Object",
-                                            properties: {
-                                                r2: {
-                                                    type: "Object",
-                                                    properties: {
-                                                        r3: {
-                                                            type: "Number"
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        r4: {
-                                            type: "Boolean"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
                 });
             } else {
                 res.status(200).send({
@@ -1024,41 +957,6 @@ module.exports = app => {
             if (req.query.scriptId.indexOf("ynamic") !== -1) {
                 console.log("~~~DYNAMIC~~~");
                 res.status(200).send({
-                    originalParameterOrder: [
-                        {
-                            name: "p0",
-                            index: 0
-                        },
-                        {
-                            name: "p1",
-                            index: 1
-                        },
-                        {
-                            name: "p2",
-                            index: 2
-                        }
-                    ],
-                    flowParameterSchema: {
-                        Schema: {
-                            type: "object",
-                            required: ["p0", "p2"],
-                            properties: {
-                                p0: {
-                                    type: "String"
-                                },
-                                p1: {
-                                    type: "Number",
-                                    default: 5
-                                },
-                                p2: {
-                                    type: "Array",
-                                    items: {
-                                        type: "String"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     Schema: {
                         type: "object",
                         properties: {
@@ -1088,41 +986,6 @@ module.exports = app => {
                             }
                         }
                     },
-                    flowReturnSchema: {
-                        type: "object",
-                        properties: {
-                            result: {
-                                type: "Object",
-                                properties: {
-                                    people: {
-                                        type: "Array",
-                                        items: {
-                                            type: "Object",
-                                            properties: {
-                                                name: {
-                                                    type: "String"
-                                                },
-                                                emails: {
-                                                    type: "String"
-                                                },
-                                                misc: {
-                                                    type: "Array",
-                                                    items: {
-                                                        type: "Object",
-                                                        properties: {
-                                                            prop: {
-                                                                type: "String"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
                 });
             } else {
                 console.log("~~~EMPTY~~~");
