@@ -899,8 +899,16 @@ module.exports = app => {
                 res.status(200).send({
                     type: "object",
                     properties: {
-                        p0: {
-                            type: "String"
+                        Schema: {
+                            type: "object",
+                            properties: {
+                                p0: {
+                                    type: "String"
+                                },
+                            }
+                        }
+                        // p0: {
+                            // type: "String"
                         // },
                         // p1: {
                         //     type: "Number",
