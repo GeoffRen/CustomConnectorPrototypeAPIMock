@@ -788,7 +788,7 @@ module.exports = app => {
                     properties: {},
                     "x-ms-visibility": "internal"
                 },
-                parameterInfo: {
+                parameterInfo: JSON.stringify({
                     originalParameterOrder: [
                         {
                             name: "foo",
@@ -809,7 +809,7 @@ module.exports = app => {
                         properties: {},
                         "x-ms-visibility": "internal"
                     },
-                }
+                })
             });
         }
     });
