@@ -724,7 +724,7 @@ module.exports = app => {
                     "type":"object",
                     "properties":{
                        "result":{
-                          "type":"Object",
+                          "type":"object",
                           "properties":{
                              "foo":{
                                 "type":"string"
