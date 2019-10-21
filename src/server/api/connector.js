@@ -904,7 +904,7 @@ module.exports = app => {
                             properties: {
                                 p0: {
                                     type: "String"
-                                },
+                                }
                             }
                         }
                         // p0: {
@@ -919,7 +919,7 @@ module.exports = app => {
                         //     items: {
                         //         type: "String"
                         //     }
-                        }
+                        // }
                     }
                 });
             } else {
