@@ -898,7 +898,6 @@ module.exports = app => {
                 console.log("DYNAMIC");
                 res.status(200).send({
                         Schema: {
-                          title: "Email",
                           type: "object",
                           properties: {
                             p0: {
