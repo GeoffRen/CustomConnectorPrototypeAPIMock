@@ -909,7 +909,7 @@ module.exports = app => {
                             p0: {
                                 type: "string"
                             },
-                            p1: {
+                            P1: {
                                 type: "number",
                                 default: 5
                             },
