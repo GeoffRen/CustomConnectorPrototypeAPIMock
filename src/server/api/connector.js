@@ -429,9 +429,6 @@ module.exports = app => {
         }
     });
 
-    const c = await workbook.worksheets.getFirst().getRange().prototyep.loadaddress;
-    c()
-
     app.post("/api/unattended/run/:source", (req, res) => {
         console.log("~~~GET FILE PICKER TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
