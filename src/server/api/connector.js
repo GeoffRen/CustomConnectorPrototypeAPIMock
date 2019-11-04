@@ -779,7 +779,7 @@ module.exports = app => {
                     properties: {
                         dummyParameter: {
                             type: "string",
-                            "x-ms-visibility": "internal"
+                            "x-ms-visibility": "important"
                         }
                     }
                 },
