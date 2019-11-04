@@ -337,7 +337,7 @@ module.exports = app => {
         // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
         res.sendStatus(200);
     });
-
+ 
     app.get("/test", (req, res) => {
         console.log("~~~GET TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
@@ -413,7 +413,7 @@ module.exports = app => {
         } else {
             console.log("~~~SOME PARAMETERS~~~");
             res.status(200).send({
-                result: "GEOFF TEST",
+                result: { },
                 logs: ["[2019-10-10T15:50:57.991Z] str"]
                 // result: JSON.parse(
                 //     '{"r0":"str","r1":{"r2":{"r3":0}},"r4":true}'
@@ -428,6 +428,9 @@ module.exports = app => {
             });
         }
     });
+
+    const c = await workbook.worksheets.getFirst().getRange().prototyep.loadaddress;
+    c()
 
     app.post("/api/unattended/run/:source", (req, res) => {
         console.log("~~~GET FILE PICKER TEST OPERATION~~~");
@@ -788,7 +791,7 @@ module.exports = app => {
                 //     properties: {},
                 //     "x-ms-visibility": "internal"
                 // },
-                "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"dummyParameter\":{\"type\":\"String\",\"x-ms-visibility\":\"internal\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
+                "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"dummyParameter\":{\"type\":\"string\",\"default\":\"dummyVal\",\"x-ms-visibility\":\"internal\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
                 // parameterInfo: ""
                 // parameterInfo: JSON.stringify({
                 //     originalParameterOrder: [
