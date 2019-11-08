@@ -348,6 +348,16 @@ module.exports = app => {
         res.status(200).send({ test: "success" });
     });
 
+    app.get("/test/:scriptId", (req, res) => {
+        console.log("~~~GET TEST/:scriptId OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        console.log(req.headers);
+        // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
+        res.status(200).send({ test: "success" });
+    });
+
     app.post("/test", (req, res) => {
         console.log("~~~POST TEST OPERATION~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
