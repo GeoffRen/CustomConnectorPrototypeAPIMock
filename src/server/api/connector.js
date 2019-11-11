@@ -722,64 +722,7 @@ module.exports = app => {
                     "async function main(c: Excel.RequestContext, p0: string): Promise<string> { console.log(p0); return 'GEOFF TEST'; }",
                 name: "GeoffTestScript4",
                 description: "Wow",
-                flowParameterSchema: {
-                    type: "object",
-                    required: ["foo"],
-                    properties: {
-                        foo: {
-                            type: "string"
-                        }
-                    }
-                },
-                flowReturnSchema: {
-                    type: "object",
-                    properties: {
-                        result: {
-                            type: "object",
-                            properties: {
-                                foo: {
-                                    type: "string"
-                                },
-                                bar: {
-                                    type: "number"
-                                }
-                            }
-                        }
-                    }
-                },
-                parameterInfo: {
-                    originalParameterOrder: [
-                        {
-                            name: "foo",
-                            index: 0
-                        }
-                    ],
-                    flowParameterSchema: {
-                        type: "object",
-                        required: ["foo"],
-                        properties: {
-                            foo: {
-                                type: "string"
-                            }
-                        }
-                    },
-                    flowReturnSchema: {
-                        type: "object",
-                        properties: {
-                            result: {
-                                type: "Object",
-                                properties: {
-                                    foo: {
-                                        type: "string"
-                                    },
-                                    bar: {
-                                        type: "number"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"dummyParameter\":{\"type\":\"string\",\"default\":\"dummyVal\",\"x-ms-visibility\":\"internal\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
             });
         } else {
             console.log('~~~DOES NOT HAS STUFF~~~');
