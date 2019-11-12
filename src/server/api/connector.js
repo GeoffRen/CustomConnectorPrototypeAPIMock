@@ -664,8 +664,7 @@ module.exports = app => {
         console.log(req.headers);
         res.status(200).send([
             {
-                id:
-                    "4",
+                id: "4",
                 owner: "1c889869-3278-480c-a242-7969a8224162",
                 lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
                 dateFirstPublished: 1570722333,
@@ -676,8 +675,7 @@ module.exports = app => {
                 parameterInfo: ""
             },
             {
-                id:
-                    "5",
+                id: "5",
                 owner: "1c889869-3278-480c-a242-7969a8224162",
                 lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
                 dateFirstPublished: 1570728245,
@@ -688,8 +686,7 @@ module.exports = app => {
                 parameterInfo: ""
             },
             {
-                id:
-                    "6",
+                id: "6",
                 owner: "1c889869-3278-480c-a242-7969a8224162",
                 lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
                 dateFirstPublished: 1570732515,
@@ -702,14 +699,14 @@ module.exports = app => {
         ]);
     });
 
-    app.all("/api/storage/:scriptId", (req, res) => {
+    app.all("/api/storage/script", (req, res) => {
         console.log("~~~GET SINGLE SCRIPT API STORAGE~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers);
 
-        if (req.params.scriptId.indexOf("6") !== -1) {
+        if (req.query.scriptId.indexOf("6") !== -1) {
             console.log('~~~HAS STUFF~~~');
             res.status(200).send({
                 id:
