@@ -707,7 +707,7 @@ module.exports = app => {
         // console.log(req.headers);
         console.log(req.query.scriptId);
         console.log(req.query.scriptId.indexOf("6") !== -1);
-        if (req.query.scriptId.indexOf("6") !== -1) {
+        if (req.query.scriptId < 6) {
             console.log('~~~HAS STUFF~~~');
             res.status(200).send({
                 id:
