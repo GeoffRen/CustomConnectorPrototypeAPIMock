@@ -705,7 +705,8 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers);
-
+        console.log(req.query.scriptId);
+        console.log(req.query.scriptId.indexOf("6") !== -1);
         if (req.query.scriptId.indexOf("6") !== -1) {
             console.log('~~~HAS STUFF~~~');
             res.status(200).send({
