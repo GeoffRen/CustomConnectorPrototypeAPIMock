@@ -707,16 +707,21 @@ module.exports = app => {
         if (req.query.scriptId < 6 || req.params.scriptId < 6) {
             console.log('~~~HAS STUFF~~~');
             res.status(200).send({
-                id:
-                    "ms-officescript%3A%2F%2Fonedrive_business_itemlink%2F01JASD3635GCZRKZYGJRAZJQLNS4FLLSPF",
-                owner: "1c889869-3278-480c-a242-7969a8224162",
-                lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
-                dateFirstPublished: 1570722333,
-                dateLastPublished: 1570722333,
-                body:
-                    "async function main(c: Excel.RequestContext, p0: string): Promise<string> { console.log(p0); return 'GEOFF TEST'; }",
-                name: "GeoffTestScript4",
-                description: "Wow",
+                flowParameterSchema: {
+                    type: "object",
+                    properties: {
+                        dummyParameter: {
+                            type: "string",
+                            "x-ms-visibility": "important",
+                            default: 'dummyVal'
+                        }
+                    }
+                },
+                flowReturnSchema: {
+                    type: "object",
+                    properties: {},
+                    "x-ms-visibility": "internal"
+                },
                 "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"dummyParameter\":{\"type\":\"string\",\"default\":\"dummyVal\",\"x-ms-visibility\":\"internal\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
             });
         } else {
