@@ -708,8 +708,8 @@ module.exports = app => {
         if ((req.query.scriptId && req.query.scriptId < 6) || (req.params.script && req.params.script < 6)) {
             console.log('~~~HAS STUFF~~~');
             res.status(200).send({
-                flowParameterSchema: null,
-                flowReturnSchema: null,
+                // flowParameterSchema: null,
+                // flowReturnSchema: null,
                 // flowParameterSchema: {
                 //     type: "object",
                 //     properties: {
@@ -725,7 +725,7 @@ module.exports = app => {
                 //     properties: {},
                 //     "x-ms-visibility": "internal"
                 // },
-                "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":null,\"flowReturnSchema\":null}",
+                // "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":null,\"flowReturnSchema\":null}",
                 // "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"testtesttest\":{\"type\":\"string\",\"default\":\"testest\",\"x-ms-visibility\":\"important\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
                 parameterInfo: {
                     flowParameterSchema: null,
