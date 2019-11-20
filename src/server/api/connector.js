@@ -415,7 +415,7 @@ module.exports = app => {
         // });
         // res.sendStatus(202);
         // if (!req.body.scriptParameters || req.body.scriptParameters === "[]") {
-        if (!req.body) {            
+        if (!req.body || req.body == {}) {            
             console.log("~~~NO PARAMETERS~~~");
             res.setHeader('geoff', 'geoff header');
             res.setHeader('x-ms-client-request-id', 'noParametersRequestId');
