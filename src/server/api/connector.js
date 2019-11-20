@@ -414,7 +414,8 @@ module.exports = app => {
         //     "retry-after": 5
         // });
         // res.sendStatus(202);
-        if (!req.body.scriptParameters || req.body.scriptParameters === "[]") {
+        // if (!req.body.scriptParameters || req.body.scriptParameters === "[]") {
+        if (!req.body) {            
             console.log("~~~NO PARAMETERS~~~");
             res.setHeader('geoff', 'geoff header');
             res.setHeader('x-ms-client-request-id', 'noParametersRequestId');
@@ -704,10 +705,6 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers);
-        console.log((req.query.scriptId ));
-        console.log((req.query.scriptId < 6));
-        console.log((req.params));
-        console.log(req.params.script < 6);
         if ((req.query.scriptId && req.query.scriptId < 6) || (req.params.script && req.params.script < 6)) {
             console.log('~~~HAS STUFF~~~');
             res.status(200).send({
