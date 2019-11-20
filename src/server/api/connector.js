@@ -662,39 +662,33 @@ module.exports = app => {
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
-        res.status(200).send([
+        res.status(200).send([\            {
+                id: "0",
+                name: "GeoffTestScript0",
+            },
+            {
+                id: "1",
+                name: "GeoffTestScript1",
+            },
+            {
+                id: "2",
+                name: "GeoffTestScript2",
+            },
+            {
+                id: "3",
+                name: "GeoffTestScript3",
+            },
             {
                 id: "4",
-                owner: "1c889869-3278-480c-a242-7969a8224162",
-                lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
-                dateFirstPublished: 1570722333,
-                dateLastPublished: 1570722333,
-                body: "",
                 name: "GeoffTestScript4",
-                description: "",
-                parameterInfo: ""
             },
             {
                 id: "5",
-                owner: "1c889869-3278-480c-a242-7969a8224162",
-                lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
-                dateFirstPublished: 1570728245,
-                dateLastPublished: 1570728245,
-                body: "",
                 name: "GeoffTestScript5",
-                description: "",
-                parameterInfo: ""
             },
             {
                 id: "6",
-                owner: "1c889869-3278-480c-a242-7969a8224162",
-                lastModifiedBy: "1c889869-3278-480c-a242-7969a8224162",
-                dateFirstPublished: 1570732515,
-                dateLastPublished: 1570732515,
-                body: "",
                 name: "GeoffTestScript6",
-                description: "",
-                parameterInfo: ""
             }
         ]);
     });
