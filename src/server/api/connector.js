@@ -724,8 +724,21 @@ module.exports = app => {
                     "x-ms-visibility": "internal"
                 },
                 parameterInfo: {
-                    flowParameterSchema: null,
-                    flowReturnSchema: null,
+                    flowParameterSchema: {
+                        type: "object",
+                        properties: {
+                            dummyParameter: {
+                                type: "string",
+                                "x-ms-visibility": "important",
+                                default: 'dummyVal'
+                            }
+                        }
+                    },
+                    flowReturnSchema:{
+                        type: "object",
+                        properties: {},
+                        "x-ms-visibility": "internal"
+                    },
                 },
                 "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"dummyParameter\":{\"type\":\"string\",\"default\":\"dummyVal\",\"x-ms-visibility\":\"internal\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
             });
