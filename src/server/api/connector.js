@@ -416,7 +416,7 @@ module.exports = app => {
         // res.sendStatus(202);
         if (!req.body.scriptParameters || req.body.scriptParameters === "[]") {
             console.log("~~~NO PARAMETERS~~~");
-            res.setHeader('geoff', 'geoff header);
+            res.setHeader('geoff', 'geoff header');
             res.setHeader('x-ms-client-request-id', 'requestId');
             res.status(400).send({
                 result: null,
