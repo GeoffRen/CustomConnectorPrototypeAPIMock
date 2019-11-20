@@ -704,7 +704,7 @@ module.exports = app => {
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        // console.log(req.headers);
+        console.log(req.headers);
         if ((req.query.scriptId && req.query.scriptId < 6) || (req.params.script && req.params.script < 6)) {
             console.log('~~~HAS STUFF~~~');
             res.status(200).send({
@@ -729,11 +729,7 @@ module.exports = app => {
                 // "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"testtesttest\":{\"type\":\"string\",\"default\":\"testest\",\"x-ms-visibility\":\"important\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
                 parameterInfo: {
                     flowParameterSchema: null,
-                    flowReturnSchema: {
-                        type: "object",
-                        properties: {},
-                        "x-ms-visibility": "internal"
-                    }
+                    flowReturnSchema: null,
                 }
             });
         } else {
