@@ -417,13 +417,15 @@ module.exports = app => {
         if (!req.body.scriptParameters || req.body.scriptParameters === "[]") {
             console.log("~~~NO PARAMETERS~~~");
             res.setHeader('geoff', 'geoff header');
-            res.setHeader('x-ms-client-request-id', 'requestId');
+            res.setHeader('x-ms-client-request-id', 'noParametersRequestId');
             res.status(400).send({
                 result: null,
                 logs: []
             });
         } else {
             console.log("~~~SOME PARAMETERS~~~");
+            res.setHeader('geoff', 'geoff header');
+            res.setHeader('x-ms-client-request-id', 'someParametersRequestId');
             res.status(200).send({
                 result: { },
                 logs: ["[2019-10-10T15:50:57.991Z] str"]
