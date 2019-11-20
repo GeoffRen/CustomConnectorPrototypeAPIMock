@@ -718,21 +718,23 @@ module.exports = app => {
         } else {
             console.log('~~~DOES NOT HAS STUFF~~~');
             res.status(200).send({
-                flowParameterSchema: {
-                    type: "object",
-                    properties: {
-                        dummyParameter: {
-                            type: "string",
-                            "x-ms-visibility": "important",
-                            default: 'dummyVal'
-                        }
-                    }
-                },
-                flowReturnSchema: {
-                    type: "object",
-                    properties: {},
-                    "x-ms-visibility": "internal"
-                },
+                flowParameterSchema: null,
+                flowReturnSchema: null,
+                // flowParameterSchema: {
+                //     type: "object",
+                //     properties: {
+                //         dummyParameter: {
+                //             type: "string",
+                //             "x-ms-visibility": "important",
+                //             default: 'dummyVal'
+                //         }
+                //     }
+                // },
+                // flowReturnSchema: {
+                //     type: "object",
+                //     properties: {},
+                //     "x-ms-visibility": "internal"
+                // },
                 "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"testtesttest\":{\"type\":\"string\",\"default\":\"testest\",\"x-ms-visibility\":\"important\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
                 // parameterInfo: ""
                 // parameterInfo: JSON.stringify({
