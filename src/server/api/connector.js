@@ -707,8 +707,8 @@ module.exports = app => {
         console.log((req.query.scriptId ));
         console.log((req.query.scriptId < 6));
         console.log((req.params));
-        console.log(req.params.scriptId < 6);
-        if ((req.query.scriptId && req.query.scriptId < 6) || (req.params && req.params.scriptId < 6)) {
+        console.log(req.params.script < 6);
+        if ((req.query.scriptId && req.query.scriptId < 6) || (req.params.script && req.params.script < 6)) {
             console.log('~~~HAS STUFF~~~');
             res.status(200).send({
                 flowParameterSchema: {
