@@ -695,6 +695,26 @@ module.exports = app => {
             {
                 id: "6",
                 name: "GeoffTestScript6",
+            },
+            {
+                id: "7",
+                name: "GeoffTestScript7",
+            },
+            {
+                id: "8",
+                name: "GeoffTestScript8",
+            },
+            {
+                id: "9",
+                name: "GeoffTestScript9",
+            },
+            {
+                id: "10",
+                name: "GeoffTestScript10",
+            },
+            {
+                id: "11",
+                name: "GeoffTestScript11",
             }
         ]);
     });
@@ -706,7 +726,7 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
         if ((req.query.scriptId && req.query.scriptId < 6) || (req.params.script && req.params.script < 6)) {
-            console.log('~~~HAS STUFF~~~');
+            console.log('~~~DOES NOT HAS STUFF~~~');
             res.status(200).send({
                 // flowParameterSchema: null,
                 // flowReturnSchema: null,
@@ -733,7 +753,7 @@ module.exports = app => {
                 }
             });
         } else {
-            console.log('~~~DOES NOT HAS STUFF~~~');
+            console.log('~~~HAS STUFF~~~');
             res.status(200).send({
                 flowParameterSchema: null,
                 flowReturnSchema: null,
@@ -767,8 +787,11 @@ module.exports = app => {
                     },
                     flowReturnSchema: {
                         type: "object",
-                        properties: {},
-                        "x-ms-visibility": "internal"
+                        properties: {
+                            ret: {
+                                type: "string"
+                            }
+                        }
                     },
                 }
             });
