@@ -779,10 +779,10 @@ module.exports = app => {
                     flowParameterSchema: {
                         type: "object",
                         properties: {
-                            test: {
+                            serverTest: {
                                 type: "string",
                                 "x-ms-visibility": "important",
-                                default: 'dummyVal'
+                                default: 'serverVal'
                             }
                         }
                     },
