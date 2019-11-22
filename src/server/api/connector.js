@@ -724,7 +724,7 @@ module.exports = app => {
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        console.log(req.headers);
+        // console.log(req.headers);
         if ((req.query.scriptId && req.query.scriptId < 6) || (req.params.script && req.params.script < 6)) {
             console.log('~~~DOES NOT HAS STUFF~~~');
             // res.status(200).send();
