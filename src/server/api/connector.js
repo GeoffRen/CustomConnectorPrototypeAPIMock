@@ -779,7 +779,7 @@ module.exports = app => {
                     flowParameterSchema: {
                         type: "object",
                         properties: {
-                            dummyParameter: {
+                            test: {
                                 type: "string",
                                 "x-ms-visibility": "important",
                                 default: 'dummyVal'
