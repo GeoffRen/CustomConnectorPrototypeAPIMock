@@ -775,28 +775,45 @@ module.exports = app => {
                 // },
                 // "parameterInfo":"",
                 // "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"testtesttest\":{\"type\":\"string\",\"default\":\"testest\",\"x-ms-visibility\":\"important\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
+                // parameterInfo: {
+                //     flowParameterSchema: {
+                //         type: "object",
+                //         required: ["reqServerTest"],
+                //         properties: {
+                //             reqServerTest: {
+                //                 type: "string",
+                //                 default: 'serverVal'
+                //             },
+                //             nonReqServerTest: {
+                //                 type: "string"
+                //             }
+                //         }
+                //     },
+                //     flowReturnSchema: {
+                //         type: "object",
+                //         properties: {
+                //             ret: {
+                //                 type: "string"
+                //             }
+                //         }
+                //     },
+                // }
                 parameterInfo: {
                     flowParameterSchema: {
                         type: "object",
-                        required: ["reqServerTest"],
                         properties: {
-                            reqServerTest: {
+                            p0: {
                                 type: "string",
-                                default: 'serverVal'
-                            },
-                            nonReqServerTest: {
-                                type: "string"
+                                "x-ms-visibility": "internal",
+                                default: "GEOFF"
                             }
                         }
                     },
                     flowReturnSchema: {
                         type: "object",
-                        properties: {
-                            ret: {
-                                type: "string"
-                            }
-                        }
-                    },
+                        properties: {},
+                        "x-ms-visibility": "internal"
+                    }
                 }
             });
         }
