@@ -727,37 +727,10 @@ module.exports = app => {
         console.log(req.headers);
         if ((req.query.scriptId && req.query.scriptId < 6) || (req.params.script && req.params.script < 6)) {
             console.log('~~~DOES NOT HAS STUFF~~~');
-            res.status(200).send();
-            // res.status(200).send({
-            //     // flowParameterSchema: null,
-            //     // flowReturnSchema: null,
-            //     // flowParameterSchema: {
-            //     //     type: "object",
-            //     //     properties: {
-            //     //         dummyParameter: {
-            //     //             type: "string",
-            //     //             "x-ms-visibility": "important",
-            //     //             default: 'dummyVal'
-            //     //         }
-            //     //     }
-            //     // },
-            //     // flowReturnSchema: {
-            //     //     type: "object",
-            //     //     properties: {},
-            //     //     "x-ms-visibility": "internal"
-            //     // },
-            //     // "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":null,\"flowReturnSchema\":null}",
-            //     // "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"testtesttest\":{\"type\":\"string\",\"default\":\"testest\",\"x-ms-visibility\":\"important\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
-            //     parameterInfo: {
-            //         flowParameterSchema: null,
-            //         flowReturnSchema: null,
-            //     }
-            // });
-        } else {
-            console.log('~~~HAS STUFF~~~');
+            // res.status(200).send();
             res.status(200).send({
-                flowParameterSchema: null,
-                flowReturnSchema: null,
+                // flowParameterSchema: null,
+                // flowReturnSchema: null,
                 // flowParameterSchema: {
                 //     type: "object",
                 //     properties: {
@@ -773,28 +746,55 @@ module.exports = app => {
                 //     properties: {},
                 //     "x-ms-visibility": "internal"
                 // },
-                "parameterInfo":"",
+                // "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":null,\"flowReturnSchema\":null}",
                 // "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"testtesttest\":{\"type\":\"string\",\"default\":\"testest\",\"x-ms-visibility\":\"important\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
-                // parameterInfo: {
-                //     flowParameterSchema: {
-                //         type: "object",
-                //         properties: {
-                //             serverTest: {
-                //                 type: "string",
-                //                 "x-ms-visibility": "important",
-                //                 default: 'serverVal'
-                //             }
+                parameterInfo: {
+                    flowParameterSchema: null,
+                    flowReturnSchema: null,
+                }
+            });
+        } else {
+            console.log('~~~HAS STUFF~~~');
+            res.status(200).send({
+                // flowParameterSchema: null,
+                // flowReturnSchema: null,
+                // flowParameterSchema: {
+                //     type: "object",
+                //     properties: {
+                //         dummyParameter: {
+                //             type: "string",
+                //             "x-ms-visibility": "important",
+                //             default: 'dummyVal'
                 //         }
-                //     },
-                //     flowReturnSchema: {
-                //         type: "object",
-                //         properties: {
-                //             ret: {
-                //                 type: "string"
-                //             }
-                //         }
-                //     },
-                // }
+                //     }
+                // },
+                // flowReturnSchema: {
+                //     type: "object",
+                //     properties: {},
+                //     "x-ms-visibility": "internal"
+                // },
+                // "parameterInfo":"",
+                // "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"testtesttest\":{\"type\":\"string\",\"default\":\"testest\",\"x-ms-visibility\":\"important\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
+                parameterInfo: {
+                    flowParameterSchema: {
+                        type: "object",
+                        properties: {
+                            serverTest: {
+                                type: "string",
+                                "x-ms-visibility": "important",
+                                default: 'serverVal'
+                            }
+                        }
+                    },
+                    flowReturnSchema: {
+                        type: "object",
+                        properties: {
+                            ret: {
+                                type: "string"
+                            }
+                        }
+                    },
+                }
             });
         }
     });
