@@ -804,8 +804,7 @@ module.exports = app => {
                         properties: {
                             p0: {
                                 type: "string",
-                                "x-ms-visibility": "internal",
-                                default: "GEOFF"
+                                "x-ms-visibility": "internal"
                             }
                         }
                     },
