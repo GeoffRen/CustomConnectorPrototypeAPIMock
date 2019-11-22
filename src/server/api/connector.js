@@ -781,7 +781,6 @@ module.exports = app => {
                         required: ["reqServerTest"],
                         properties: {
                             reqServerTest: {
-                                required: true,
                                 type: "string",
                                 default: 'serverVal'
                             },
