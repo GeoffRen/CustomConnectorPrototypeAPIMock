@@ -778,11 +778,14 @@ module.exports = app => {
                 parameterInfo: {
                     flowParameterSchema: {
                         type: "object",
-                        required: ["serverTest"],
+                        required: ["reqServerTest"],
                         properties: {
-                            serverTest: {
+                            reqServerTest: {
                                 type: "string",
                                 default: 'serverVal'
+                            },
+                            nonReqServerTest: {
+                                type: "string"
                             }
                         }
                     },
