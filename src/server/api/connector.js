@@ -428,7 +428,7 @@ module.exports = app => {
             res.setHeader('geoff', 'geoff header');
             res.setHeader('x-ms-client-request-id', 'someParametersRequestId');
             res.status(200).send({
-                result: { },
+                result: "TEST STRING",
                 logs: ["[2019-10-10T15:50:57.991Z] str"]
                 // result: JSON.parse(
                 //     '{"r0":"str","r1":{"r2":{"r3":0}},"r4":true}'
