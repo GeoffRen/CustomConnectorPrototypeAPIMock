@@ -800,7 +800,10 @@ module.exports = app => {
                             p0: {
                                 type: "array",
                                 items: {
-                                    type: "string"
+                                    type: "array",
+                                    items: {
+                                        type: "string"
+                                    }
                                 }
                             }
                         }
