@@ -798,7 +798,10 @@ module.exports = app => {
                         type: "object",
                         properties: {
                             p0: {
-                                type: "string"
+                                type: "array",
+                                items: {
+                                    type: "string"
+                                }
                             }
                         }
                     },
