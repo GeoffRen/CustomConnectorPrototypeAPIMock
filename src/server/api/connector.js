@@ -768,7 +768,7 @@ module.exports = app => {
                 //     properties: {},
                 //     "x-ms-visibility": "internal"
                 // },
-                // "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\"],\"properties\":{\"p0\":{\"type\":\"string\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"string\"}}}}",
+                "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\"],\"properties\":{\"p0\":{\"type\":\"string\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"string\"}}}}",
                 // "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"testtesttest\":{\"type\":\"string\",\"default\":\"testest\",\"x-ms-visibility\":\"important\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
                 // parameterInfo: {
                 //     flowParameterSchema: {
@@ -793,27 +793,27 @@ module.exports = app => {
                 //         }
                 //     },
                 // }
-                parameterInfo: {
-                    flowParameterSchema: {
-                        type: "object",
-                        properties: {
-                            p0: {
-                                type: "array",
-                                items: {
-                                    type: "array",
-                                    items: {
-                                        type: "string"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    flowReturnSchema: {
-                        type: "object",
-                        properties: {},
-                        "x-ms-visibility": "internal"
-                    }
-                }
+                // parameterInfo: {
+                //     flowParameterSchema: {
+                //         type: "object",
+                //         properties: {
+                //             p0: {
+                //                 type: "array",
+                //                 items: {
+                //                     type: "array",
+                //                     items: {
+                //                         type: "string"
+                //                     }
+                //                 }
+                //             }
+                //         }
+                //     },
+                //     flowReturnSchema: {
+                //         type: "object",
+                //         properties: {},
+                //         "x-ms-visibility": "internal"
+                //     }
+                // }
             });
         }
     });
