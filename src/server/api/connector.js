@@ -769,6 +769,9 @@ module.exports = app => {
                                 items: {
                                     type: "object",
                                 }
+                            },
+                            p2: {
+                                type: "object"
                             }
                         }
                     },
