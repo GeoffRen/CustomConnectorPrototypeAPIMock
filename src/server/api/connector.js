@@ -729,91 +729,55 @@ module.exports = app => {
             console.log('~~~DOES NOT HAS STUFF~~~');
             // res.status(200).send();
             res.status(200).send({
-                // flowParameterSchema: null,
-                // flowReturnSchema: null,
-                // flowParameterSchema: {
-                //     type: "object",
-                //     properties: {
-                //         dummyParameter: {
-                //             type: "string",
-                //             "x-ms-visibility": "important",
-                //             default: 'dummyVal'
-                //         }
-                //     }
-                // },
-                // flowReturnSchema: {
-                //     type: "object",
-                //     properties: {},
-                //     "x-ms-visibility": "internal"
-                // },
                 "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"default\":{},\"x-ms-visibility\":\"internal\"},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}",
             });
         } else {
             console.log('~~~HAS STUFF~~~');
             res.status(200).send({
-                // flowParameterSchema: null,
-                // flowReturnSchema: null,
-                // flowParameterSchema: {
-                //     type: "object",
-                //     properties: {
-                //         dummyParameter: {
-                //             type: "string",
-                //             "x-ms-visibility": "important",
-                //             default: 'dummyVal'
-                //         }
-                //     }
-                // },
-                // flowReturnSchema: {
-                //     type: "object",
-                //     properties: {},
-                //     "x-ms-visibility": "internal"
-                // },
-                "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\"],\"properties\":{\"p0\":{\"type\":\"string\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"string\"}}}}",
-                // "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"properties\":{\"testtesttest\":{\"type\":\"string\",\"default\":\"testest\",\"x-ms-visibility\":\"important\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}"
-                // parameterInfo: {
-                //     flowParameterSchema: {
-                //         type: "object",
-                //         required: ["reqServerTest"],
-                //         properties: {
-                //             reqServerTest: {
-                //                 type: "string",
-                //                 default: 'serverVal'
-                //             },
-                //             nonReqServerTest: {
-                //                 type: "string"
-                //             }
-                //         }
-                //     },
-                //     flowReturnSchema: {
-                //         type: "object",
-                //         properties: {
-                //             ret: {
-                //                 type: "string"
-                //             }
-                //         }
-                //     },
-                // }
-                // parameterInfo: {
-                //     flowParameterSchema: {
-                //         type: "object",
-                //         properties: {
-                //             p0: {
-                //                 type: "array",
-                //                 items: {
-                //                     type: "array",
-                //                     items: {
-                //                         type: "string"
-                //                     }
-                //                 }
-                //             }
-                //         }
-                //     },
-                //     flowReturnSchema: {
-                //         type: "object",
-                //         properties: {},
-                //         "x-ms-visibility": "internal"
-                //     }
-                // }
+                // "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\"],\"properties\":{\"p0\":{\"type\":\"string\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"string\"}}}}",
+                parameterInfo: {
+                    flowParameterSchema: {
+                        type: "object",
+                        properties: {
+                            p0: {
+                                type: "array",
+                                items: {
+                                    type: "object",
+                                    properties: {
+                                        p00: {
+                                            type: "string"
+                                        },
+                                        p01: {
+                                            type: "boolean"
+                                        },
+                                        p02: {
+                                            type: "number",
+                                            enum: [1, 2]
+                                        },
+                                        p03: {
+                                            type: "array",
+                                            items: {
+                                                type: "string"
+                                            },
+                                            default: ["def", "def2"]
+                                        }
+                                    }
+                                }
+                            },
+                            p1: {
+                                type: "array",
+                                items: {
+                                    type: "object",
+                                }
+                            }
+                        }
+                    },
+                    flowReturnSchema: {
+                        type: "object",
+                        properties: {},
+                        "x-ms-visibility": "internal"
+                    }
+                }
             });
         }
     });
