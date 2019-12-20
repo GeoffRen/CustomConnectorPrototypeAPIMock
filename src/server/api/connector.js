@@ -773,7 +773,7 @@ module.exports = app => {
                             },
                             p6: {
                                 AnyValue: {},
-								default: [1, 2]
+								default: 1
                             },
                             p7: {
                                 AnyValue: {}
