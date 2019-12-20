@@ -768,16 +768,20 @@ module.exports = app => {
 								default: 5
                             },
                             p5: {
-                                AnyValue: {}
+                                AnyValue: {},
+								default: "str"
                             },
                             p6: {
-                                AnyValue: {}
+                                AnyValue: {},
+								default: true
                             },
                             p7: {
-                                AnyValue: {}
+                                AnyValue: {},
+								default: {}
                             },
                             p8: {
-                                AnyValue: {}
+                                AnyValue: {},
+								default: []
                             }
                         }
                     },
