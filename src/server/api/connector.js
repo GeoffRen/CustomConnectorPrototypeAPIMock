@@ -781,6 +781,11 @@ module.exports = app => {
                             },
                             p8: {
                                 AnyValue: {}
+								default: "true"
+                            },
+                            p9: {
+                                AnyValue: {}
+								default: ""[1, 2, 3]""
                             }
                         }
                     },
