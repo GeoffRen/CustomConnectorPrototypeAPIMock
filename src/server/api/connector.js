@@ -785,7 +785,7 @@ module.exports = app => {
                             },
                             p9: {
                                 AnyValue: {},
-								default: ""[1, 2, 3]""
+								default: "\"[1, 2, 3]\""
                             }
                         }
                     },
