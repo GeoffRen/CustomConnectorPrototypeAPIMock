@@ -780,11 +780,11 @@ module.exports = app => {
 								default: "{p: 5}"
                             },
                             p8: {
-                                AnyValue: {}
+                                AnyValue: {},
 								default: "true"
                             },
                             p9: {
-                                AnyValue: {}
+                                AnyValue: {},
 								default: ""[1, 2, 3]""
                             }
                         }
