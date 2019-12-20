@@ -742,38 +742,28 @@ module.exports = app => {
                             p0: {
                                 type: "array",
                                 items: {
-                                    type: "object",
-                                    properties: {
-                                        p00: {
-                                            type: "string"
-                                        },
-                                        p01: {
-                                            type: "boolean"
-                                        },
-                                        p02: {
-                                            type: "number",
-                                            enum: [1, 2]
-                                        },
-                                        p03: {
-                                            type: "array",
-                                            items: {
-                                                type: "string"
-                                            },
-                                            default: ["def", "def2"]
-                                        }
-                                    }
+                                    type: "string",
                                 }
                             },
                             p1: {
                                 type: "array",
                                 items: {
-                                    type: "object",
+                                    type: "number",
                                 }
                             },
                             p2: {
-                                type: "object"
+                                type: "array",
+                                items: {
+                                    type: "boolean",
+                                }
                             },
                             p3: {
+                                type: "array",
+                                items: {
+                                    type: "object",
+                                }
+                            },
+                            p4: {
                                 AnyValue: {}
                             }
                         }
