@@ -772,6 +772,7 @@ module.exports = app => {
                                 AnyValue: {}
                             },
                             p6: {
+								type: "string",
                                 AnyValue: {}
                             },
                             p7: {
