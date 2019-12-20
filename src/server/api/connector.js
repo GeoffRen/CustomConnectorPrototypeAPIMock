@@ -764,11 +764,10 @@ module.exports = app => {
                                 }
                             },
                             p4: {
-								type: "AnyValue",
-                                AnyValue: {}
+                                AnyValue: {},
+								default: 5
                             },
                             p5: {
-								type: "Any",
                                 AnyValue: {}
                             },
                             p6: {
