@@ -765,6 +765,18 @@ module.exports = app => {
                             },
                             p4: {
                                 AnyValue: {}
+                            },
+                            p5: {
+                                AnyValue: {}
+                            },
+                            p6: {
+                                AnyValue: {}
+                            },
+                            p7: {
+                                AnyValue: {}
+                            },
+                            p8: {
+                                AnyValue: {}
                             }
                         }
                     },
