@@ -748,9 +748,9 @@ module.exports = app => {
                                 //   "p2": {
                                 //     "type": "object",
                                 //     "properties": {
-                                //       "p1": {
-                                //         "type": "number"
-                                //       }
+                                      "p1": {
+                                        "type": "number"
+                                      }
                                 //     }
                                 //   }
                                 }
