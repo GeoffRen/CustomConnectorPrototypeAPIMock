@@ -741,38 +741,38 @@ module.exports = app => {
                         properties: {
                             "p": {
                                 "type": "object",
-                                "properties": {
-                                  "p0": {
-                                    "type": "string"
-                                  },
-                                  "p2": {
-                                    "type": "object",
-                                    "properties": {
-                                      "p1": {
-                                        "type": "number"
-                                      }
-                                    }
-                                  }
-                                }
+                                // "properties": {
+                                //   "p0": {
+                                //     "type": "string"
+                                //   },
+                                //   "p2": {
+                                //     "type": "object",
+                                //     "properties": {
+                                //       "p1": {
+                                //         "type": "number"
+                                //       }
+                                //     }
+                                //   }
+                                // }
                             },
-                            p0: {
-                                type: "array",
-                                items: {
-                                    type: "string",
-                                }
-                            },
-                            p1: {
-                                type: "array",
-                                items: {
-                                    type: "number",
-                                }
-                            },
-                            p2: {
-                                type: "array",
-                                items: {
-                                    type: "boolean",
-                                }
-                            },
+                            // p0: {
+                            //     type: "array",
+                            //     items: {
+                            //         type: "string",
+                            //     }
+                            // },
+                            // p1: {
+                            //     type: "array",
+                            //     items: {
+                            //         type: "number",
+                            //     }
+                            // },
+                            // p2: {
+                            //     type: "array",
+                            //     items: {
+                            //         type: "boolean",
+                            //     }
+                            // },
                             p3: {
                                 type: "array",
                                 items: {
