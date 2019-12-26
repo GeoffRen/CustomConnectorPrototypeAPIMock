@@ -739,8 +739,21 @@ module.exports = app => {
                     flowParameterSchema: {
                         type: "object",
                         properties: {
-                            p: {
-                                type: "string"
+                            "p": {
+                                "type": "object",
+                                "properties": {
+                                  "p0": {
+                                    "type": "string"
+                                  },
+                                  "p2": {
+                                    "type": "object",
+                                    "properties": {
+                                      "p1": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  }
+                                }
                             },
                             p0: {
                                 type: "array",
