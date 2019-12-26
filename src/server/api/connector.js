@@ -741,10 +741,10 @@ module.exports = app => {
                         properties: {
                             "p": {
                                 "type": "object",
-                                // "properties": {
-                                //   "p0": {
-                                //     "type": "string"
-                                //   },
+                                "properties": {
+                                  "p0": {
+                                    "type": "string"
+                                  },
                                 //   "p2": {
                                 //     "type": "object",
                                 //     "properties": {
@@ -753,7 +753,7 @@ module.exports = app => {
                                 //       }
                                 //     }
                                 //   }
-                                // }
+                                }
                             },
                             // p0: {
                             //     type: "array",
