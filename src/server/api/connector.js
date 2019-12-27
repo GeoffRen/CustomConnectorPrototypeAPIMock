@@ -752,6 +752,26 @@ module.exports = app => {
                                         "type": "number"
                                       }
                                     }
+                                  },
+                                  "pp3": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "pp4": {
+                                          "type": "boolean"
+                                        },
+                                        "pp5": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "boolean"
+                                              }
+                                            }
+                                          }
+                                      }
+                                    }
                                   }
                                 }
                             },
