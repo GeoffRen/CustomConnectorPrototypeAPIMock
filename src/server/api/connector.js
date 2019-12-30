@@ -779,8 +779,7 @@ module.exports = app => {
                                 type: "object",
                             },
                             p1: {
-                                AnyValue: {},
-                                type: null
+                                AnyValue: {}
                             },
                             p2: {
                                 type: "object",
