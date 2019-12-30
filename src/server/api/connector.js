@@ -775,29 +775,26 @@ module.exports = app => {
                                   }
                                 }
                             },
-                            // p0: {
-                            //     type: "array",
-                            //     items: {
-                            //         type: "string",
-                            //     }
-                            // },
-                            // p1: {
-                            //     type: "array",
-                            //     items: {
-                            //         type: "number",
-                            //     }
-                            // },
-                            // p2: {
-                            //     type: "array",
-                            //     items: {
-                            //         type: "boolean",
-                            //     }
-                            // },
-                            p3: {
-                                type: "array",
-                                items: {
-                                    type: "object",
+                            p0: {
+                                type: "object",
+                            },
+                            p1: {
+                                AnyValue: {}
+                            },
+                            p2: {
+                                type: "object",
+                                properties: {
+                                    p20: {
+                                        AnyValue: {}
+                                    },
+                                    p21: {
+                                        type: "object"
+                                    }
                                 }
+                            },
+                            p3: {
+                                AnyValue: {},
+                                default: true
                             },
                             p4: {
                                 AnyValue: {},
@@ -817,11 +814,11 @@ module.exports = app => {
                             },
                             p8: {
                                 AnyValue: {},
-								default: "true"
+								default: [1, 2, 3]
                             },
                             p9: {
                                 AnyValue: {},
-								default: "\"[1, 2, 3]\""
+								default: { p: 5 }
                             }
                         }
                     },
