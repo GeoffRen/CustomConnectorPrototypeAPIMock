@@ -817,8 +817,7 @@ module.exports = app => {
 								default: { p: 5 }
                             },
                             p9: {
-                                AnyValue: {},
-                                type: "any"
+                                AnyValue: {}
                             }
                         }
                     },
