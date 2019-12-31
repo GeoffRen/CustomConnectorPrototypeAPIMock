@@ -420,7 +420,7 @@ module.exports = app => {
             res.setHeader('geoff', 'geoff header');
             res.setHeader('x-ms-client-request-id', 'noParametersRequestId');
             res.status(200).send({
-                result: 0,
+                result: "",
                 logs: []
             });
         } else {
@@ -742,7 +742,7 @@ module.exports = app => {
                         type: "object",
                         properties: {
                             result: {
-                                type: "number"
+                                type: "string"
                             }
                         }
                     }
