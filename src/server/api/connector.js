@@ -415,16 +415,16 @@ module.exports = app => {
         // });
         // res.sendStatus(202);
         // if (!req.body.scriptParameters || req.body.scriptParameters === "[]") {
-        if (!req.body || req.body == {}) {            
-            console.log("~~~NO PARAMETERS~~~");
+        if ((req.query.scriptId && req.query.scriptId < 6) || (req.params.script && req.params.script < 6)) {        
+            console.log("~~~DOES NOT HAS STUFF~~~");
             res.setHeader('geoff', 'geoff header');
             res.setHeader('x-ms-client-request-id', 'noParametersRequestId');
             res.status(400).send({
-                result: null,
+                result: 0,
                 logs: []
             });
         } else {
-            console.log("~~~SOME PARAMETERS~~~");
+            console.log("~~~HAS STUFF~~~");
             res.setHeader('geoff', 'geoff header');
             res.setHeader('x-ms-client-request-id', 'someParametersRequestId');
             res.status(200).send({
@@ -729,7 +729,24 @@ module.exports = app => {
             console.log('~~~DOES NOT HAS STUFF~~~');
             // res.status(200).send();
             res.status(200).send({
-                "parameterInfo":"{\"originalParameterOrder\":[],\"flowParameterSchema\":{\"type\":\"object\",\"default\":{},\"x-ms-visibility\":\"internal\"},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{},\"x-ms-visibility\":\"internal\"}}",
+                parameterInfo: {
+                    flowParameterSchema: {
+                        type: "object",
+                        properties: {
+                            p0: {
+                                AnyValue: {}
+                            }
+                        }
+                    },
+                    flowReturnSchema: {
+                        type: "object",
+                        properties: {
+                            result: {
+                                type: "number"
+                            }
+                        }
+                    }
+                }
             });
         } else {
             console.log('~~~HAS STUFF~~~');
@@ -776,10 +793,10 @@ module.exports = app => {
                                 }
                             },
                             p0: {
-                                type: "object",
+                                AnyValue: {}
                             },
                             p1: {
-                                AnyValue: {}
+                                type: "object"
                             },
                             p2: {
                                 type: "object",
@@ -823,8 +840,11 @@ module.exports = app => {
                     },
                     flowReturnSchema: {
                         type: "object",
-                        properties: {},
-                        "x-ms-visibility": "internal"
+                        properties: {
+                            result: {
+                                type: "boolean"
+                            }
+                        }
                     }
                 }
             });
