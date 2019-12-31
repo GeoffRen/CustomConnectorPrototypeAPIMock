@@ -419,7 +419,7 @@ module.exports = app => {
             console.log("~~~DOES NOT HAS STUFF~~~");
             res.setHeader('geoff', 'geoff header');
             res.setHeader('x-ms-client-request-id', 'noParametersRequestId');
-            res.status(400).send({
+            res.status(200).send({
                 result: 0,
                 logs: []
             });
