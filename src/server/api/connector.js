@@ -420,7 +420,6 @@ module.exports = app => {
             res.setHeader('geoff', 'geoff header');
             res.setHeader('x-ms-client-request-id', 'noParametersRequestId');
             res.status(200).send({
-                result: undefined,
                 logs: []
             });
         } else {
