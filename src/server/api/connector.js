@@ -345,7 +345,7 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
         // res.status(200).send(JSON.parse('{"success": "succeeded"}'));
-        res.status(200).send({ logs: [{ timestamp: new Date(), message: 'LOG', source: 3 }]});
+        res.status(200).send({ result: JSON.stringify({test:{p:1}}), logs: [{ timestamp: new Date(), message: 'LOG', source: 3 }]});
     });
 
     app.get("/test/:scriptId", (req, res) => {
