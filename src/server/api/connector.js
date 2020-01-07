@@ -403,7 +403,7 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
-    app.all("/api/unattended/run", (req, res) => {
+    app.all("/api/unattended/run", async (req, res) => {
         console.log("~~~DYNAMIC RETURN TEST~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
