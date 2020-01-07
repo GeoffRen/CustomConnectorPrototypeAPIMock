@@ -410,7 +410,7 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         console.log(req.headers);
 
-        await new Promise(r => setTimeout(r, 5000));
+        await new Promise(r => setTimeout(r, 180000));
 
         // res.set({
         //     location: "http://13.58.89.80:8080/test",
@@ -722,12 +722,11 @@ module.exports = app => {
         ]);
     });
 
-    app.all("/api/storage/:script", async (req, res) => {
+    app.all("/api/storage/:script", (req, res) => {
         console.log("~~~GET SINGLE SCRIPT API STORAGE~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
         console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
-        await new Promise(r => setTimeout(r, 2000));
         // console.log(req.headers);
         if ((req.query.scriptId && req.query.scriptId < 6) || (req.params.script && req.params.script < 6)) {
             console.log('~~~DOES NOT HAS STUFF~~~');
