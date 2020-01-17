@@ -410,7 +410,7 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
 
         res.set({
-            location: "13.58.89.80:8080/test",
+            location: "http://13.58.89.80:8080/test",
             "retry-after": 3
         });
         res.sendStatus(202);
