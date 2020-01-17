@@ -403,6 +403,20 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
+    app.all("/asynctest", (req, res) => {
+        console.log("~~~ASYNC TEST OPERATION~~~");
+        console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
+        console.log(`RECEIVED PARAM: ${JSON.stringify(req.params, null, 2)}`);
+        console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
+        console.log(req.headers.length);
+
+        res.set({
+            location: "http://13.58.89.80:8080/test",
+            "retry-after": 5
+        });
+        res.sendStatus(202);
+    });
+
     app.all("/api/unattended/run", async (req, res) => {
         console.log("~~~/api/unattended/run TEST~~~");
         console.log(`RECEIVED QUERY: ${JSON.stringify(req.query, null, 2)}`);
