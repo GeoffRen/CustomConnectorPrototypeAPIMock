@@ -414,7 +414,7 @@ module.exports = app => {
             location: "http://13.58.89.80:8080/test",
             "retry-after": 5
         });
-        res.sendStatus(202);
+        res.sendStatus(200);
     });
 
     app.all("/api/unattended/run", async (req, res) => {
