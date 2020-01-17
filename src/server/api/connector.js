@@ -411,7 +411,7 @@ module.exports = app => {
 
         res.set({
             location: "http://13.58.89.80:8080/test",
-            "retry-after": 3
+            "retry-after": 5
         });
         res.sendStatus(202);
     });
