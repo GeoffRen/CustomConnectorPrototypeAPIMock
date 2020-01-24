@@ -745,112 +745,11 @@ module.exports = app => {
             console.log('~~~DOES NOT HAS STUFF~~~');
             // res.status(200).send();
             res.status(200).send({
-                // parameterInfo: {
-                //     flowParameterSchema: {
-                //         type: "object",
-                //         properties: {
-                //             p0: {
-                //                 AnyValue: {}
-                //             }
-                //         }
-                //     },
-                //     flowReturnSchema: {
-                //         type: "object",
-                //         properties: {
-                //             result: {
-                //                 type: "string"
-                //             }
-                //         }
-                //     }
-                // }
-                parameterInfo: null
-            });
-        } else {
-            console.log('~~~HAS STUFF~~~');
-            res.status(200).send({
-                // "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\"],\"properties\":{\"p0\":{\"type\":\"string\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"string\"}}}}",
                 parameterInfo: {
                     flowParameterSchema: {
                         type: "object",
                         properties: {
-                            "pp": {
-                                "type": "object",
-                                "properties": {
-                                  "pp0": {
-                                    "type": "string"
-                                  },
-                                  "pp2": {
-                                    "type": "object",
-                                    "properties": {
-                                      "pp1": {
-                                        "type": "number"
-                                      }
-                                    }
-                                  },
-                                  "pp3": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "object",
-                                      "properties": {
-                                        "pp4": {
-                                          "type": "boolean"
-                                        },
-                                        "pp5": {
-                                            "type": "array",
-                                            "items": {
-                                              "type": "array",
-                                              "items": {
-                                                "type": "boolean"
-                                              }
-                                            }
-                                          }
-                                      }
-                                    }
-                                  }
-                                }
-                            },
                             p0: {
-                                AnyValue: {}
-                            },
-                            p1: {
-                                type: "object"
-                            },
-                            p2: {
-                                type: "object",
-                                properties: {
-                                    p20: {
-                                        AnyValue: {}
-                                    },
-                                    p21: {
-                                        type: "object"
-                                    }
-                                }
-                            },
-                            p3: {
-                                AnyValue: {},
-                                default: true
-                            },
-                            p4: {
-                                AnyValue: {},
-								default: 5
-                            },
-                            p5: {
-                                AnyValue: {},
-								default: "[1, 2, 3]"
-                            },
-                            p6: {
-                                AnyValue: {},
-								default: "{p: 5}"
-                            },
-                            p7: {
-                                AnyValue: {},
-								default: [1, 2, 3]
-                            },
-                            p8: {
-                                AnyValue: {},
-								default: { p: 5 }
-                            },
-                            p9: {
                                 AnyValue: {}
                             }
                         }
@@ -859,11 +758,112 @@ module.exports = app => {
                         type: "object",
                         properties: {
                             result: {
-                                type: "boolean"
+                                type: "string"
                             }
                         }
                     }
                 }
+            });
+        } else {
+            console.log('~~~HAS STUFF~~~');
+            res.status(200).send({
+                parameterInfo: ""
+                // "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\"],\"properties\":{\"p0\":{\"type\":\"string\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"string\"}}}}",
+                // parameterInfo: {
+                //     flowParameterSchema: {
+                //         type: "object",
+                //         properties: {
+                //             "pp": {
+                //                 "type": "object",
+                //                 "properties": {
+                //                   "pp0": {
+                //                     "type": "string"
+                //                   },
+                //                   "pp2": {
+                //                     "type": "object",
+                //                     "properties": {
+                //                       "pp1": {
+                //                         "type": "number"
+                //                       }
+                //                     }
+                //                   },
+                //                   "pp3": {
+                //                     "type": "array",
+                //                     "items": {
+                //                       "type": "object",
+                //                       "properties": {
+                //                         "pp4": {
+                //                           "type": "boolean"
+                //                         },
+                //                         "pp5": {
+                //                             "type": "array",
+                //                             "items": {
+                //                               "type": "array",
+                //                               "items": {
+                //                                 "type": "boolean"
+                //                               }
+                //                             }
+                //                           }
+                //                       }
+                //                     }
+                //                   }
+                //                 }
+                //             },
+                //             p0: {
+                //                 AnyValue: {}
+                //             },
+                //             p1: {
+                //                 type: "object"
+                //             },
+                //             p2: {
+                //                 type: "object",
+                //                 properties: {
+                //                     p20: {
+                //                         AnyValue: {}
+                //                     },
+                //                     p21: {
+                //                         type: "object"
+                //                     }
+                //                 }
+                //             },
+                //             p3: {
+                //                 AnyValue: {},
+                //                 default: true
+                //             },
+                //             p4: {
+                //                 AnyValue: {},
+				// 				default: 5
+                //             },
+                //             p5: {
+                //                 AnyValue: {},
+				// 				default: "[1, 2, 3]"
+                //             },
+                //             p6: {
+                //                 AnyValue: {},
+				// 				default: "{p: 5}"
+                //             },
+                //             p7: {
+                //                 AnyValue: {},
+				// 				default: [1, 2, 3]
+                //             },
+                //             p8: {
+                //                 AnyValue: {},
+				// 				default: { p: 5 }
+                //             },
+                //             p9: {
+                //                 AnyValue: {}
+                //             }
+                //         }
+                //     },
+                //     flowReturnSchema: {
+                //         type: "object",
+                //         properties: {
+                //             result: {
+                //                 type: "boolean"
+                //             }
+                //         }
+                //     }
+                // }
             });
         }
     });
