@@ -745,24 +745,25 @@ module.exports = app => {
             console.log('~~~DOES NOT HAS STUFF~~~');
             // res.status(200).send();
             res.status(200).send({
-                parameterInfo: {
-                    flowParameterSchema: {
-                        type: "object",
-                        properties: {
-                            p0: {
-                                AnyValue: {}
-                            }
-                        }
-                    },
-                    flowReturnSchema: {
-                        type: "object",
-                        properties: {
-                            result: {
-                                type: "string"
-                            }
-                        }
-                    }
-                }
+                // parameterInfo: {
+                //     flowParameterSchema: {
+                //         type: "object",
+                //         properties: {
+                //             p0: {
+                //                 AnyValue: {}
+                //             }
+                //         }
+                //     },
+                //     flowReturnSchema: {
+                //         type: "object",
+                //         properties: {
+                //             result: {
+                //                 type: "string"
+                //             }
+                //         }
+                //     }
+                // }
+                parameterInfo: null
             });
         } else {
             console.log('~~~HAS STUFF~~~');
