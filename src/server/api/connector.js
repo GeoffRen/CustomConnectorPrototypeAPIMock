@@ -750,7 +750,7 @@ module.exports = app => {
                         type: "oasdbject",
                         properties: {
                             p0: {
-                                AnyValue: {}
+                                AnysadValue: {}
                             }
                         }
                     },
