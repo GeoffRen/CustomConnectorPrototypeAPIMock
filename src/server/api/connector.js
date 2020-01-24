@@ -767,7 +767,7 @@ module.exports = app => {
         } else {
             console.log('~~~HAS STUFF~~~');
             res.status(200).send({
-                parameterInfo: ""
+                // parameterInfo: ""
                 // "parameterInfo":"{\"originalParameterOrder\":[{\"name\":\"p0\",\"index\":0}],\"flowParameterSchema\":{\"type\":\"object\",\"required\":[\"p0\"],\"properties\":{\"p0\":{\"type\":\"string\"}}},\"flowReturnSchema\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"string\"}}}}",
                 // parameterInfo: {
                 //     flowParameterSchema: {
