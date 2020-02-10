@@ -431,7 +431,7 @@ module.exports = app => {
         console.log(`RECEIVED BODY: ${JSON.stringify(req.body, null, 2)}`);
         // console.log(req.headers);
 
-        await new Promise(r => setTimeout(r, 130000));
+        await new Promise(r => setTimeout(r, 10000));
 
         // res.set({
         //     location: "http://13.58.89.80:8080/test",
